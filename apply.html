@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="brand/Favicon-edge.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply — The Edge Construction Co.</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Barlow', 'Arial', sans-serif;
+      background: #ECEEF2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    /* ---- Top bar ---- */
+    .apply-topbar {
+      width: 100%;
+      max-width: 820px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .apply-topbar a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #4A4845;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 150ms;
+    }
+
+    .apply-topbar a:hover { color: #1164C2; }
+
+    .apply-topbar a svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .apply-topbar img {
+      height: 32px;
+      width: auto;
+    }
+
+    /* ---- Card ---- */
+    .wizard-card {
+      width: 100%;
+      max-width: 820px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 32px rgba(10, 22, 40, 0.14), 0 1px 6px rgba(10, 22, 40, 0.08);
+      overflow: hidden;
+      border-top: 4px solid #A8985C;
+    }
+
+    /* ---- Progress bar ---- */
+    .wizard-progress {
+      height: 3px;
+      background: #E8E6E0;
+    }
+
+    .wizard-progress-fill {
+      height: 100%;
+      background: #1164C2;
+      transition: width 300ms ease;
+    }
+
+    /* ---- Body ---- */
+    .wizard-body {
+      padding: 2.75rem 3rem 2.5rem;
+      min-height: 280px;
+    }
+
+    /* ---- Steps ---- */
+    .step {
+      display: none;
+      animation: stepFadeIn 200ms ease forwards;
+    }
+
+    .step.active { display: block; }
+
+    @keyframes stepFadeIn {
+      from { opacity: 0; transform: translateX(16px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .step.going-back {
+      animation: stepFadeBack 200ms ease forwards;
+    }
+
+    @keyframes stepFadeBack {
+      from { opacity: 0; transform: translateX(-16px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ---- Question title ---- */
+    .step-question {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(1.375rem, 3vw, 1.875rem);
+      font-weight: 600;
+      color: #1A1817;
+      margin-bottom: 0.375rem;
+      line-height: 1.25;
+      transition: color 150ms;
+    }
+
+    .step-question.has-error { color: #C23535; }
+
+    .step-question .req { color: #C23535; }
+
+    .step-hint {
+      font-size: 0.875rem;
+      color: #6B6660;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    /* ---- Option grids ---- */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.625rem;
+      margin-top: 1.25rem;
+    }
+
+    /* Last odd child stays left */
+    .options-grid .option-box:last-child:nth-child(odd) {
+      grid-column: 1;
+    }
+
+    /* ---- Option box (checkbox + radio) ---- */
+    .option-box {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 1rem;
+      border: 1px solid #D1CCC2;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 150ms, background 150ms;
+      user-select: none;
+    }
+
+    .option-box:hover {
+      border-color: #7EB2EC;
+      background: #F5F8FD;
+    }
+
+    .option-box.selected {
+      border-color: #1164C2;
+      background: #EEF4FB;
+    }
+
+    .option-box input[type="radio"],
+    .option-box input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      accent-color: #1164C2;
+      cursor: pointer;
+    }
+
+    .option-label {
+      font-size: 0.9375rem;
+      color: #2E2C2A;
+      line-height: 1.3;
+    }
+
+    /* ---- Text inputs ---- */
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .input-row.single { grid-template-columns: 1fr; }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .field-input {
+      padding: 0.75rem 1rem;
+      border: 1px solid #D1CCC2;
+      border-radius: 6px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9375rem;
+      color: #1A1817;
+      outline: none;
+      transition: border-color 150ms, box-shadow 150ms;
+      width: 100%;
+      background: #ffffff;
+    }
+
+    .field-input:focus {
+      border-color: #1164C2;
+      box-shadow: 0 0 0 3px rgba(17, 100, 194, 0.10);
+    }
+
+    .field-input::placeholder { color: #B0AA9F; }
+
+    .field-label {
+      font-size: 0.75rem;
+      color: #8A8680;
+      margin-top: 0.3rem;
+      padding-left: 0.25rem;
+    }
+
+    select.field-input {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8680' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .address-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .address-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    /* ---- Phone input ---- */
+    .phone-hint {
+      font-size: 0.8125rem;
+      color: #8A8680;
+      margin-top: 0.4rem;
+    }
+
+    /* ---- Hourly rate ---- */
+    .rate-wrap {
+      position: relative;
+      margin-top: 1.25rem;
+      max-width: 320px;
+    }
+
+    .rate-wrap .dollar {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #B0AA9F;
+      font-size: 0.9375rem;
+      pointer-events: none;
+    }
+
+    .rate-wrap .field-input {
+      padding-left: 1.75rem;
+    }
+
+    /* ---- File upload ---- */
+    .file-drop-zone {
+      border: 2px dashed #7EB2EC;
+      border-radius: 8px;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: #F5F8FD;
+      cursor: pointer;
+      transition: border-color 150ms, background 150ms;
+      margin-top: 1.25rem;
+    }
+
+    .file-drop-zone:hover {
+      border-color: #1164C2;
+      background: #EEF4FB;
+    }
+
+    .file-drop-zone.has-file {
+      border-color: #2A7A50;
+      background: #F0F8F4;
+    }
+
+    .file-drop-icon {
+      flex-shrink: 0;
+      color: #7EB2EC;
+    }
+
+    .file-drop-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .file-drop-text { flex: 1; }
+
+    .file-drop-text strong {
+      display: block;
+      font-size: 0.9375rem;
+      color: #1A1817;
+      margin-bottom: 0.2rem;
+    }
+
+    .file-drop-text span {
+      font-size: 0.8125rem;
+      color: #8A8680;
+    }
+
+    .file-drop-text .file-chosen {
+      font-size: 0.875rem;
+      color: #2A7A50;
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+
+    .browse-btn {
+      background: #1164C2;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 150ms;
+    }
+
+    .browse-btn:hover { background: #0D52A8; }
+
+    #resume-input { display: none; }
+
+    /* ---- Comments ---- */
+    .comments-textarea {
+      width: 100%;
+      min-height: 180px;
+      padding: 0.75rem 1rem;
+      border: 1px solid #D1CCC2;
+      border-radius: 6px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9375rem;
+      color: #1A1817;
+      resize: vertical;
+      outline: none;
+      transition: border-color 150ms, box-shadow 150ms;
+      margin-top: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .comments-textarea:focus {
+      border-color: #1164C2;
+      box-shadow: 0 0 0 3px rgba(17, 100, 194, 0.10);
+    }
+
+    .comments-textarea::placeholder { color: #B0AA9F; }
+
+    /* ---- Wizard footer ---- */
+    .wizard-footer {
+      background: #1D3560;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      height: 60px;
+    }
+
+    .wizard-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0 1.75rem;
+      height: 100%;
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.90);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 150ms;
+      white-space: nowrap;
+    }
+
+    .wizard-btn:hover { background: rgba(255, 255, 255, 0.07); }
+
+    .wizard-btn:disabled {
+      opacity: 0.25;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .wizard-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .wizard-btn--next { justify-content: flex-end; }
+    .wizard-btn--prev { justify-content: flex-start; }
+
+    .wizard-footer-center {
+      text-align: center;
+      position: relative;
+    }
+
+    .wizard-counter {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.60);
+    }
+
+    .wizard-error {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 50%;
+      margin-top: -14px;
+      background: #C23535;
+      color: white;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      padding: 0.3rem 0.9rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      display: none;
+      animation: errorPop 200ms ease;
+    }
+
+    @keyframes errorPop {
+      from { opacity: 0; transform: translateX(-50%) scale(0.92); }
+      to   { opacity: 1; transform: translateX(-50%) scale(1); }
+    }
+
+    /* ---- Success screen ---- */
+    .wizard-success {
+      display: none;
+      text-align: center;
+      padding: 3.5rem 3rem;
+    }
+
+    .wizard-success svg {
+      width: 56px;
+      height: 56px;
+      stroke: #2A7A50;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-bottom: 1.25rem;
+    }
+
+    .wizard-success h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #1A1817;
+      margin-bottom: 0.75rem;
+    }
+
+    .wizard-success p {
+      font-size: 1rem;
+      color: #6B6660;
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .wizard-success a {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #1164C2;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      text-decoration: none;
+    }
+
+    .wizard-success a:hover { text-decoration: underline; }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 640px) {
+      .wizard-body { padding: 1.75rem 1.25rem 1.5rem; }
+      .options-grid { grid-template-columns: 1fr; }
+      .options-grid .option-box:last-child:nth-child(odd) { grid-column: auto; }
+      .input-row { grid-template-columns: 1fr; }
+      .address-row { grid-template-columns: 1fr; }
+      .rate-wrap { max-width: 100%; }
+      .file-drop-zone { flex-direction: column; text-align: center; }
+      .wizard-btn { padding: 0 1rem; }
+      .apply-topbar { padding: 0 0.25rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="apply-topbar">
+    <a href="careers.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Careers
+    </a>
+    <img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co.">
+  </div>
+
+  <!-- Hidden Netlify form (receives the final submission) -->
+  <form
+    name="job-application"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    enctype="multipart/form-data"
+    id="netlify-form"
+    style="display:none;"
+  >
+    <input type="hidden" name="form-name" value="job-application">
+    <input name="bot-field">
+    <input type="hidden" name="position">
+    <input type="hidden" name="first-name">
+    <input type="hidden" name="last-name">
+    <input type="hidden" name="street-address">
+    <input type="hidden" name="street-address-2">
+    <input type="hidden" name="city">
+    <input type="hidden" name="state">
+    <input type="hidden" name="zip">
+    <input type="hidden" name="phone">
+    <input type="hidden" name="email">
+    <input type="hidden" name="work-authorized">
+    <input type="hidden" name="can-commute">
+    <input type="hidden" name="osha-cert">
+    <input type="hidden" name="osha-level">
+    <input type="hidden" name="scissor-lift">
+    <input type="hidden" name="bilingual">
+    <input type="hidden" name="hourly-rate">
+    <input type="hidden" name="exp-layout">
+    <input type="hidden" name="exp-metal-stud">
+    <input type="hidden" name="exp-drywall-hanging">
+    <input type="hidden" name="exp-finish-taping">
+    <input type="hidden" name="exp-acoustic-grid">
+    <input type="hidden" name="exp-acoustic-tile">
+    <input type="hidden" name="exp-door-hardware">
+    <input type="hidden" name="exp-finish-carpentry">
+    <input type="file" name="resume" id="netlify-resume">
+    <input type="hidden" name="comments">
+  </form>
+
+  <div class="wizard-card" id="wizard-card">
+
+    <!-- Progress bar -->
+    <div class="wizard-progress">
+      <div class="wizard-progress-fill" id="progress-fill" style="width:0%"></div>
+    </div>
+
+    <!-- Steps -->
+    <div class="wizard-body" id="wizard-body">
+
+      <!-- STEP 1: Position -->
+      <div class="step active" data-step="1" data-required="checkbox" data-field="position">
+        <h2 class="step-question">Position <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box">
+            <input type="checkbox" name="position" value="Carpentry">
+            <span class="option-label">Carpentry</span>
+          </label>
+          <label class="option-box">
+            <input type="checkbox" name="position" value="Drywall Hanger or Taper">
+            <span class="option-label">Drywall Hanger or Taper</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- STEP 2: Name -->
+      <div class="step" data-step="2" data-required="text" data-field="first-name">
+        <h2 class="step-question">Name <span class="req">*</span></h2>
+        <div class="input-row">
+          <div class="input-group">
+            <input class="field-input" type="text" id="first-name" name="first-name" placeholder="" autocomplete="given-name">
+            <span class="field-label">First Name</span>
+          </div>
+          <div class="input-group">
+            <input class="field-input" type="text" id="last-name" name="last-name" placeholder="Last Name" autocomplete="family-name">
+            <span class="field-label">Last Name</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Current Address -->
+      <div class="step" data-step="3" data-required="text" data-field="street-address">
+        <h2 class="step-question">Current Address <span class="req">*</span></h2>
+        <div class="address-stack">
+          <div class="input-group">
+            <input class="field-input" type="text" id="street-address" name="street-address" placeholder="" autocomplete="address-line1">
+            <span class="field-label">Street Address</span>
+          </div>
+          <div class="input-group">
+            <input class="field-input" type="text" id="street-address-2" name="street-address-2" placeholder="Street Address Line 2" autocomplete="address-line2">
+          </div>
+          <div class="address-row">
+            <div class="input-group">
+              <input class="field-input" type="text" id="city" name="city" placeholder="City" autocomplete="address-level2">
+            </div>
+            <div class="input-group">
+              <select class="field-input" id="state" name="state" autocomplete="address-level1">
+                <option value="" disabled selected>Search</option>
+                <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
+                <option>CA</option><option>CO</option><option>CT</option><option>DE</option>
+                <option>FL</option><option>GA</option><option>HI</option><option>ID</option>
+                <option selected>IL</option><option>IN</option><option>IA</option><option>KS</option>
+                <option>KY</option><option>LA</option><option>ME</option><option>MD</option>
+                <option>MA</option><option>MI</option><option>MN</option><option>MS</option>
+                <option>MO</option><option>MT</option><option>NE</option><option>NV</option>
+                <option>NH</option><option>NJ</option><option>NM</option><option>NY</option>
+                <option>NC</option><option>ND</option><option>OH</option><option>OK</option>
+                <option>OR</option><option>PA</option><option>RI</option><option>SC</option>
+                <option>SD</option><option>TN</option><option>TX</option><option>UT</option>
+                <option>VT</option><option>VA</option><option>WA</option><option>WV</option>
+                <option>WI</option><option>WY</option>
+              </select>
+              <span class="field-label">State</span>
+            </div>
+          </div>
+          <div class="address-row">
+            <div class="input-group">
+              <input class="field-input" type="text" id="zip" name="zip" placeholder="Zip Code" autocomplete="postal-code" inputmode="numeric" maxlength="10">
+            </div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Phone -->
+      <div class="step" data-step="4" data-required="text" data-field="phone">
+        <h2 class="step-question">Phone Number <span class="req">*</span></h2>
+        <div class="input-row single">
+          <div class="input-group">
+            <input class="field-input" type="tel" id="phone" name="phone" placeholder="(xxx) xxx-xxxx" autocomplete="tel">
+            <span class="field-label phone-hint">Please enter a valid phone number.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5: Email -->
+      <div class="step" data-step="5" data-required="text" data-field="email">
+        <h2 class="step-question">Email <span class="req">*</span></h2>
+        <div class="input-row single">
+          <div class="input-group">
+            <input class="field-input" type="email" id="email" name="email" placeholder="" autocomplete="email">
+            <span class="field-label">example@example.com</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 6: Work authorized -->
+      <div class="step" data-step="6" data-required="radio" data-field="work-authorized">
+        <h2 class="step-question">Are you authorized to work in the U.S.? <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box">
+            <input type="radio" name="work-authorized" value="Yes">
+            <span class="option-label">Yes</span>
+          </label>
+          <label class="option-box">
+            <input type="radio" name="work-authorized" value="No">
+            <span class="option-label">No</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- STEP 7: Commute -->
+      <div class="step" data-step="7" data-required="radio" data-field="can-commute">
+        <h2 class="step-question">Can you reliably commute to this job's location? <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box">
+            <input type="radio" name="can-commute" value="Yes">
+            <span class="option-label">Yes</span>
+          </label>
+          <label class="option-box">
+            <input type="radio" name="can-commute" value="No">
+            <span class="option-label">No</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- STEP 8: OSHA? -->
+      <div class="step" data-step="8" data-required="radio" data-field="osha-cert">
+        <h2 class="step-question">Do you have any <strong>OSHA</strong> Certification? <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box">
+            <input type="radio" name="osha-cert" value="Yes">
+            <span class="option-label">Yes</span>
+          </label>
+          <label class="option-box">
+            <input type="radio" name="osha-cert" value="No">
+            <span class="option-label">No</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- STEP 9: OSHA level (conditional — shown only if step 8 = Yes) -->
+      <div class="step" data-step="9" data-required="checkbox" data-field="osha-level" data-conditional="osha-cert" data-conditional-value="Yes">
+        <h2 class="step-question">OSHA Certification <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box">
+            <input type="checkbox" name="osha-level" value="OSHA 10">
+            <span class="option-label">OSHA 10</span>
+          </label>
+          <label class="option-box">
+            <input type="checkbox" name="osha-level" value="OSHA 30">
+            <span class="option-label">OSHA 30</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- STEP 10: Scissor lift -->
+      <div class="step" data-step="10" data-required="radio" data-field="scissor-lift">
+        <h2 class="step-question">Do you have a Scissor Lift Certification? <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box">
+            <input type="radio" name="scissor-lift" value="Yes">
+            <span class="option-label">Yes</span>
+          </label>
+          <label class="option-box">
+            <input type="radio" name="scissor-lift" value="No">
+            <span class="option-label">No</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- STEP 11: Bilingual -->
+      <div class="step" data-step="11" data-required="radio" data-field="bilingual">
+        <h2 class="step-question">Are you bilingual? <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box">
+            <input type="radio" name="bilingual" value="Yes">
+            <span class="option-label">Yes</span>
+          </label>
+          <label class="option-box">
+            <input type="radio" name="bilingual" value="No">
+            <span class="option-label">No</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- STEP 12: Hourly rate -->
+      <div class="step" data-step="12" data-required="text" data-field="hourly-rate">
+        <h2 class="step-question">What is your required hourly rate? <span class="req">*</span></h2>
+        <div class="rate-wrap">
+          <span class="dollar">$</span>
+          <input class="field-input" type="number" id="hourly-rate" name="hourly-rate" placeholder="00.00" min="1" max="999" step="0.01">
+        </div>
+      </div>
+
+      <!-- STEP 13: Layout experience -->
+      <div class="step" data-step="13" data-required="radio" data-field="exp-layout">
+        <h2 class="step-question">Rate your Layout experience level? <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box"><input type="radio" name="exp-layout" value="Expert"><span class="option-label">Expert</span></label>
+          <label class="option-box"><input type="radio" name="exp-layout" value="Journeyman"><span class="option-label">Journeyman</span></label>
+          <label class="option-box"><input type="radio" name="exp-layout" value="Apprentice Level-3"><span class="option-label">Apprentice Level-3</span></label>
+          <label class="option-box"><input type="radio" name="exp-layout" value="Apprentice Level-1 or 2"><span class="option-label">Apprentice Level-1 or 2</span></label>
+          <label class="option-box"><input type="radio" name="exp-layout" value="Minimal"><span class="option-label">Minimal</span></label>
+        </div>
+      </div>
+
+      <!-- STEP 14: Metal Stud experience -->
+      <div class="step" data-step="14" data-required="radio" data-field="exp-metal-stud">
+        <h2 class="step-question">Rate your Metal Stud experience level? <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box"><input type="radio" name="exp-metal-stud" value="Expert"><span class="option-label">Expert</span></label>
+          <label class="option-box"><input type="radio" name="exp-metal-stud" value="Journeyman"><span class="option-label">Journeyman</span></label>
+          <label class="option-box"><input type="radio" name="exp-metal-stud" value="Apprentice Level-3"><span class="option-label">Apprentice Level-3</span></label>
+          <label class="option-box"><input type="radio" name="exp-metal-stud" value="Apprentice Level-1 or 2"><span class="option-label">Apprentice Level-1 or 2</span></label>
+          <label class="option-box"><input type="radio" name="exp-metal-stud" value="Minimal"><span class="option-label">Minimal</span></label>
+        </div>
+      </div>
+
+      <!-- STEP 15: Drywall Hanging experience -->
+      <div class="step" data-step="15" data-required="radio" data-field="exp-drywall-hanging">
+        <h2 class="step-question">Rate your Drywall Hanging experience level? <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box"><input type="radio" name="exp-drywall-hanging" value="Expert"><span class="option-label">Expert</span></label>
+          <label class="option-box"><input type="radio" name="exp-drywall-hanging" value="Journeyman"><span class="option-label">Journeyman</span></label>
+          <label class="option-box"><input type="radio" name="exp-drywall-hanging" value="Apprentice Level-3"><span class="option-label">Apprentice Level-3</span></label>
+          <label class="option-box"><input type="radio" name="exp-drywall-hanging" value="Apprentice Level-1 or 2"><span class="option-label">Apprentice Level-1 or 2</span></label>
+          <label class="option-box"><input type="radio" name="exp-drywall-hanging" value="Minimal"><span class="option-label">Minimal</span></label>
+        </div>
+      </div>
+
+      <!-- STEP 16: Finish Taping experience -->
+      <div class="step" data-step="16" data-required="radio" data-field="exp-finish-taping">
+        <h2 class="step-question">Rate your Finish Taping experience level? <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box"><input type="radio" name="exp-finish-taping" value="Expert"><span class="option-label">Expert</span></label>
+          <label class="option-box"><input type="radio" name="exp-finish-taping" value="Journeyman"><span class="option-label">Journeyman</span></label>
+          <label class="option-box"><input type="radio" name="exp-finish-taping" value="Apprentice Level-3"><span class="option-label">Apprentice Level-3</span></label>
+          <label class="option-box"><input type="radio" name="exp-finish-taping" value="Apprentice Level-1 or 2"><span class="option-label">Apprentice Level-1 or 2</span></label>
+          <label class="option-box"><input type="radio" name="exp-finish-taping" value="Minimal"><span class="option-label">Minimal</span></label>
+        </div>
+      </div>
+
+      <!-- STEP 17: Acoustic Grid Install experience -->
+      <div class="step" data-step="17" data-required="radio" data-field="exp-acoustic-grid">
+        <h2 class="step-question">Rate your Acoustic Grid Install experience level? <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box"><input type="radio" name="exp-acoustic-grid" value="Expert"><span class="option-label">Expert</span></label>
+          <label class="option-box"><input type="radio" name="exp-acoustic-grid" value="Journeyman"><span class="option-label">Journeyman</span></label>
+          <label class="option-box"><input type="radio" name="exp-acoustic-grid" value="Apprentice Level-3"><span class="option-label">Apprentice Level-3</span></label>
+          <label class="option-box"><input type="radio" name="exp-acoustic-grid" value="Apprentice Level-1 or 2"><span class="option-label">Apprentice Level-1 or 2</span></label>
+          <label class="option-box"><input type="radio" name="exp-acoustic-grid" value="Minimal"><span class="option-label">Minimal</span></label>
+        </div>
+      </div>
+
+      <!-- STEP 18: Acoustic Tile experience -->
+      <div class="step" data-step="18" data-required="radio" data-field="exp-acoustic-tile">
+        <h2 class="step-question">Rate your Acoustic Tile installation experience? <span class="req">*</span></h2>
+        <div class="options-grid">
+          <label class="option-box"><input type="radio" name="exp-acoustic-tile" value="Expert"><span class="option-label">Expert</span></label>
+          <label class="option-box"><input type="radio" name="exp-acoustic-tile" value="Journeyman"><span class="option-label">Journeyman</span></label>
+          <label class="option-box"><input type="radio" name="exp-acoustic-tile" value="Apprentice Level-3"><span class="option-label">Apprentice Level-3</span></label>
+          <label class="option-box"><input type="radio" name="exp-acoustic-tile" value="Apprentice Level-1 or 2"><span class="option-label">Apprentice Level-1 or 2</span></label>
+          <label class="option-box"><input type="radio" name="exp-acoustic-tile" value="Minimal"><span class="option-label">Minimal</span></label>
+        </div>
+      </div>
+
+      <!-- STEP 19: Door Hardware experience -->
+      <div class="step" data-step="19" data-required="radio" data-field="exp-door-hardware">
+        <h2 class="step-question">Rate your Door Hardware installation experience? <span class="req">*</span></h2>
+        <p class="step-hint">Hardware includes the installation of Door Frame / Lockset / Butts / Panic Bars / Door Closures with full adjustment</p>
+        <div class="options-grid">
+          <label class="option-box"><input type="radio" name="exp-door-hardware" value="Expert"><span class="option-label">Expert</span></label>
+          <label class="option-box"><input type="radio" name="exp-door-hardware" value="Journeyman"><span class="option-label">Journeyman</span></label>
+          <label class="option-box"><input type="radio" name="exp-door-hardware" value="Apprentice Level-3"><span class="option-label">Apprentice Level-3</span></label>
+          <label class="option-box"><input type="radio" name="exp-door-hardware" value="Apprentice Level-1 or 2"><span class="option-label">Apprentice Level-1 or 2</span></label>
+          <label class="option-box"><input type="radio" name="exp-door-hardware" value="Minimal"><span class="option-label">Minimal</span></label>
+        </div>
+      </div>
+
+      <!-- STEP 20: Finish Carpentry experience -->
+      <div class="step" data-step="20" data-required="radio" data-field="exp-finish-carpentry">
+        <h2 class="step-question">Rate your Finish Carpentry experience? <span class="req">*</span></h2>
+        <p class="step-hint">Installation of Cabinets, Baseboard, Windowsills</p>
+        <div class="options-grid">
+          <label class="option-box"><input type="radio" name="exp-finish-carpentry" value="Expert"><span class="option-label">Expert</span></label>
+          <label class="option-box"><input type="radio" name="exp-finish-carpentry" value="Journeyman"><span class="option-label">Journeyman</span></label>
+          <label class="option-box"><input type="radio" name="exp-finish-carpentry" value="Apprentice Level-3"><span class="option-label">Apprentice Level-3</span></label>
+          <label class="option-box"><input type="radio" name="exp-finish-carpentry" value="Apprentice Level-1 or 2"><span class="option-label">Apprentice Level-1 or 2</span></label>
+          <label class="option-box"><input type="radio" name="exp-finish-carpentry" value="Minimal"><span class="option-label">Minimal</span></label>
+        </div>
+      </div>
+
+      <!-- STEP 21: Resume upload -->
+      <div class="step" data-step="21" data-required="none" data-field="resume">
+        <h2 class="step-question">Optional: Upload Your Resume</h2>
+        <div class="file-drop-zone" id="file-drop-zone">
+          <div class="file-drop-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="16 16 12 12 8 16"/>
+              <line x1="12" y1="12" x2="12" y2="21"/>
+              <path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/>
+            </svg>
+          </div>
+          <div class="file-drop-text">
+            <strong>Drag and drop files here</strong>
+            <span>Max. file size: 10 MB — PDF, DOC, DOCX</span>
+            <div class="file-chosen" id="file-chosen" style="display:none;"></div>
+          </div>
+          <button type="button" class="browse-btn" id="browse-btn">Browse Files</button>
+        </div>
+        <input type="file" id="resume-input" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+      </div>
+
+      <!-- STEP 22: Comments -->
+      <div class="step" data-step="22" data-required="none" data-field="comments">
+        <h2 class="step-question">Comments</h2>
+        <textarea class="comments-textarea" id="comments" name="comments" placeholder="Anything else you'd like us to know…"></textarea>
+      </div>
+
+    </div>
+
+    <!-- Success screen (replaces wizard body + footer) -->
+    <div class="wizard-success" id="wizard-success">
+      <svg viewBox="0 0 56 56">
+        <circle cx="28" cy="28" r="24"/>
+        <polyline points="17 28 25 36 39 21"/>
+      </svg>
+      <h2>Application Submitted</h2>
+      <p>Thanks for applying to The Edge Construction Co. We'll review your information and reach out within a few business days.</p>
+      <a href="careers.html">← Back to Careers</a>
+    </div>
+
+    <!-- Footer navigation -->
+    <div class="wizard-footer" id="wizard-footer">
+      <button class="wizard-btn wizard-btn--prev" id="btn-prev" disabled>
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Previous
+      </button>
+
+      <div class="wizard-footer-center">
+        <span class="wizard-counter" id="step-counter">1 of 22</span>
+        <span class="wizard-error" id="wizard-error">This field is required.</span>
+      </div>
+
+      <button class="wizard-btn wizard-btn--next" id="btn-next">
+        Next
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    // ---- Step data ----
+    const allSteps = Array.from(document.querySelectorAll('.step'));
+    const TOTAL_STEPS = allSteps.length; // 22
+
+    let currentIndex = 0;        // index into visibleSteps
+    let answers = {};            // field → value map
+
+    // Build the ordered list of visible step indices (respects conditional logic)
+    function getVisibleSteps() {
+      return allSteps.filter(step => {
+        const cond   = step.dataset.conditional;
+        const condVal = step.dataset.conditionalValue;
+        if (!cond) return true;
+        return answers[cond] === condVal;
+      });
+    }
+
+    // ---- DOM refs ----
+    const btnPrev     = document.getElementById('btn-prev');
+    const btnNext     = document.getElementById('btn-next');
+    const counter     = document.getElementById('step-counter');
+    const errorBadge  = document.getElementById('wizard-error');
+    const progressFill = document.getElementById('progress-fill');
+
+    // ---- Render current step ----
+    function render(direction) {
+      const visible = getVisibleSteps();
+      const step = visible[currentIndex];
+
+      allSteps.forEach(s => {
+        s.classList.remove('active', 'going-back');
+      });
+
+      step.classList.add('active');
+      if (direction === 'back') step.classList.add('going-back');
+
+      const dispNum  = currentIndex + 1;
+      const dispTotal = visible.length;
+      counter.textContent = `${dispNum} of ${dispTotal}`;
+
+      const pct = ((dispNum - 1) / (dispTotal - 1)) * 100;
+      progressFill.style.width = Math.max(0, pct) + '%';
+
+      btnPrev.disabled = currentIndex === 0;
+
+      const isLast = currentIndex === visible.length - 1;
+      btnNext.querySelector('svg').style.display = isLast ? 'none' : '';
+      btnNext.textContent = isLast ? 'Submit' : 'Next';
+      if (isLast) btnNext.appendChild(Object.assign(document.createElementNS('http://www.w3.org/2000/svg','svg'), {viewBox:'0 0 24 24'}));
+      // rebuild next icon
+      const existingSvg = btnNext.querySelector('svg');
+      if (!isLast && existingSvg) {
+        existingSvg.innerHTML = '<polyline points="9 18 15 12 9 6"/>';
+        existingSvg.setAttribute('viewBox','0 0 24 24');
+      }
+
+      hideError();
+    }
+
+    // ---- Validate current step ----
+    function validate(step) {
+      const type  = step.dataset.required;
+      const field = step.dataset.field;
+      if (type === 'none') return true;
+
+      if (type === 'radio') {
+        return !!step.querySelector(`input[type="radio"]:checked`);
+      }
+
+      if (type === 'checkbox') {
+        return !!step.querySelector(`input[type="checkbox"]:checked`);
+      }
+
+      if (type === 'text') {
+        const input = step.querySelector(`#${field}, input[name="${field}"], input[id="${field}"]`);
+        if (input) return input.value.trim().length > 0;
+        // fallback: first required-looking input
+        const first = step.querySelector('input[type="text"], input[type="email"], input[type="tel"], input[type="number"]');
+        return first && first.value.trim().length > 0;
+      }
+
+      return true;
+    }
+
+    // ---- Save answer from current step ----
+    function saveAnswer(step) {
+      const type  = step.dataset.required;
+      const field = step.dataset.field;
+
+      if (type === 'radio') {
+        const checked = step.querySelector('input[type="radio"]:checked');
+        if (checked) answers[field] = checked.value;
+      } else if (type === 'checkbox') {
+        const checked = [...step.querySelectorAll('input[type="checkbox"]:checked')];
+        answers[field] = checked.map(c => c.value).join(', ');
+      } else if (type === 'text' || type === 'none') {
+        step.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]):not([type="file"]), textarea, select').forEach(el => {
+          if (el.name) answers[el.name] = el.value;
+        });
+        step.querySelectorAll('input[type="file"]').forEach(el => {
+          if (el.files.length) answers['_resumeFile'] = el.files[0];
+        });
+      }
+    }
+
+    // ---- Error helpers ----
+    function showError(msg) {
+      const visible = getVisibleSteps();
+      visible[currentIndex].querySelector('.step-question').classList.add('has-error');
+      errorBadge.textContent = msg || 'This field is required.';
+      errorBadge.style.display = 'block';
+    }
+
+    function hideError() {
+      allSteps.forEach(s => s.querySelector('.step-question')?.classList.remove('has-error'));
+      errorBadge.style.display = 'none';
+    }
+
+    // ---- Navigation ----
+    btnNext.addEventListener('click', () => {
+      const visible = getVisibleSteps();
+      const step = visible[currentIndex];
+
+      if (!validate(step)) {
+        showError('This field is required.');
+        // Shake animation
+        errorBadge.style.animation = 'none';
+        requestAnimationFrame(() => { errorBadge.style.animation = ''; });
+        return;
+      }
+
+      saveAnswer(step);
+
+      if (currentIndex < visible.length - 1) {
+        currentIndex++;
+        render('forward');
+      } else {
+        submitForm();
+      }
+    });
+
+    btnPrev.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        hideError();
+        currentIndex--;
+        render('back');
+      }
+    });
+
+    // ---- Option box highlight ----
+    document.querySelectorAll('.option-box input').forEach(input => {
+      input.addEventListener('change', () => {
+        const name = input.name;
+        if (input.type === 'radio') {
+          document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+            r.closest('.option-box').classList.remove('selected');
+          });
+        }
+        input.closest('.option-box').classList.toggle('selected', input.checked);
+        hideError();
+      });
+    });
+
+    // ---- File upload ----
+    const resumeInput  = document.getElementById('resume-input');
+    const browseBtn    = document.getElementById('browse-btn');
+    const dropZone     = document.getElementById('file-drop-zone');
+    const fileChosen   = document.getElementById('file-chosen');
+
+    browseBtn.addEventListener('click', () => resumeInput.click());
+    dropZone.addEventListener('click', (e) => { if (e.target !== browseBtn) resumeInput.click(); });
+
+    resumeInput.addEventListener('change', () => {
+      const file = resumeInput.files[0];
+      if (file) {
+        fileChosen.textContent = '✓ ' + file.name;
+        fileChosen.style.display = 'block';
+        dropZone.classList.add('has-file');
+      }
+    });
+
+    dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.style.borderColor = '#1164C2'; });
+    dropZone.addEventListener('dragleave', () => { dropZone.style.borderColor = ''; });
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.style.borderColor = '';
+      const file = e.dataTransfer.files[0];
+      if (file) {
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        resumeInput.files = dt.files;
+        fileChosen.textContent = '✓ ' + file.name;
+        fileChosen.style.display = 'block';
+        dropZone.classList.add('has-file');
+      }
+    });
+
+    // ---- Submit ----
+    async function submitForm() {
+      // Collect remaining
+      const visible = getVisibleSteps();
+      saveAnswer(visible[currentIndex]);
+
+      // Populate hidden Netlify form
+      const netlifyForm = document.getElementById('netlify-form');
+      Object.keys(answers).forEach(key => {
+        if (key === '_resumeFile') return;
+        const input = netlifyForm.querySelector(`[name="${key}"]`);
+        if (input) input.value = answers[key];
+      });
+
+      // Handle resume file
+      if (answers['_resumeFile']) {
+        const netlifyResume = document.getElementById('netlify-resume');
+        const dt = new DataTransfer();
+        dt.items.add(answers['_resumeFile']);
+        netlifyResume.files = dt.files;
+      }
+
+      // Submit via fetch (multipart if resume, urlencoded otherwise)
+      try {
+        let response;
+        if (answers['_resumeFile']) {
+          const fd = new FormData(netlifyForm);
+          response = await fetch('/', { method: 'POST', body: fd });
+        } else {
+          const params = new URLSearchParams();
+          [...netlifyForm.querySelectorAll('input[type="hidden"], input[type="text"]')].forEach(el => {
+            if (el.name && el.value) params.append(el.name, el.value);
+          });
+          params.append('form-name', 'job-application');
+          response = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: params.toString()
+          });
+        }
+
+        // Show success
+        document.getElementById('wizard-body').style.display = 'none';
+        document.getElementById('wizard-footer').style.display = 'none';
+        document.getElementById('wizard-success').style.display = 'block';
+        progressFill.style.width = '100%';
+
+      } catch (err) {
+        // Fallback native submit
+        netlifyForm.style.display = 'block';
+        netlifyForm.submit();
+      }
+    }
+
+    // ---- Keyboard support ----
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const step = getVisibleSteps()[currentIndex];
+        const type = step.dataset.required;
+        // Only auto-advance on Enter for non-text steps
+        if (type !== 'text' && type !== 'none') return;
+        btnNext.click();
+      }
+    });
+
+    // ---- Init ----
+    render('forward');
+  </script>
+
+</body>
+</html>

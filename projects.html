@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="brand/Favicon-edge.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Construction Projects | The Edge Construction Co.</title>
+  <meta name="description" content="Browse completed commercial construction projects across Chicago — theaters, dealerships, fitness centers, multi-family, and more. The Edge Construction Co.">
+  <link rel="canonical" href="https://www.theedgeconstructionco.com/projects">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Projects — The Edge Construction Co.">
+  <meta property="og:description" content="10+ completed commercial construction projects across Chicago — historic renovations, multi-family, retail, healthcare, and hospitality.">
+  <meta property="og:url" content="https://www.theedgeconstructionco.com/projects">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <style>
+    /* ---- Filter Bar ---- */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: clamp(2rem, 4vw, 3rem);
+    }
+
+    .filter-btn {
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      letter-spacing: var(--ls-wider);
+      text-transform: uppercase;
+      padding: var(--space-2) var(--space-5);
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-neutral-300);
+      background: transparent;
+      color: var(--color-neutral-600);
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+    }
+
+    .filter-btn.active {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
+      color: var(--color-dark-900);
+    }
+
+    /* ---- Projects Masonry Grid ---- */
+    .projects-masonry {
+      columns: 3;
+      column-gap: var(--space-5);
+    }
+
+    .project-tile {
+      break-inside: avoid;
+      margin-bottom: var(--space-5);
+      display: block;
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      background: var(--color-dark-800);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .project-tile:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Hidden state for filtering */
+    .project-tile.hidden {
+      display: none;
+    }
+
+    .project-tile img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform var(--transition-slow);
+    }
+
+    .project-tile:hover img {
+      transform: scale(1.04);
+    }
+
+    .project-tile-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(6, 13, 26, 0.97) 0%,
+        rgba(6, 13, 26, 0.40) 50%,
+        transparent 100%
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--space-5) var(--space-5) var(--space-6);
+      transition: background var(--transition-base);
+    }
+
+    .project-tile:hover .project-tile-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(6, 13, 26, 1) 0%,
+        rgba(6, 13, 26, 0.65) 55%,
+        rgba(6, 13, 26, 0.15) 100%
+      );
+    }
+
+    .project-tile-category {
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      letter-spacing: var(--ls-widest);
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: var(--space-2);
+    }
+
+    .project-tile-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-tight);
+      color: var(--color-white);
+      line-height: var(--lh-snug);
+      margin-bottom: var(--space-1);
+      transition: color var(--transition-base);
+    }
+
+    .project-tile:hover .project-tile-title {
+      color: var(--color-gold-300);
+    }
+
+    .project-tile-meta {
+      font-size: var(--fs-sm);
+      color: rgba(255,255,255,0.45);
+      margin-bottom: var(--space-3);
+    }
+
+    .project-tile-desc {
+      font-size: var(--fs-sm);
+      color: rgba(255,255,255,0.55);
+      line-height: var(--lh-relaxed);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition-slow);
+    }
+
+    .project-tile:hover .project-tile-desc {
+      max-height: 120px;
+    }
+
+    .project-tile-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      letter-spacing: var(--ls-wider);
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-top: var(--space-3);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity var(--transition-base), transform var(--transition-base);
+    }
+
+    .project-tile:hover .project-tile-arrow {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Featured tile (first one, wider/taller) */
+    .project-tile--featured .project-tile-title {
+      font-size: var(--fs-3xl);
+    }
+
+    /* No results */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: var(--space-20) 0;
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-wide);
+      color: var(--color-neutral-400);
+    }
+
+    .no-results.visible { display: block; }
+
+    /* Project count */
+    .projects-count {
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      color: var(--color-neutral-500);
+      margin-bottom: var(--space-8);
+    }
+
+    .projects-count span {
+      color: var(--color-blue);
+    }
+
+    @media (max-width: 1024px) {
+      .projects-masonry { columns: 2; }
+    }
+    @media (max-width: 540px) {
+      .projects-masonry { columns: 1; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Commercial Construction Projects — The Edge Construction Co.",
+    "description": "Portfolio of completed commercial construction projects in greater Chicago including historic renovations, multi-family residential, retail, healthcare, and hospitality.",
+    "url": "https://www.theedgeconstructionco.com/projects",
+    "provider": { "@type": "LocalBusiness", "name": "The Edge Construction Co., Inc." }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"><img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co." width="180" height="40"></a>
+        <ul class="nav-links" role="list">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta">Request a Bid</a>
+        <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <nav id="mobile-nav" class="nav-mobile" aria-label="Mobile navigation">
+    <a href="services.html">Services</a><a href="projects.html">Projects</a><a href="technology.html">Technology</a><a href="about.html">About</a><a href="careers.html">Careers</a>
+    <a href="contact.html" class="nav-mobile-cta">Request a Bid</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="page-hero-bg">
+      <img src="images/edge-construction-walking-on-oakbrook-job.webp" alt="The Edge Construction Co. crew on a commercial job site" loading="eager" fetchpriority="high">
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li>Projects</li>
+          </ol>
+        </nav>
+        <h1 class="page-hero-title">Our <em>Work</em></h1>
+        <p class="page-hero-sub">10+ completed commercial projects across greater Chicago — historic renovations, multi-family residential, retail, healthcare, and beyond.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROJECTS GRID -->
+  <section class="section section--light" aria-labelledby="projects-heading">
+    <div class="container">
+
+      <h2 class="sr-only" id="projects-heading">All Projects</h2>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar" role="group" aria-label="Filter projects by type">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="historic-renovation">Historic Renovation</button>
+        <button class="filter-btn" data-filter="multi-family">Multi-Family</button>
+        <button class="filter-btn" data-filter="commercial">Commercial</button>
+        <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+        <button class="filter-btn" data-filter="hospitality-fitness">Hospitality &amp; Fitness</button>
+      </div>
+
+      <p class="projects-count"><span id="visible-count">10</span> Projects</p>
+
+      <!-- Masonry Grid -->
+      <div class="projects-masonry" id="projects-grid">
+
+        <!-- 1. Varsity Theater — FEATURED -->
+        <a href="projects/varsity-theater-evanston.html"
+           class="project-tile project-tile--featured fade-up"
+           data-category="historic-renovation"
+           aria-label="Varsity Theater Evanston — Historic Renovation project">
+          <img src="images/projects/varsity-theater-evanston/DE5967A9-E0A6-4149-8F76-F473319ABCB4.jpg"
+               alt="Historic metal stud framing inside the 1926 Varsity Theater — Evanston, IL"
+               loading="eager" width="800" height="1067">
+          <div class="project-tile-overlay">
+            <p class="project-tile-category">Historic Renovation</p>
+            <h3 class="project-tile-title">Varsity Theater</h3>
+            <p class="project-tile-meta">Evanston, IL — 35-Unit Residential Conversion</p>
+            <p class="project-tile-desc">Conversion of a 1926 historic theater into 35 residential units. Complex framing within the original structure, prefabricated assemblies staged on-site, and precision coordination around preserved historic elements.</p>
+            <span class="project-tile-arrow">View Case Study →</span>
+          </div>
+        </a>
+
+        <!-- 2. 434 Melrose -->
+        <a href="projects/434-melrose.html"
+           class="project-tile fade-up fade-up-delay-1"
+           data-category="multi-family"
+           aria-label="434 Melrose — Multi-Family project">
+          <img src="images/projects/434-melrose/photo_2-1.jpg"
+               alt="Multi-story exterior metal stud framing — 434 Melrose, Chicago"
+               loading="lazy" width="600" height="800">
+          <div class="project-tile-overlay">
+            <p class="project-tile-category">Multi-Family</p>
+            <h3 class="project-tile-title">434 Melrose</h3>
+            <p class="project-tile-meta">Chicago, IL — High-Rise Residential</p>
+            <p class="project-tile-desc">Exterior metal stud framing across multiple floors of a high-rise residential building in Chicago's North Side.</p>
+            <span class="project-tile-arrow">View Project →</span>
+          </div>
+        </a>
+
+        <!-- 3. Health Club Northbrook -->
+        <a href="projects/health-club-northbrook.html"
+           class="project-tile fade-up fade-up-delay-2"
+           data-category="hospitality-fitness"
+           aria-label="Health Club Northbrook — Hospitality & Fitness project">
+          <img src="images/projects/health-club-northbrook/47098273_10158621877868084_81170548272398336_n.jpg"
+               alt="Completed health club spa and pool area — Northbrook, IL"
+               loading="lazy" width="600" height="400">
+          <div class="project-tile-overlay">
+            <p class="project-tile-category">Hospitality &amp; Fitness</p>
+            <h3 class="project-tile-title">Health Club Northbrook</h3>
+            <p class="project-tile-meta">Northbrook, IL — Fitness Facility</p>
+            <p class="project-tile-desc">Full interior build-out of a commercial health club including locker rooms, spa areas, pool surround, and specialty finishes throughout.</p>
+            <span class="project-tile-arrow">View Project →</span>
+          </div>
+        </a>
+
+        <!-- 4. Otis Deck -->
+        <a href="projects/otis-deck.html"
+           class="project-tile fade-up"
+           data-category="hospitality-fitness"
+           aria-label="Otis Deck Chicago — Rooftop project">
+          <img src="images/projects/otis-deck/709A8E78-E460-4C0E-A08E-DAB1E6B0AD2C.jpg"
+               alt="Rooftop deck construction with Chicago skyline — Otis Deck project"
+               loading="lazy" width="600" height="450">
+          <div class="project-tile-overlay">
+            <p class="project-tile-category">Hospitality</p>
+            <h3 class="project-tile-title">Otis Rooftop Deck</h3>
+            <p class="project-tile-meta">Chicago, IL — Rooftop Build-Out</p>
+            <p class="project-tile-desc">Rooftop deck construction with Chicago skyline views — structural framing, decking, and millwork for a commercial rooftop hospitality space.</p>
+            <span class="project-tile-arrow">View Project →</span>
+          </div>
+        </a>
+
+        <!-- 5. 1920 Milwaukee -->
+        <a href="projects/1920-milwaukee.html"
+           class="project-tile fade-up fade-up-delay-1"
+           data-category="multi-family"
+           aria-label="1920 Milwaukee — Multi-Family project">
+          <img src="images/projects/1920-milwaukee/1488837284725.716064_tempImage.jpeg"
+               alt="Multi-story metal stud framing — 1920 Milwaukee Ave, Chicago"
+               loading="lazy" width="600" height="800">
+          <div class="project-tile-overlay">
+            <p class="project-tile-category">Multi-Family</p>
+            <h3 class="project-tile-title">1920 Milwaukee</h3>
+            <p class="project-tile-meta">Chicago, IL — Mixed-Use Residential</p>
+            <p class="project-tile-desc">Complex multi-story metal stud framing for a mixed-use residential building on Milwaukee Avenue in Chicago.</p>
+            <span class="project-tile-arrow">View Project →</span>
+          </div>
+        </a>
+
+        <!-- 6. Stewart School -->
+        <a href="projects/stewart-school.html"
+           class="project-tile fade-up fade-up-delay-2"
+           data-category="historic-renovation"
+           aria-label="Stewart School — Historic Renovation project">
+          <img src="images/projects/stewart-school/steward1.jpg"
+               alt="Interior framing renovation — Stewart School historic building"
+               loading="lazy" width="600" height="800">
+          <div class="project-tile-overlay">
+            <p class="project-tile-category">Historic Renovation</p>
+            <h3 class="project-tile-title">Stewart School</h3>
+            <p class="project-tile-meta">Chicago, IL — Historic School Renovation</p>
+            <p class="project-tile-desc">Interior metal stud framing renovation of a historic school building — precision work around original masonry, windows, and structural elements.</p>
+            <span class="project-tile-arrow">View Project →</span>
+          </div>
+        </a>
+
+        <!-- 7. Medical Oncology -->
+        <a href="projects/medical-oncology.html"
+           class="project-tile fade-up"
+           data-category="healthcare"
+           aria-label="Medical Oncology Center — Healthcare project">
+          <img src="images/projects/medical-oncology/medical1.jpg"
+               alt="Commercial construction framing — Medical Oncology facility"
+               loading="lazy" width="600" height="450">
+          <div class="project-tile-overlay">
+            <p class="project-tile-category">Healthcare</p>
+            <h3 class="project-tile-title">Medical Oncology Center</h3>
+            <p class="project-tile-meta">Chicagoland — Healthcare Facility</p>
+            <p class="project-tile-desc">Exterior and interior framing for a commercial medical oncology facility — complex curved assemblies and code-compliant healthcare construction.</p>
+            <span class="project-tile-arrow">View Project →</span>
+          </div>
+        </a>
+
+        <!-- 8. Big Blue Swim School -->
+        <a href="projects/big-blue-swim-school.html"
+           class="project-tile fade-up fade-up-delay-1"
+           data-category="commercial"
+           aria-label="Big Blue Swim School — Commercial project">
+          <img src="images/projects/big-blue-swim-school/swim-school1.jpeg"
+               alt="Commercial interior framing — Big Blue Swim School"
+               loading="lazy" width="600" height="800">
+          <div class="project-tile-overlay">
+            <p class="project-tile-category">Commercial</p>
+            <h3 class="project-tile-title">Big Blue Swim School</h3>
+            <p class="project-tile-meta">Chicagoland — Commercial Build-Out</p>
+            <p class="project-tile-desc">Full interior framing and drywall for a commercial swim school facility — including specialty moisture-resistant assemblies around pool areas.</p>
+            <span class="project-tile-arrow">View Project →</span>
+          </div>
+        </a>
+
+        <!-- 9. Downers Grove Retail -->
+        <a href="projects/downers-grove-retail.html"
+           class="project-tile fade-up fade-up-delay-2"
+           data-category="commercial"
+           aria-label="Downers Grove Retail — Commercial project">
+          <img src="images/projects/downers-grove-retail/downer-retail1.jpg"
+               alt="Open retail space structural framing — Downers Grove, IL"
+               loading="lazy" width="800" height="500">
+          <div class="project-tile-overlay">
+            <p class="project-tile-category">Commercial / Retail</p>
+            <h3 class="project-tile-title">Downers Grove Retail</h3>
+            <p class="project-tile-meta">Downers Grove, IL — Retail Build-Out</p>
+            <p class="project-tile-desc">Large-format retail build-out with open structural steel framing, curtain wall backup, and interior partitions for a suburban commercial center.</p>
+            <span class="project-tile-arrow">View Project →</span>
+          </div>
+        </a>
+
+        <!-- 10. Aspired Living -->
+        <a href="projects/aspired-living.html"
+           class="project-tile fade-up"
+           data-category="multi-family"
+           aria-label="Aspired Living — Multi-Family project">
+          <img src="images/projects/aspired-living/aspired-living4.jpg"
+               alt="Exterior multi-family framing — Aspired Living development"
+               loading="lazy" width="600" height="800">
+          <div class="project-tile-overlay">
+            <p class="project-tile-category">Multi-Family</p>
+            <h3 class="project-tile-title">Aspired Living</h3>
+            <p class="project-tile-meta">Chicagoland — Multi-Family Development</p>
+            <p class="project-tile-desc">Interior and exterior metal stud framing for a multi-family residential development — multiple buildings, coordinated phased delivery.</p>
+            <span class="project-tile-arrow">View Project →</span>
+          </div>
+        </a>
+
+      </div><!-- /projects-masonry -->
+
+      <p class="no-results" id="no-results">No projects found in this category.</p>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-inner">
+        <div class="cta-banner-text fade-up">
+          <h2>Ready to <em>Build?</em></h2>
+          <p>Whether you're a general contractor or building owner, we're ready to partner from pre-bid through punch list.</p>
+        </div>
+        <div class="cta-banner-actions fade-up fade-up-delay-1">
+          <a href="tel:+12242081062" class="cta-phone">(224) 208-1062</a>
+          <a href="contact.html" class="btn btn-gold">Submit Bid Request</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co." width="180" height="44"><p>Safe, on-time, technology-driven commercial carpentry serving the greater Chicago area since 2004.</p></div>
+        <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="services/metal-stud-framing.html">Metal Stud Framing</a></li><li><a href="services/commercial-millwork.html">Commercial Millwork</a></li><li><a href="services/drywall-solutions.html">Drywall Solutions</a></li><li><a href="services/acoustic-installations.html">Acoustic Installations</a></li></ul></div>
+        <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="projects.html">Projects</a></li><li><a href="technology.html">Technology</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><p class="footer-col-title">Contact</p><div class="footer-contact-item"><a href="tel:+12242081062">(224) 208-1062</a></div><div class="footer-contact-item"><a href="#" data-contact-modal>Send a Message</a></div><div class="footer-contact-item">1540 Hecht Drive, Suite G<br>Bartlett, IL 60103</div></div>
+      </div>
+    </div>
+    <div class="container"><div class="footer-bottom"><p class="footer-legal">&copy; <span id="current-year">2026</span> The Edge Construction Co., Inc. All rights reserved.</p><ul class="footer-bottom-links"><li><a href="privacy.html">Privacy Policy</a></li><li><a href="sitemap.xml">Sitemap</a></li><li><a href="brand-guide.html">Brand Guide</a></li><li><a href="aeo-plan.html">AEO Plan</a></li></ul></div></div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/contact-modal.js" defer></script>
+  <script>
+    // Filter logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const tiles = document.querySelectorAll('.project-tile');
+    const countEl = document.getElementById('visible-count');
+    const noResults = document.getElementById('no-results');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        let count = 0;
+        tiles.forEach(tile => {
+          const match = filter === 'all' || tile.dataset.category === filter;
+          tile.classList.toggle('hidden', !match);
+          if (match) count++;
+        });
+        countEl.textContent = count;
+        noResults.classList.toggle('visible', count === 0);
+      });
+    });
+  </script>
+</body>
+</html>

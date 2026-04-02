@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="brand/Favicon-edge.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Bid | The Edge Construction Co. — Chicago</title>
+  <meta name="description" content="Request a bid or get in touch with The Edge Construction Co. Chicago-area commercial carpentry, framing, drywall, and millwork. We respond within one business day.">
+  <link rel="canonical" href="https://www.theedgeconstructionco.com/contact">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.theedgeconstructionco.com/contact">
+  <meta property="og:title" content="Request a Bid — The Edge Construction Co.">
+  <meta property="og:description" content="Get a bid from Chicago's commercial carpentry specialists. Fast turnaround, no runaround. Metal stud framing, drywall, millwork, and acoustic installations.">
+  <meta property="og:image" content="https://www.theedgeconstructionco.com/images/edge-construction-crew-inside-job.jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Request a Bid — The Edge Construction Co.">
+  <meta name="twitter:description" content="Get a bid from Chicago's commercial carpentry specialists. Fast turnaround, no runaround.">
+
+  <meta name="geo.region" content="US-IL">
+  <meta name="geo.placename" content="Bartlett, Illinois">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Structured Data: ContactPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact The Edge Construction Co.",
+    "description": "Request a bid for commercial carpentry, metal stud framing, drywall, millwork, or acoustic installation projects in the greater Chicago area.",
+    "url": "https://www.theedgeconstructionco.com/contact",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "The Edge Construction Co., Inc.",
+      "telephone": "+1-224-208-1062",
+      "email": "Info@TheEdgeConstructionCo.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1540 Hecht Drive, Suite G",
+        "addressLocality": "Bartlett",
+        "addressRegion": "IL",
+        "postalCode": "60103",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "07:00",
+        "closes": "17:00"
+      }
+    }
+  }
+  </script>
+
+  <style>
+    /* ---- Contact Layout ---- */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: var(--space-10);
+      align-items: start;
+    }
+
+    /* ---- Bid Request Form ---- */
+    .bid-form {
+      background: var(--color-dark-800);
+      border: 1px solid rgba(168, 152, 92, 0.12);
+      border-radius: var(--radius-lg);
+      padding: var(--space-9) var(--space-8);
+    }
+
+    .bid-form-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: var(--space-2);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .bid-form-subtitle {
+      color: var(--text-on-dark-muted);
+      font-size: var(--fs-sm);
+      margin-bottom: var(--space-7);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-bottom: var(--space-5);
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-label {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-on-dark-muted);
+    }
+
+    .form-label .required {
+      color: var(--color-gold);
+      margin-left: 2px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      background: var(--color-dark-900);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      color: var(--color-white);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      width: 100%;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(168, 152, 92, 0.12);
+    }
+
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A8985C' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .form-select option {
+      background: var(--color-dark-900);
+      color: var(--color-white);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.6;
+    }
+
+    .form-note {
+      font-size: 0.72rem;
+      color: var(--text-on-dark-muted);
+      margin-top: var(--space-2);
+      opacity: 0.7;
+    }
+
+    .form-submit-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      margin-top: var(--space-7);
+    }
+
+    .form-submit-row .form-legal {
+      font-size: 0.68rem;
+      color: var(--text-on-dark-muted);
+      opacity: 0.6;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    /* Success message (hidden by default) */
+    .form-success {
+      display: none;
+      background: rgba(17, 100, 194, 0.12);
+      border: 1px solid rgba(17, 100, 194, 0.30);
+      border-radius: var(--radius-md);
+      padding: var(--space-7) var(--space-8);
+      text-align: center;
+    }
+
+    .form-success svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--color-gold);
+      fill: none;
+      stroke-width: 1.5;
+      margin-bottom: var(--space-4);
+    }
+
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--color-white);
+      margin-bottom: var(--space-3);
+    }
+
+    .form-success p {
+      color: var(--text-on-dark-muted);
+      font-size: var(--fs-sm);
+    }
+
+    /* ---- Contact Sidebar ---- */
+    .contact-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    .contact-info-card {
+      background: var(--color-dark-800);
+      border: 1px solid rgba(168, 152, 92, 0.12);
+      border-radius: var(--radius-lg);
+      padding: var(--space-7);
+    }
+
+    .contact-info-card-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-base);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-gold);
+      margin-bottom: var(--space-5);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .contact-detail:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .contact-detail-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      background: rgba(17, 100, 194, 0.15);
+      border: 1px solid rgba(17, 100, 194, 0.20);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .contact-detail-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: var(--color-blue-300);
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-detail-text {
+      flex: 1;
+    }
+
+    .contact-detail-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-on-dark-muted);
+      opacity: 0.6;
+      margin-bottom: 3px;
+    }
+
+    .contact-detail-value {
+      font-size: var(--fs-sm);
+      color: var(--color-white);
+      line-height: 1.5;
+    }
+
+    .contact-detail-value a {
+      color: var(--color-white);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .contact-detail-value a:hover {
+      color: var(--color-gold);
+    }
+
+    /* Hours row */
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--fs-xs);
+      color: var(--text-on-dark-muted);
+      padding: 3px 0;
+    }
+
+    .hours-row .day {
+      color: var(--color-white);
+      opacity: 0.8;
+    }
+
+    /* Service areas */
+    .service-area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+
+    .area-tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      background: rgba(17, 100, 194, 0.12);
+      border: 1px solid rgba(17, 100, 194, 0.20);
+      border-radius: 99px;
+      color: var(--color-blue-200);
+      white-space: nowrap;
+    }
+
+    /* Response time badge */
+    .response-badge {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4) var(--space-5);
+      background: rgba(168, 152, 92, 0.08);
+      border: 1px solid rgba(168, 152, 92, 0.20);
+      border-radius: var(--radius-md);
+    }
+
+    .response-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ADE80;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.20);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.20); }
+      50%       { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.08); }
+    }
+
+    .response-badge-text {
+      font-size: var(--fs-xs);
+      color: var(--text-on-dark-muted);
+      line-height: 1.4;
+    }
+
+    .response-badge-text strong {
+      color: var(--color-white);
+      display: block;
+      font-size: var(--fs-sm);
+    }
+
+    /* ---- What Happens Next ---- */
+    .next-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      counter-reset: steps;
+    }
+
+    .next-step {
+      position: relative;
+      padding-top: var(--space-7);
+    }
+
+    .next-step::before {
+      counter-increment: steps;
+      content: counter(steps, decimal-leading-zero);
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(168, 152, 92, 0.30);
+      letter-spacing: -0.02em;
+    }
+
+    .next-step-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--color-white);
+      margin-bottom: var(--space-3);
+    }
+
+    .next-step-body {
+      font-size: var(--fs-sm);
+      color: var(--text-on-dark-muted);
+      line-height: 1.7;
+    }
+
+    /* ---- Map embed area ---- */
+    .map-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      line-height: 0;
+    }
+
+    .map-placeholder {
+      background: var(--color-dark-800);
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--transition-base);
+    }
+
+    .map-placeholder:hover {
+      background: var(--color-dark-700);
+    }
+
+    .map-placeholder svg {
+      width: 32px;
+      height: 32px;
+      fill: none;
+      stroke: var(--color-gold);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .map-placeholder-text {
+      font-size: var(--fs-xs);
+      color: var(--text-on-dark-muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .map-placeholder-text strong {
+      display: block;
+      color: var(--color-white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: var(--fs-sm);
+      margin-bottom: 2px;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 1024px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .next-steps {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+
+      .bid-form {
+        padding: var(--space-7) var(--space-6);
+      }
+
+      .form-submit-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .bid-form {
+        padding: var(--space-6) var(--space-5);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+
+        <a href="/" class="nav-logo" aria-label="The Edge Construction Co. — Home">
+          <img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co." width="180" height="40">
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+
+        <a href="contact.html" class="nav-cta" aria-current="page">Request a Bid</a>
+
+        <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <nav id="mobile-nav" class="nav-mobile" aria-label="Mobile navigation">
+    <a href="services.html">Services</a>
+    <a href="projects.html">Projects</a>
+    <a href="technology.html">Technology</a>
+    <a href="about.html">About</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html" class="nav-mobile-cta">Request a Bid</a>
+  </nav>
+
+
+  <!-- ============================================================
+       PAGE HERO
+       ============================================================ -->
+  <section class="page-hero" aria-label="Page header">
+
+    <div class="page-hero-bg" aria-hidden="true">
+      <img
+        src="images/edge-construction-walking-on-oakbrook-job.webp"
+        alt="The Edge Construction crew on a commercial job site"
+        loading="eager"
+        fetchpriority="high"
+      >
+    </div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+            <meta itemprop="position" content="1">
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Contact</span>
+            <meta itemprop="position" content="2">
+          </li>
+        </ol>
+      </nav>
+
+      <h1 class="page-hero-title">Request a Bid</h1>
+      <p class="page-hero-subtitle">Tell us about your project. We'll get back to you within one business day — no runaround, no sales pressure.</p>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       BID FORM + SIDEBAR
+       ============================================================ -->
+  <section class="section section--dark" aria-label="Bid request form">
+    <div class="container">
+
+      <div class="contact-layout">
+
+        <!-- LEFT: Bid Request Form -->
+        <div>
+          <!-- Netlify Forms: add netlify attribute; Netlify detects at build time -->
+          <form
+            class="bid-form"
+            name="bid-request"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            id="bid-form"
+            novalidate
+          >
+            <!-- Honeypot spam field (hidden) -->
+            <p style="display:none;">
+              <label>Don't fill this out if you're human: <input name="bot-field"></label>
+            </p>
+            <!-- Required hidden field for Netlify -->
+            <input type="hidden" name="form-name" value="bid-request">
+
+            <h2 class="bid-form-title">Project Details</h2>
+            <p class="bid-form-subtitle">Fields marked <span style="color:var(--color-gold);">*</span> are required. We respond within 1 business day.</p>
+
+            <!-- Row 1: Name + Company -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="contact-name">Your Name <span class="required">*</span></label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="contact-name"
+                  name="contact-name"
+                  placeholder="First &amp; Last Name"
+                  required
+                  autocomplete="name"
+                >
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="company-name">Company / GC <span class="required">*</span></label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="company-name"
+                  name="company-name"
+                  placeholder="Your company name"
+                  required
+                  autocomplete="organization"
+                >
+              </div>
+            </div>
+
+            <!-- Row 2: Email + Phone -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@yourcompany.com"
+                  required
+                  autocomplete="email"
+                >
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input
+                  class="form-input"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="(xxx) xxx-xxxx"
+                  autocomplete="tel"
+                >
+              </div>
+            </div>
+
+            <!-- Row 3: Service + Location -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="service-type">Scope of Work <span class="required">*</span></label>
+                <select class="form-select" id="service-type" name="service-type" required>
+                  <option value="" disabled selected>Select a scope…</option>
+                  <option value="Metal Stud Framing">Metal Stud Framing</option>
+                  <option value="Commercial Millwork">Commercial Millwork</option>
+                  <option value="Drywall Solutions">Drywall Solutions</option>
+                  <option value="Acoustic Installations">Acoustic Installations</option>
+                  <option value="Multiple Scopes">Multiple Scopes</option>
+                  <option value="Other / Not Sure">Other / Not Sure</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="project-location">Project Location <span class="required">*</span></label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="project-location"
+                  name="project-location"
+                  placeholder="City, IL"
+                  required
+                >
+              </div>
+            </div>
+
+            <!-- Row 4: Project Type + Start Date -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="project-type">Project Type</label>
+                <select class="form-select" id="project-type" name="project-type">
+                  <option value="" disabled selected>Select a type…</option>
+                  <option value="Commercial Office">Commercial Office</option>
+                  <option value="Multi-Family Residential">Multi-Family Residential</option>
+                  <option value="Retail / Restaurant">Retail / Restaurant</option>
+                  <option value="Healthcare / Medical">Healthcare / Medical</option>
+                  <option value="Hospitality / Fitness">Hospitality / Fitness</option>
+                  <option value="Historic Renovation">Historic Renovation</option>
+                  <option value="Industrial / Warehouse">Industrial / Warehouse</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="start-date">Estimated Start</label>
+                <input
+                  class="form-input"
+                  type="month"
+                  id="start-date"
+                  name="start-date"
+                >
+              </div>
+            </div>
+
+            <!-- Project Description -->
+            <div class="form-group">
+              <label class="form-label" for="project-description">Project Description <span class="required">*</span></label>
+              <textarea
+                class="form-textarea"
+                id="project-description"
+                name="project-description"
+                placeholder="Tell us about the project — scope, square footage, any plans or specs available, schedule constraints, or anything else we should know up front."
+                required
+              ></textarea>
+              <p class="form-note">Plans or specs? Mention it in your message above or call us at <a href="tel:+12242081062" style="color:var(--color-gold);">(224) 208-1062</a>.</p>
+            </div>
+
+            <!-- How Did You Hear -->
+            <div class="form-group">
+              <label class="form-label" for="referral-source">How Did You Hear About Us?</label>
+              <select class="form-select" id="referral-source" name="referral-source">
+                <option value="" disabled selected>Select one…</option>
+                <option value="Word of Mouth / Referral">Word of Mouth / Referral</option>
+                <option value="Google Search">Google Search</option>
+                <option value="ABC Illinois">ABC Illinois</option>
+                <option value="Contractors Network Group">Contractors Network Group</option>
+                <option value="Returning Client">Returning Client</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Submit Row -->
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn-gold btn-arrow">Submit Bid Request</button>
+              <p class="form-legal">Your information is used solely to respond to your inquiry. We do not sell or share contact data.</p>
+            </div>
+
+          </form>
+
+          <!-- Success State (shown after JS intercept or Netlify redirect) -->
+          <div class="bid-form form-success" id="form-success" role="alert" aria-live="polite">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="20"/>
+              <path d="M15 24l7 7 11-14"/>
+            </svg>
+            <h3>Request Received</h3>
+            <p>Thanks for reaching out. We'll review your project details and get back to you within one business day.</p>
+            <p style="margin-top:var(--space-4);">Questions in the meantime? Call us at <a href="tel:+12242081062" style="color:var(--color-gold);">(224) 208-1062</a>.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT: Sidebar -->
+        <aside class="contact-sidebar" aria-label="Contact details">
+
+          <!-- Response time badge -->
+          <div class="response-badge">
+            <div class="response-badge-dot"></div>
+            <div class="response-badge-text">
+              <strong>Typically responds within 1 business day</strong>
+              Active Mon – Fri, 7:00 AM – 5:00 PM CT
+            </div>
+          </div>
+
+          <!-- Contact Info Card -->
+          <div class="contact-info-card">
+            <p class="contact-info-card-title">Get In Touch</p>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.26 11 19.79 19.79 0 01.2 2.38a2 2 0 012-2.17H5a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+                </svg>
+              </div>
+              <div class="contact-detail-text">
+                <p class="contact-detail-label">Phone</p>
+                <div class="contact-detail-value">
+                  <a href="tel:+12242081062">(224) 208-1062</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="contact-detail-text">
+                <p class="contact-detail-label">Email</p>
+                <div class="contact-detail-value">
+                  <a href="#" data-contact-modal>Send a Message</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="contact-detail-text">
+                <p class="contact-detail-label">Office</p>
+                <div class="contact-detail-value">
+                  1540 Hecht Drive, Suite G<br>
+                  Bartlett, IL 60103
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="contact-detail-text">
+                <p class="contact-detail-label">Hours</p>
+                <div class="contact-detail-value">
+                  <div class="hours-row">
+                    <span class="day">Monday – Friday</span>
+                    <span>7:00 AM – 5:00 PM</span>
+                  </div>
+                  <div class="hours-row">
+                    <span class="day">Saturday – Sunday</span>
+                    <span>Closed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Service Area Card -->
+          <div class="contact-info-card">
+            <p class="contact-info-card-title">Service Area</p>
+            <p style="font-size:var(--fs-xs); color:var(--text-on-dark-muted); margin-bottom:var(--space-4); line-height:1.6;">We serve general contractors and developers across the greater Chicago metropolitan area.</p>
+            <div class="service-area-tags">
+              <span class="area-tag">Chicago, IL</span>
+              <span class="area-tag">Evanston</span>
+              <span class="area-tag">Schaumburg</span>
+              <span class="area-tag">Oak Brook</span>
+              <span class="area-tag">Naperville</span>
+              <span class="area-tag">Downers Grove</span>
+              <span class="area-tag">Northbrook</span>
+              <span class="area-tag">Aurora</span>
+              <span class="area-tag">Bartlett</span>
+              <span class="area-tag">Elgin</span>
+              <span class="area-tag">+ Greater Chicagoland</span>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div class="map-card">
+            <a
+              class="map-placeholder"
+              href="https://maps.google.com/?q=1540+Hecht+Drive+Suite+G+Bartlett+IL+60103"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open office location in Google Maps"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div class="map-placeholder-text">
+                <strong>View on Google Maps</strong>
+                1540 Hecht Drive, Suite G<br>Bartlett, IL 60103
+              </div>
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       WHAT HAPPENS NEXT
+       ============================================================ -->
+  <section class="section section--dark-alt" aria-label="What happens next">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <p class="section-eyebrow">After You Submit</p>
+        <h2 class="section-title">What Happens Next</h2>
+        <p class="section-subtitle">We keep the process simple and respect your time. Here's what to expect after you send a bid request.</p>
+      </div>
+
+      <div class="next-steps">
+
+        <div class="next-step fade-up">
+          <h3 class="next-step-title">We Review Your Project</h3>
+          <p class="next-step-body">Within one business day, your request lands with our estimating team. We review the scope, location, and timeline — and flag any questions before we reach out. No canned auto-replies.</p>
+        </div>
+
+        <div class="next-step fade-up fade-up-delay-1">
+          <h3 class="next-step-title">We Connect With You</h3>
+          <p class="next-step-body">We'll call or email to confirm the details and answer any questions you have about our process. If you have plans or specs, mention them in your bid request — we'll follow up directly.</p>
+        </div>
+
+        <div class="next-step fade-up fade-up-delay-2">
+          <h3 class="next-step-title">You Get a Real Bid</h3>
+          <p class="next-step-body">We deliver a clear, itemized bid with scope, schedule assumptions, and a direct line to your estimator. No inflated numbers to negotiate down — we price the job right the first time.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CTA BANNER
+       ============================================================ -->
+  <section class="cta-banner" aria-label="Call to action">
+    <div class="container">
+      <div class="cta-banner-inner">
+        <div class="cta-banner-text fade-up">
+          <h2>Prefer to talk first?</h2>
+          <p>Call us directly. Our team is available Monday through Friday, 7 AM to 5 PM.</p>
+        </div>
+        <div class="cta-banner-actions fade-up">
+          <a href="tel:+12242081062" class="btn btn-gold btn-arrow">(224) 208-1062</a>
+          <a href="#" data-contact-modal class="btn btn-outline-white">Send a Message</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co." width="180" height="44">
+          <p>Safe, on-time, technology-driven commercial carpentry serving the greater Chicago area since 2004.</p>
+        </div>
+        <div>
+          <p class="footer-col-title">Services</p>
+          <ul class="footer-links">
+            <li><a href="services/metal-stud-framing.html">Metal Stud Framing</a></li>
+            <li><a href="services/commercial-millwork.html">Commercial Millwork</a></li>
+            <li><a href="services/drywall-solutions.html">Drywall Solutions</a></li>
+            <li><a href="services/acoustic-installations.html">Acoustic Installations</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Company</p>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Contact</p>
+          <div class="footer-contact-item"><a href="tel:+12242081062">(224) 208-1062</a></div>
+          <div class="footer-contact-item"><a href="#" data-contact-modal>Send a Message</a></div>
+          <div class="footer-contact-item">1540 Hecht Drive, Suite G<br>Bartlett, IL 60103</div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-legal">&copy; <span id="current-year">2026</span> The Edge Construction Co., Inc. All rights reserved.</p>
+        <ul class="footer-bottom-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="sitemap.xml">Sitemap</a></li>
+          <li><a href="brand-guide.html">Brand Guide</a></li><li><a href="aeo-plan.html">AEO Plan</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/contact-modal.js" defer></script>
+  <script>
+    // ---- Netlify Forms: AJAX intercept for single-page success state ----
+    const form = document.getElementById('bid-form');
+    const successEl = document.getElementById('form-success');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Basic client-side validation check
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const data = new FormData(form);
+
+        try {
+          await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(data).toString()
+          });
+
+          // Show success, hide form
+          form.style.display = 'none';
+          successEl.style.display = 'block';
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        } catch (err) {
+          // Fallback: let native form submit to Netlify
+          form.submit();
+        }
+      });
+    }
+
+    // ---- Pre-fill month input with next month ----
+    const startInput = document.getElementById('start-date');
+    if (startInput) {
+      const d = new Date();
+      d.setMonth(d.getMonth() + 1);
+      const yyyy = d.getFullYear();
+      const mm   = String(d.getMonth() + 1).padStart(2, '0');
+      startInput.value = `${yyyy}-${mm}`;
+    }
+  </script>
+
+</body>
+</html>

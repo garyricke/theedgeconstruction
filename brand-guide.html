@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="brand/Favicon-edge.svg">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Guide — The Edge Construction Co.</title>
+  <meta name="description" content="The Edge Construction Co. brand guide — colors, typography, and design standards.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <style>
+    body {
+      background: var(--color-neutral-100);
+      padding: var(--space-16) var(--space-8);
+    }
+
+    /* ---- Guide Layout ---- */
+    .guide-header {
+      background: var(--color-dark-900);
+      border-radius: var(--radius-lg);
+      padding: var(--space-12) var(--space-12);
+      margin-bottom: var(--space-12);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+    }
+    .guide-header img {
+      height: 64px;
+      width: auto;
+    }
+    .guide-header-text h1 {
+      font-family: var(--font-display);
+      font-size: var(--fs-3xl);
+      font-weight: var(--fw-extrabold);
+      color: var(--color-gold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+    }
+    .guide-header-text p {
+      color: var(--text-on-dark-muted);
+      font-size: var(--fs-md);
+      margin-top: var(--space-2);
+    }
+
+    .guide-section {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-10) var(--space-10);
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .guide-section h2 {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-wider);
+      color: var(--color-blue);
+      border-bottom: 2px solid var(--color-gold);
+      padding-bottom: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+
+    /* ---- Color Swatches ---- */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .swatch-row {
+      margin-bottom: var(--space-8);
+    }
+    .swatch-row-label {
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-wider);
+      color: var(--color-neutral-500);
+      margin-bottom: var(--space-3);
+    }
+    .swatch-row .swatch-grid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .swatch-color {
+      height: 80px;
+      width: 100%;
+    }
+    .swatch-info {
+      padding: var(--space-3) var(--space-3);
+      background: var(--color-white);
+      border: 1px solid var(--color-neutral-200);
+      border-top: none;
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+    }
+    .swatch-name {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      color: var(--color-neutral-800);
+      display: block;
+    }
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--color-neutral-500);
+      display: block;
+      margin-top: 2px;
+    }
+    .swatch-role {
+      font-size: 10px;
+      color: var(--color-neutral-400);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ---- Primary Swatches (large) ---- */
+    .primary-swatches {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-10);
+    }
+    .primary-swatch .swatch-color {
+      height: 160px;
+    }
+    .primary-swatch .swatch-info {
+      padding: var(--space-4);
+    }
+    .primary-swatch .swatch-name {
+      font-size: var(--fs-md);
+    }
+    .primary-swatch .swatch-hex {
+      font-size: var(--fs-sm);
+    }
+
+    /* ---- Typography ---- */
+    .type-sample {
+      margin-bottom: var(--space-8);
+      padding-bottom: var(--space-8);
+      border-bottom: 1px solid var(--color-neutral-200);
+    }
+    .type-sample:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .type-label {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-wider);
+      color: var(--color-neutral-400);
+      margin-bottom: var(--space-3);
+      display: flex;
+      gap: var(--space-4);
+    }
+    .type-label span {
+      background: var(--color-neutral-100);
+      padding: 2px var(--space-2);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+    }
+
+    .type-hero    { font-family: var(--font-display); font-size: var(--fs-hero);   font-weight: var(--fw-extrabold); line-height: var(--lh-tight); letter-spacing: var(--ls-tight);  color: var(--color-dark-900); text-transform: uppercase; }
+    .type-h1      { font-family: var(--font-display); font-size: var(--fs-5xl);    font-weight: var(--fw-bold);      line-height: var(--lh-tight); letter-spacing: var(--ls-tight);  color: var(--color-dark-900); text-transform: uppercase; }
+    .type-h2      { font-family: var(--font-display); font-size: var(--fs-4xl);    font-weight: var(--fw-bold);      line-height: var(--lh-snug); color: var(--color-dark-900); text-transform: uppercase; }
+    .type-h3      { font-family: var(--font-display); font-size: var(--fs-3xl);    font-weight: var(--fw-semibold);  line-height: var(--lh-snug); color: var(--color-dark-900); }
+    .type-h4      { font-family: var(--font-display); font-size: var(--fs-2xl);    font-weight: var(--fw-semibold);  line-height: var(--lh-snug); color: var(--color-dark-900); }
+    .type-lead    { font-family: var(--font-body);    font-size: var(--fs-xl);     font-weight: var(--fw-regular);   line-height: var(--lh-relaxed); color: var(--color-neutral-700); }
+    .type-body    { font-family: var(--font-body);    font-size: var(--fs-base);   font-weight: var(--fw-regular);   line-height: var(--lh-relaxed); color: var(--color-neutral-700); }
+    .type-small   { font-family: var(--font-body);    font-size: var(--fs-sm);     font-weight: var(--fw-regular);   line-height: var(--lh-normal); color: var(--color-neutral-500); }
+    .type-label-s { font-family: var(--font-display); font-size: var(--fs-xs);     font-weight: var(--fw-semibold);  letter-spacing: var(--ls-widest); text-transform: uppercase; color: var(--color-gold); }
+
+    /* ---- Buttons ---- */
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: center;
+      margin-bottom: var(--space-6);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-display);
+      font-weight: var(--fw-semibold);
+      font-size: var(--fs-md);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-base);
+      cursor: pointer;
+      border: 2px solid transparent;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--color-blue);
+      color: var(--color-white);
+      border-color: var(--color-blue);
+    }
+    .btn-primary:hover {
+      background: var(--color-blue-300);
+      border-color: var(--color-blue-300);
+      color: var(--color-white);
+    }
+    .btn-gold {
+      background: var(--color-gold);
+      color: var(--color-dark-900);
+      border-color: var(--color-gold);
+    }
+    .btn-gold:hover {
+      background: var(--color-gold-300);
+      border-color: var(--color-gold-300);
+      color: var(--color-dark-900);
+    }
+    .btn-outline-white {
+      background: transparent;
+      color: var(--color-white);
+      border-color: var(--color-white);
+    }
+    .btn-outline-white:hover {
+      background: var(--color-white);
+      color: var(--color-dark-900);
+    }
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--color-gold);
+      border-color: var(--color-gold);
+    }
+    .btn-outline-gold:hover {
+      background: var(--color-gold);
+      color: var(--color-dark-900);
+    }
+    .btn-sm {
+      padding: var(--space-2) var(--space-5);
+      font-size: var(--fs-sm);
+    }
+    .btn-lg {
+      padding: var(--space-5) var(--space-12);
+      font-size: var(--fs-lg);
+    }
+
+    /* Dark button preview bg */
+    .dark-preview {
+      background: var(--color-dark-900);
+      padding: var(--space-6);
+      border-radius: var(--radius-md);
+    }
+
+    /* ---- UI Elements ---- */
+    .ui-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+    }
+
+    .stat-block {
+      padding: var(--space-6);
+      background: var(--color-neutral-100);
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--color-gold);
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: var(--fs-4xl);
+      font-weight: var(--fw-extrabold);
+      color: var(--color-blue);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: var(--fs-sm);
+      color: var(--color-neutral-600);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-wide);
+      margin-top: var(--space-2);
+    }
+
+    .service-card {
+      padding: var(--space-6);
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-neutral-200);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+    }
+    .service-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-gold);
+      transform: translateY(-2px);
+    }
+    .service-card-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--color-blue-50);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-4);
+      color: var(--color-blue);
+      font-size: 24px;
+    }
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-bold);
+      color: var(--color-dark-900);
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+    .service-card p {
+      font-size: var(--fs-sm);
+      color: var(--color-neutral-600);
+      line-height: var(--lh-relaxed);
+    }
+
+    /* ---- Usage Notes ---- */
+    .usage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-4);
+    }
+    .usage-item {
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      font-size: var(--fs-sm);
+    }
+    .usage-item strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--fs-base);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-wide);
+      margin-bottom: var(--space-2);
+    }
+    .usage-do   { background: #E8F5EC; border-left: 3px solid #2A7A50; }
+    .usage-do strong { color: #2A7A50; }
+    .usage-dont { background: #FDEAEA; border-left: 3px solid #C23535; }
+    .usage-dont strong { color: #C23535; }
+    .usage-note { background: var(--color-blue-50); border-left: 3px solid var(--color-blue); }
+    .usage-note strong { color: var(--color-blue); }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="guide-header">
+    <img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co.">
+    <div class="guide-header-text">
+      <h1>Brand Guide</h1>
+      <p>Visual identity standards — The Edge Construction Co., Inc. &nbsp;|&nbsp; v1.0 &nbsp;|&nbsp; 2026</p>
+    </div>
+  </div>
+
+  <!-- 1. Color System -->
+  <div class="guide-section">
+    <h2>Color System</h2>
+
+    <!-- Primary Brand Colors -->
+    <div class="swatch-row">
+      <div class="swatch-row-label">Primary Brand Colors</div>
+      <div class="primary-swatches">
+        <div class="swatch primary-swatch">
+          <div class="swatch-color" style="background:#1164C2;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Edge Blue</span>
+            <span class="swatch-hex">#1164C2</span>
+            <span class="swatch-role">Trust · Strength · Precision</span>
+          </div>
+        </div>
+        <div class="swatch primary-swatch">
+          <div class="swatch-color" style="background:#A8985C;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Edge Gold</span>
+            <span class="swatch-hex">#A8985C</span>
+            <span class="swatch-role">Craftsmanship · Premium · Legacy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blue Scale -->
+    <div class="swatch-row">
+      <div class="swatch-row-label">Blue Scale</div>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch-color" style="background:#EAF1FB;"></div><div class="swatch-info"><span class="swatch-name">Blue 50</span><span class="swatch-hex">#EAF1FB</span><span class="swatch-role">Tint / bg</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#C0D8F5;"></div><div class="swatch-info"><span class="swatch-name">Blue 100</span><span class="swatch-hex">#C0D8F5</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#7EB2EC;"></div><div class="swatch-info"><span class="swatch-name">Blue 200</span><span class="swatch-hex">#7EB2EC</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#3A7FD4;"></div><div class="swatch-info"><span class="swatch-name">Blue 300</span><span class="swatch-hex">#3A7FD4</span><span class="swatch-role">Hover</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#1164C2; outline: 3px solid #A8985C; outline-offset: 3px;"></div><div class="swatch-info"><span class="swatch-name">Blue ★</span><span class="swatch-hex">#1164C2</span><span class="swatch-role">Primary</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#0D52A8;"></div><div class="swatch-info"><span class="swatch-name">Blue 600</span><span class="swatch-hex">#0D52A8</span><span class="swatch-role">Active</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#0A4090;"></div><div class="swatch-info"><span class="swatch-name">Blue 700</span><span class="swatch-hex">#0A4090</span><span class="swatch-role">Dark</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#05204A;"></div><div class="swatch-info"><span class="swatch-name">Blue 900</span><span class="swatch-hex">#05204A</span></div></div>
+      </div>
+    </div>
+
+    <!-- Gold Scale -->
+    <div class="swatch-row">
+      <div class="swatch-row-label">Gold Scale</div>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch-color" style="background:#F0EBD8;"></div><div class="swatch-info"><span class="swatch-name">Gold 100</span><span class="swatch-hex">#F0EBD8</span><span class="swatch-role">Tint / bg</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#D9CC9C;"></div><div class="swatch-info"><span class="swatch-name">Gold 200</span><span class="swatch-hex">#D9CC9C</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#C2B070;"></div><div class="swatch-info"><span class="swatch-name">Gold 300</span><span class="swatch-hex">#C2B070</span><span class="swatch-role">Highlight</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#A8985C; outline: 3px solid #1164C2; outline-offset: 3px;"></div><div class="swatch-info"><span class="swatch-name">Gold ★</span><span class="swatch-hex">#A8985C</span><span class="swatch-role">Primary</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#8A7C44;"></div><div class="swatch-info"><span class="swatch-name">Gold 600</span><span class="swatch-hex">#8A7C44</span><span class="swatch-role">Hover</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#6E6230;"></div><div class="swatch-info"><span class="swatch-name">Gold 700</span><span class="swatch-hex">#6E6230</span><span class="swatch-role">Dark</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#3D350F;"></div><div class="swatch-info"><span class="swatch-name">Gold 900</span><span class="swatch-hex">#3D350F</span></div></div>
+      </div>
+    </div>
+
+    <!-- Dark Scale -->
+    <div class="swatch-row">
+      <div class="swatch-row-label">Dark Scale — Blue-Tinted (Headers, Dark Sections)</div>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch-color" style="background:#060D1A;"></div><div class="swatch-info"><span class="swatch-name">Dark 950</span><span class="swatch-hex">#060D1A</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#0A1628;"></div><div class="swatch-info"><span class="swatch-name">Dark 900</span><span class="swatch-hex">#0A1628</span><span class="swatch-role">Primary dark bg</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#0F1E38;"></div><div class="swatch-info"><span class="swatch-name">Dark 800</span><span class="swatch-hex">#0F1E38</span><span class="swatch-role">Section bg</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#152847;"></div><div class="swatch-info"><span class="swatch-name">Dark 700</span><span class="swatch-hex">#152847</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#1D3560;"></div><div class="swatch-info"><span class="swatch-name">Dark 600</span><span class="swatch-hex">#1D3560</span><span class="swatch-role">Card bg</span></div></div>
+      </div>
+    </div>
+
+    <!-- Neutral Scale -->
+    <div class="swatch-row">
+      <div class="swatch-row-label">Neutral Scale — Warm Grays</div>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch-color" style="background:#FAFAF8; border:1px solid #eee;"></div><div class="swatch-info"><span class="swatch-name">Neutral 50</span><span class="swatch-hex">#FAFAF8</span><span class="swatch-role">Page bg</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F6F4F0; border:1px solid #eee;"></div><div class="swatch-info"><span class="swatch-name">Neutral 100</span><span class="swatch-hex">#F6F4F0</span><span class="swatch-role">Section alt</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#EAE7E0;"></div><div class="swatch-info"><span class="swatch-name">Neutral 200</span><span class="swatch-hex">#EAE7E0</span><span class="swatch-role">Cards</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#D1CCC2;"></div><div class="swatch-info"><span class="swatch-name">Neutral 300</span><span class="swatch-hex">#D1CCC2</span><span class="swatch-role">Borders</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#B0AA9F;"></div><div class="swatch-info"><span class="swatch-name">Neutral 400</span><span class="swatch-hex">#B0AA9F</span><span class="swatch-role">Placeholder</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#8A8680;"></div><div class="swatch-info"><span class="swatch-name">Neutral 500</span><span class="swatch-hex">#8A8680</span><span class="swatch-role">Secondary txt</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#6B6660;"></div><div class="swatch-info"><span class="swatch-name">Neutral 600</span><span class="swatch-hex">#6B6660</span><span class="swatch-role">Muted text</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#4A4845;"></div><div class="swatch-info"><span class="swatch-name">Neutral 700</span><span class="swatch-hex">#4A4845</span><span class="swatch-role">Body text</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#2E2C2A;"></div><div class="swatch-info"><span class="swatch-name">Neutral 800</span><span class="swatch-hex">#2E2C2A</span><span class="swatch-role">Strong text</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#1A1817;"></div><div class="swatch-info"><span class="swatch-name">Neutral 900</span><span class="swatch-hex">#1A1817</span><span class="swatch-role">Headings</span></div></div>
+      </div>
+    </div>
+
+    <!-- Usage Rules -->
+    <div class="usage-grid">
+      <div class="usage-item usage-do">
+        <strong>Do</strong>
+        Use Edge Blue for primary CTAs, links, and icons on light backgrounds. Use Edge Gold for accents, borders, dividers, and headlines on dark backgrounds.
+      </div>
+      <div class="usage-item usage-dont">
+        <strong>Don't</strong>
+        Never place Edge Gold text on white backgrounds (fails WCAG AA contrast). Never use Edge Blue on dark navy — use white or gold instead.
+      </div>
+      <div class="usage-item usage-note">
+        <strong>Note</strong>
+        The Dark Scale is the primary background for hero sections, nav, and footer. Gold on dark passes WCAG AA at all heading sizes.
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Typography -->
+  <div class="guide-section">
+    <h2>Typography</h2>
+
+    <div style="background:var(--color-neutral-100); padding:var(--space-4) var(--space-6); border-radius:var(--radius-md); margin-bottom:var(--space-8);">
+      <strong style="font-family:var(--font-display); font-size:var(--fs-lg); color:var(--color-blue);">Barlow Condensed</strong>
+      <span style="color:var(--color-neutral-500); font-size:var(--fs-sm); margin-left:var(--space-4);">Display / Headings — weights 500, 600, 700, 800</span><br>
+      <strong style="font-family:var(--font-body); font-size:var(--fs-lg); color:var(--color-blue); margin-top:var(--space-3); display:block;">Barlow</strong>
+      <span style="color:var(--color-neutral-500); font-size:var(--fs-sm); margin-left:0;">Body / UI — weights 400, 500, 600</span>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">Hero Display <span>Barlow Condensed 800 · Uppercase · Tight tracking</span></div>
+      <div class="type-hero">Build On The Edge</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">H1 <span>Barlow Condensed 700 · Uppercase · ~clamp(3rem, 7.5vw, 5rem)</span></div>
+      <div class="type-h1">Commercial Construction</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">H2 <span>Barlow Condensed 700 · Uppercase · ~clamp(2.5rem, 6vw, 3.5rem)</span></div>
+      <div class="type-h2">Our Services</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">H3 <span>Barlow Condensed 600 · ~clamp(2rem, 5vw, 2.75rem)</span></div>
+      <div class="type-h3">Metal Stud Framing</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">H4 <span>Barlow Condensed 600 · ~clamp(1.5rem, 4vw, 2rem)</span></div>
+      <div class="type-h4">Project Overview</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">Lead Paragraph <span>Barlow 400 · ~clamp(1.25rem, 3vw, 1.5rem)</span></div>
+      <div class="type-lead">Safe, on-time, technology-driven commercial carpentry — serving the greater Chicago area for over 20 years.</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">Body <span>Barlow 400 · ~16–17px · Line height 1.7</span></div>
+      <div class="type-body">The Edge Construction Co. specializes in commercial carpentry, metal stud framing, drywall installation, and acoustic installations. Our precision laser layout and BIM capabilities set us apart from the competition, delivering quality results on time and on budget.</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">Small / Caption <span>Barlow 400 · ~13–15px</span></div>
+      <div class="type-small">1540 Hecht Drive, Suite G, Bartlett, IL 60103 · (224) 208-1062</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">Label / Eyebrow <span>Barlow Condensed 600 · Uppercase · Widest tracking · Gold</span></div>
+      <div class="type-label-s">Our Services</div>
+    </div>
+  </div>
+
+  <!-- 3. Buttons -->
+  <div class="guide-section">
+    <h2>Buttons & CTAs</h2>
+
+    <div class="button-row">
+      <a href="#" class="btn btn-primary">Request a Bid</a>
+      <a href="#" class="btn btn-gold">View Projects</a>
+      <a href="#" class="btn btn-outline-gold">Learn More</a>
+    </div>
+
+    <div class="dark-preview">
+      <div class="button-row">
+        <a href="#" class="btn btn-gold">Request a Bid</a>
+        <a href="#" class="btn btn-primary">View Projects</a>
+        <a href="#" class="btn btn-outline-white">Learn More</a>
+      </div>
+    </div>
+
+    <div style="margin-top:var(--space-6);">
+      <div class="button-row">
+        <a href="#" class="btn btn-primary btn-sm">Small Button</a>
+        <a href="#" class="btn btn-primary">Default Button</a>
+        <a href="#" class="btn btn-primary btn-lg">Large Button</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. UI Components Preview -->
+  <div class="guide-section">
+    <h2>UI Components — Preview</h2>
+
+    <div class="ui-grid" style="margin-bottom:var(--space-8);">
+      <div class="stat-block">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Years in Business</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">75%</div>
+        <div class="stat-label">Productivity Increase</div>
+      </div>
+    </div>
+
+    <div class="ui-grid">
+      <div class="service-card">
+        <div class="service-card-icon">▦</div>
+        <h3>Metal Stud Framing</h3>
+        <p>Complex structural work with thousands of hours of expertise across Chicago-area commercial projects.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">◈</div>
+        <h3>Drywall Solutions</h3>
+        <p>Prefabrication shop combined with state-of-the-art finishing technology — up to 75% faster.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Logo Usage -->
+  <div class="guide-section">
+    <h2>Logo Usage</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-6);">
+      <div style="background:var(--color-dark-900); padding:var(--space-8); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center;">
+        <img src="brand/the-edge-logo-gold.png" alt="Logo on dark" style="max-height:80px; width:auto;">
+      </div>
+      <div style="background:var(--color-white); padding:var(--space-8); border-radius:var(--radius-md); border:1px solid var(--color-neutral-200); display:flex; align-items:center; justify-content:center;">
+        <img src="brand/the-edge-logo-gold.png" alt="Logo on light" style="max-height:80px; width:auto;">
+      </div>
+    </div>
+    <div class="usage-grid" style="margin-top:var(--space-6);">
+      <div class="usage-item usage-do"><strong>Do</strong>Use the gold logo on all dark/navy backgrounds (nav, footer, dark hero sections).</div>
+      <div class="usage-item usage-do"><strong>Do</strong>Use the white logo version (when available) on blue-filled backgrounds.</div>
+      <div class="usage-item usage-dont"><strong>Don't</strong>Never place the gold logo on white/light backgrounds without sufficient contrast. Use a dark version.</div>
+    </div>
+  </div>
+
+
+<div id="bg-gate" style="position:fixed;inset:0;z-index:9999;background:#0d1420;display:flex;align-items:center;justify-content:center;padding:1.5rem;">
+  <div style="width:100%;max-width:360px;text-align:center;">
+    <img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co." style="height:36px;width:auto;margin-bottom:2rem;opacity:0.9;">
+    <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(168,152,92,0.8);margin-bottom:0.5rem;">Internal Resource</p>
+    <h1 style="font-family:'Barlow Condensed',sans-serif;font-size:1.75rem;font-weight:800;color:#fff;margin:0 0 1.75rem;line-height:1.2;">Brand Guide</h1>
+    <form id="bg-form" style="display:flex;flex-direction:column;gap:0.75rem;">
+      <input id="bg-input" type="password" placeholder="Enter password" autocomplete="current-password"
+        style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:4px;color:#fff;font-size:1rem;padding:0.75rem 1rem;box-sizing:border-box;outline:none;font-family:'Barlow',sans-serif;">
+      <button type="submit"
+        style="background:#1164C2;color:#fff;border:none;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.75rem;cursor:pointer;">
+        Enter
+      </button>
+      <p id="bg-error" style="display:none;color:#e05;font-size:0.875rem;margin:0;">Incorrect password. Try again.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+(function () {
+  var PASS = 'edgerules';
+  var gate = document.getElementById('bg-gate');
+  var form = document.getElementById('bg-form');
+  var input = document.getElementById('bg-input');
+  var error = document.getElementById('bg-error');
+
+  if (sessionStorage.getItem('bg-auth') === '1') {
+    gate.style.display = 'none';
+    return;
+  }
+
+  document.body.style.overflow = 'hidden';
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (input.value === PASS) {
+      sessionStorage.setItem('bg-auth', '1');
+      gate.style.display = 'none';
+      document.body.style.overflow = '';
+    } else {
+      error.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

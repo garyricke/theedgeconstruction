@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="brand/Favicon-edge.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construction Jobs Chicago | Careers at The Edge Construction Co.</title>
+  <meta name="description" content="Skilled carpentry, framing, and drywall jobs in greater Chicago. Competitive pay, consistent work, and a team that takes craftsmanship seriously. Apply today.">
+  <link rel="canonical" href="https://www.theedgeconstructionco.com/careers">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Careers — Join The Edge Construction Co.">
+  <meta property="og:description" content="We're hiring skilled carpenters, tapers, framers, and foremen in greater Chicago. Competitive pay and a team that takes pride in their work.">
+  <meta property="og:url" content="https://www.theedgeconstructionco.com/careers">
+  <meta property="og:image" content="https://www.theedgeconstructionco.com/images/edge-construction-crew-inside-job.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <style>
+    /* ---- Why Work Here ---- */
+    .perks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+
+    .perk-card {
+      background: var(--color-dark-800);
+      border: 1px solid rgba(168, 152, 92, 0.12);
+      border-radius: var(--radius-md);
+      padding: var(--space-7) var(--space-6);
+      transition: border-color var(--transition-base), transform var(--transition-base);
+    }
+
+    .perk-card:hover {
+      border-color: rgba(168, 152, 92, 0.40);
+      transform: translateY(-2px);
+    }
+
+    .perk-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(17, 100, 194, 0.15);
+      border: 1px solid rgba(17, 100, 194, 0.25);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-5);
+    }
+
+    .perk-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: var(--color-blue-300);
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .perk-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-wide);
+      color: var(--color-white);
+      margin-bottom: var(--space-3);
+    }
+
+    .perk-desc {
+      font-size: var(--fs-sm);
+      color: rgba(255, 255, 255, 0.55);
+      line-height: var(--lh-relaxed);
+    }
+
+    /* ---- Job Listings ---- */
+    .job-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .job-item {
+      background: var(--color-white);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .job-item:hover {
+      border-color: var(--color-gold);
+      box-shadow: var(--shadow-md);
+    }
+
+    .job-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      padding: var(--space-6) var(--space-7);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .job-icon {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      background: var(--color-blue-50);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-blue);
+    }
+
+    .job-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .job-header-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .job-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-tight);
+      color: var(--color-dark-900);
+      margin-bottom: var(--space-2);
+    }
+
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .job-badge {
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      padding: 3px var(--space-3);
+      border-radius: var(--radius-full);
+    }
+
+    .job-badge--type {
+      background: var(--color-blue-50);
+      color: var(--color-blue);
+      border: 1px solid rgba(17,100,194,0.2);
+    }
+
+    .job-badge--location {
+      background: var(--color-neutral-100);
+      color: var(--color-neutral-600);
+      border: 1px solid var(--color-neutral-200);
+    }
+
+    .job-badge--pay {
+      background: rgba(168,152,92,0.10);
+      color: var(--color-gold-700);
+      border: 1px solid rgba(168,152,92,0.25);
+    }
+
+    .job-expand-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--color-neutral-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-neutral-400);
+      transition: all var(--transition-base);
+    }
+
+    .job-expand-icon svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+    }
+
+    .job-header[aria-expanded="true"] .job-expand-icon {
+      background: var(--color-blue);
+      border-color: var(--color-blue);
+      color: var(--color-white);
+      transform: rotate(45deg);
+    }
+
+    .job-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease;
+    }
+
+    .job-body.open {
+      grid-template-rows: 1fr;
+    }
+
+    .job-body-inner {
+      overflow: hidden;
+    }
+
+    .job-body-content {
+      padding: 0 var(--space-7) var(--space-7);
+      border-top: 1px solid var(--color-neutral-100);
+      margin-top: var(--space-1);
+      padding-top: var(--space-6);
+    }
+
+    .job-body-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+    }
+
+    .job-body-col h4 {
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-wider);
+      color: var(--color-neutral-500);
+      margin-bottom: var(--space-4);
+    }
+
+    .job-body-col p {
+      font-size: var(--fs-base);
+      color: var(--text-secondary);
+      line-height: var(--lh-relaxed);
+      margin-bottom: var(--space-4);
+    }
+
+    .job-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      list-style: none;
+    }
+
+    .job-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--fs-base);
+      color: var(--text-secondary);
+      line-height: var(--lh-normal);
+    }
+
+    .job-checklist li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      background: var(--color-blue-50);
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2.5 7l3 3 6-6' stroke='%231164C2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: 2px;
+    }
+
+    .job-apply-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      color: var(--color-white);
+      background: var(--color-blue);
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      border: 2px solid var(--color-blue);
+      transition: all var(--transition-base);
+      margin-top: var(--space-5);
+    }
+
+    .job-apply-btn:hover {
+      background: var(--color-blue-300);
+      border-color: var(--color-blue-300);
+      color: var(--color-white);
+    }
+
+    /* ---- Culture Photos ---- */
+    .culture-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    .culture-img {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .culture-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .culture-img--tall { aspect-ratio: 3/4; }
+    .culture-img--wide { aspect-ratio: 4/3; }
+
+    /* ---- No open roles ---- */
+    .no-roles {
+      text-align: center;
+      padding: var(--space-16) var(--space-8);
+      background: var(--color-neutral-100);
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--color-neutral-300);
+    }
+
+    .no-roles h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      color: var(--color-dark-900);
+      margin-bottom: var(--space-3);
+    }
+
+    .no-roles p {
+      font-size: var(--fs-base);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-6);
+    }
+
+    @media (max-width: 1024px) {
+      .perks-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .job-body-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+      .culture-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .perks-grid { grid-template-columns: 1fr; }
+      .job-header { padding: var(--space-5); }
+      .job-body-content { padding: var(--space-5); }
+    }
+
+    /* ================================================================
+       APPLY MODAL — all styles scoped under .apply-modal to prevent
+       conflicts with the dark site theme
+       ================================================================ */
+
+    .apply-modal {
+      position: fixed;
+      inset: 0;
+      z-index: var(--z-modal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 250ms ease;
+    }
+
+    .apply-modal.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .apply-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(6, 13, 26, 0.80);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .apply-modal-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 780px;
+      max-height: calc(100vh - 2.5rem);
+      display: flex;
+      flex-direction: column;
+      transform: translateY(20px) scale(0.98);
+      transition: transform 300ms cubic-bezier(0.34, 1.3, 0.64, 1);
+    }
+
+    .apply-modal.open .apply-modal-inner {
+      transform: translateY(0) scale(1);
+    }
+
+    /* ---- Close button ---- */
+    .apply-modal-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 36px;
+      height: 36px;
+      background: #ffffff;
+      border: 1px solid #E8E6E0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background 150ms, transform 150ms;
+      padding: 0;
+    }
+
+    .apply-modal-close:hover {
+      background: #F5F5F5;
+      transform: scale(1.08);
+    }
+
+    .apply-modal-close svg {
+      width: 16px;
+      height: 16px;
+      stroke: #4A4845;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+    }
+
+    /* ---- Wizard card ---- */
+    .aw-card {
+      background: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      border-top: 4px solid #A8985C;
+      box-shadow: 0 20px 60px rgba(6, 13, 26, 0.40);
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100vh - 2.5rem);
+    }
+
+    /* ---- Progress bar ---- */
+    .aw-progress {
+      height: 3px;
+      background: #E8E6E0;
+      flex-shrink: 0;
+    }
+
+    .aw-progress-fill {
+      height: 100%;
+      background: #1164C2;
+      transition: width 300ms ease;
+    }
+
+    /* ---- Body (scrollable) ---- */
+    .aw-body {
+      padding: 2.5rem 2.75rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* ---- Steps ---- */
+    .aw-step { display: none; }
+    .aw-step.aw-active {
+      display: block;
+      animation: awStepIn 200ms ease forwards;
+    }
+    .aw-step.aw-going-back.aw-active {
+      animation: awStepBack 200ms ease forwards;
+    }
+
+    @keyframes awStepIn {
+      from { opacity: 0; transform: translateX(14px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes awStepBack {
+      from { opacity: 0; transform: translateX(-14px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ---- Question title ---- */
+    .aw-question {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 600;
+      color: #1A1817;
+      margin-bottom: 0.25rem;
+      line-height: 1.25;
+    }
+
+    .aw-question.aw-error { color: #C23535; }
+    .aw-question .aw-req { color: #C23535; }
+
+    .aw-hint {
+      font-size: 0.875rem;
+      color: #6B6660;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+      margin-top: 0.375rem;
+    }
+
+    /* ---- Option grids ---- */
+    .aw-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.625rem;
+      margin-top: 1.25rem;
+    }
+
+    .aw-options .aw-opt:last-child:nth-child(odd) { grid-column: 1; }
+
+    .aw-opt {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.8rem 1rem;
+      border: 1px solid #D1CCC2;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 150ms, background 150ms;
+      user-select: none;
+      background: #ffffff;
+    }
+
+    .aw-opt:hover { border-color: #7EB2EC; background: #F5F8FD; }
+    .aw-opt.aw-selected { border-color: #1164C2; background: #EEF4FB; }
+
+    .aw-opt input[type="radio"],
+    .aw-opt input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+      accent-color: #1164C2;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .aw-opt-label {
+      font-size: 0.9375rem;
+      color: #2E2C2A;
+      line-height: 1.3;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+    }
+
+    /* ---- Text inputs ---- */
+    .aw-input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.875rem;
+      margin-top: 1.25rem;
+    }
+
+    .aw-input-row.aw-single { grid-template-columns: 1fr; }
+
+    .aw-input-group { display: flex; flex-direction: column; }
+
+    .aw-field {
+      padding: 0.7rem 1rem;
+      border: 1px solid #D1CCC2;
+      border-radius: 6px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9375rem;
+      color: #1A1817;
+      outline: none;
+      width: 100%;
+      background: #ffffff;
+      transition: border-color 150ms, box-shadow 150ms;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .aw-field:focus {
+      border-color: #1164C2;
+      box-shadow: 0 0 0 3px rgba(17, 100, 194, 0.10);
+    }
+
+    .aw-field::placeholder { color: #B0AA9F; }
+
+    .aw-field-label {
+      font-size: 0.72rem;
+      color: #8A8680;
+      margin-top: 0.3rem;
+      padding-left: 0.2rem;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    select.aw-field {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8680' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.875rem center;
+      padding-right: 2.25rem;
+      cursor: pointer;
+    }
+
+    .aw-address-stack { display: flex; flex-direction: column; gap: 0.625rem; margin-top: 1.25rem; }
+    .aw-address-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.625rem; }
+
+    .aw-rate-wrap { position: relative; margin-top: 1.25rem; max-width: 280px; }
+    .aw-rate-wrap .aw-dollar {
+      position: absolute; left: 0.875rem; top: 50%; transform: translateY(-50%);
+      color: #B0AA9F; font-size: 0.9375rem; pointer-events: none; font-family: 'Barlow', sans-serif;
+    }
+    .aw-rate-wrap .aw-field { padding-left: 1.625rem; }
+
+    /* ---- File upload ---- */
+    .aw-file-zone {
+      border: 2px dashed #7EB2EC;
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: #F5F8FD;
+      cursor: pointer;
+      transition: border-color 150ms, background 150ms;
+      margin-top: 1.25rem;
+    }
+
+    .aw-file-zone:hover { border-color: #1164C2; background: #EEF4FB; }
+    .aw-file-zone.aw-has-file { border-color: #2A7A50; background: #F0F8F4; }
+
+    .aw-file-icon svg {
+      width: 32px; height: 32px;
+      stroke: #7EB2EC; fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .aw-file-text { flex: 1; font-family: 'Barlow', sans-serif; }
+    .aw-file-text strong { display: block; font-size: 0.9375rem; color: #1A1817; margin-bottom: 0.15rem; }
+    .aw-file-text span { font-size: 0.8125rem; color: #8A8680; }
+    .aw-file-text .aw-file-name { font-size: 0.875rem; color: #2A7A50; font-weight: 500; margin-top: 0.2rem; display: none; }
+
+    .aw-browse-btn {
+      background: #1164C2; color: white; border: none;
+      padding: 0.65rem 1.25rem; border-radius: 6px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8125rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; white-space: nowrap; flex-shrink: 0;
+      transition: background 150ms;
+    }
+    .aw-browse-btn:hover { background: #0D52A8; }
+
+    #aw-resume-input { display: none; }
+
+    /* ---- Comments ---- */
+    .aw-textarea {
+      width: 100%; min-height: 160px;
+      padding: 0.75rem 1rem;
+      border: 1px solid #D1CCC2; border-radius: 6px;
+      font-family: 'Barlow', sans-serif; font-size: 0.9375rem;
+      color: #1A1817; resize: vertical; outline: none;
+      transition: border-color 150ms, box-shadow 150ms;
+      margin-top: 1.25rem; line-height: 1.6;
+      background: #ffffff; box-sizing: border-box;
+    }
+    .aw-textarea:focus { border-color: #1164C2; box-shadow: 0 0 0 3px rgba(17,100,194,0.10); }
+    .aw-textarea::placeholder { color: #B0AA9F; }
+
+    /* ---- Footer ---- */
+    .aw-footer {
+      background: #1D3560;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      height: 58px;
+      flex-shrink: 0;
+    }
+
+    .aw-btn {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0 1.5rem; height: 100%;
+      background: transparent; border: none;
+      color: rgba(255,255,255,0.90);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8125rem; font-weight: 600;
+      letter-spacing: 0.10em; text-transform: uppercase;
+      cursor: pointer; transition: background 150ms; white-space: nowrap;
+    }
+    .aw-btn:hover { background: rgba(255,255,255,0.07); }
+    .aw-btn:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
+    .aw-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .aw-btn--next { justify-content: flex-end; }
+    .aw-btn--prev { justify-content: flex-start; }
+
+    .aw-footer-center { text-align: center; position: relative; }
+
+    .aw-counter {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8125rem; color: rgba(255,255,255,0.55);
+    }
+
+    .aw-err-badge {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      top: 50%; margin-top: -12px;
+      background: #C23535; color: white;
+      font-size: 0.8125rem; font-weight: 500;
+      padding: 0.275rem 0.875rem; border-radius: 4px;
+      white-space: nowrap; display: none;
+      animation: awErrPop 200ms ease;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    @keyframes awErrPop {
+      from { opacity: 0; transform: translateX(-50%) scale(0.9); }
+      to   { opacity: 1; transform: translateX(-50%) scale(1); }
+    }
+
+    /* ---- Success screen ---- */
+    .aw-success {
+      display: none; text-align: center;
+      padding: 3rem 2.5rem;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    .aw-success svg {
+      width: 52px; height: 52px;
+      stroke: #2A7A50; fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+      margin-bottom: 1.25rem;
+    }
+
+    .aw-success h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.875rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      color: #1A1817; margin-bottom: 0.75rem;
+    }
+
+    .aw-success p { font-size: 1rem; color: #6B6660; line-height: 1.6; max-width: 420px; margin: 0 auto; }
+
+    .aw-success-close {
+      display: inline-block; margin-top: 1.75rem;
+      background: #1164C2; color: white; text-decoration: none;
+      padding: 0.65rem 1.75rem; border-radius: 6px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.875rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      transition: background 150ms; cursor: pointer; border: none;
+    }
+    .aw-success-close:hover { background: #0D52A8; }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 640px) {
+      .aw-body { padding: 1.5rem 1.25rem 1.25rem; }
+      .aw-options { grid-template-columns: 1fr; }
+      .aw-options .aw-opt:last-child:nth-child(odd) { grid-column: auto; }
+      .aw-input-row { grid-template-columns: 1fr; }
+      .aw-address-row { grid-template-columns: 1fr; }
+      .aw-rate-wrap { max-width: 100%; }
+      .aw-file-zone { flex-wrap: wrap; }
+      .aw-btn { padding: 0 1rem; }
+      .apply-modal-close { top: -12px; right: -12px; }
+    }
+  </style>
+
+  <!-- JobPosting Schema for each open role -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": "Journeyman Carpenter — Metal Stud Framer",
+      "description": "The Edge Construction Co. is hiring experienced journeyman carpenters specializing in commercial metal stud framing. Work on Chicago-area commercial projects with a technology-forward team. Competitive hourly pay, consistent schedule, and real career growth.",
+      "datePosted": "2026-03-01",
+      "validThrough": "2026-12-31",
+      "employmentType": "FULL_TIME",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "The Edge Construction Co., Inc.",
+        "sameAs": "https://www.theedgeconstructionco.com"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bartlett",
+          "addressRegion": "IL",
+          "addressCountry": "US"
+        }
+      },
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": { "@type": "QuantitativeValue", "minValue": 35, "maxValue": 55, "unitText": "HOUR" }
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": "Drywall Taper / Finisher",
+      "description": "Experienced commercial drywall tapers and finishers needed for Chicago-area projects. The Edge operates an in-house prefab shop and uses advanced finishing equipment — bringing your skills up to the next level.",
+      "datePosted": "2026-03-01",
+      "validThrough": "2026-12-31",
+      "employmentType": "FULL_TIME",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "The Edge Construction Co., Inc.",
+        "sameAs": "https://www.theedgeconstructionco.com"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bartlett",
+          "addressRegion": "IL",
+          "addressCountry": "US"
+        }
+      }
+    }
+  ]
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Careers — The Edge Construction Co.",
+    "description": "Skilled carpentry, framing, and drywall jobs in greater Chicago. Competitive pay, consistent work, and a team that takes craftsmanship seriously.",
+    "url": "https://www.theedgeconstructionco.com/careers",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://www.theedgeconstructionco.com",
+      "name": "The Edge Construction Co."
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"><img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co." width="180" height="40"></a>
+        <ul class="nav-links" role="list">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html" aria-current="page">Careers</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta">Request a Bid</a>
+        <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <nav id="mobile-nav" class="nav-mobile" aria-label="Mobile navigation">
+    <a href="services.html">Services</a><a href="projects.html">Projects</a><a href="technology.html">Technology</a><a href="about.html">About</a><a href="careers.html">Careers</a>
+    <a href="contact.html" class="nav-mobile-cta">Request a Bid</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="page-hero-bg">
+      <img src="images/edge-construction-crew-inside-job.jpeg"
+           alt="The Edge Construction Co. crew working on a commercial framing project"
+           loading="eager" fetchpriority="high"
+           style="object-position: center 30%;">
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li>Careers</li>
+          </ol>
+        </nav>
+        <h1 class="page-hero-title">Build Your <em>Career</em><br>With The Edge</h1>
+        <p class="page-hero-sub">We're hiring skilled carpenters, tapers, framers, and foremen across the greater Chicago area. Consistent work, competitive pay, and a team that takes pride in doing it right.</p>
+        <div style="margin-top: var(--space-8);">
+          <a href="#open-roles" class="btn btn-gold btn-arrow">See Open Positions</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- WHY WORK HERE -->
+  <section class="section section--dark" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="section-header--center fade-up">
+        <p class="eyebrow">Why The Edge</p>
+        <h2 class="section-title section-title--light" id="why-heading">A Team Worth <em>Joining</em></h2>
+        <p class="section-body section-body--light">We've spent 20 years building a company where skilled tradespeople can do their best work — with the tools, technology, and leadership to back them up.</p>
+      </div>
+
+      <div class="perks-grid">
+
+        <div class="perk-card fade-up">
+          <div class="perk-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3 class="perk-title">Competitive Pay</h3>
+          <p class="perk-desc">We pay above-market rates for skilled tradespeople because we expect above-average results. Your skills are worth it — and we know it.</p>
+        </div>
+
+        <div class="perk-card fade-up fade-up-delay-1">
+          <div class="perk-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          </div>
+          <h3 class="perk-title">Consistent Work</h3>
+          <p class="perk-desc">Our project pipeline keeps crews working year-round. No boom-and-bust cycle — just steady commercial projects across Chicagoland.</p>
+        </div>
+
+        <div class="perk-card fade-up fade-up-delay-2">
+          <div class="perk-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="perk-title">Safety First</h3>
+          <p class="perk-desc">Safety isn't a poster on the wall — it's how we plan every job. OSHA compliance, proper equipment, and a zero-tolerance culture for shortcuts.</p>
+        </div>
+
+        <div class="perk-card fade-up">
+          <div class="perk-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="perk-title">Modern Technology</h3>
+          <p class="perk-desc">Work alongside laser layout equipment, BIM-coordinated plans, and prefabrication systems that make your job smarter — not just harder.</p>
+        </div>
+
+        <div class="perk-card fade-up fade-up-delay-1">
+          <div class="perk-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3 class="perk-title">Strong Team Culture</h3>
+          <p class="perk-desc">Small enough to know everyone, large enough to keep you busy. We treat crew members like professionals — because that's what you are.</p>
+        </div>
+
+        <div class="perk-card fade-up fade-up-delay-2">
+          <div class="perk-icon">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <h3 class="perk-title">Room to Grow</h3>
+          <p class="perk-desc">Foreman positions are filled from within. If you show up, perform, and lead — there's a clear path to running your own crew at The Edge.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN POSITIONS -->
+  <section class="section section--light" id="open-roles" aria-labelledby="roles-heading">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <p class="eyebrow">Now Hiring</p>
+        <h2 class="section-title" id="roles-heading">Open <em>Positions</em></h2>
+        <p class="section-body">All positions are based in the greater Chicago area. Most work takes place across Cook, DuPage, Lake, and Will counties.</p>
+      </div>
+
+      <div class="job-list">
+
+        <!-- Job 1: Journeyman Carpenter / Framer -->
+        <div class="job-item fade-up">
+          <button class="job-header" aria-expanded="false">
+            <div class="job-icon">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div class="job-header-text">
+              <p class="job-title">Journeyman Carpenter — Metal Stud Framer</p>
+              <div class="job-meta">
+                <span class="job-badge job-badge--type">Full-Time</span>
+                <span class="job-badge job-badge--location">Greater Chicago, IL</span>
+                <span class="job-badge job-badge--pay">$35–$55 / hr DOE</span>
+              </div>
+            </div>
+            <div class="job-expand-icon"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg></div>
+          </button>
+          <div class="job-body">
+            <div class="job-body-inner">
+              <div class="job-body-content">
+                <div class="job-body-grid">
+                  <div class="job-body-col">
+                    <h4>About the Role</h4>
+                    <p>We're looking for experienced commercial metal stud framers who take precision seriously. You'll be working on a variety of projects across Chicagoland — from multi-family residential to retail build-outs to complex historic renovations — with a crew that knows what they're doing and takes pride in it.</p>
+                    <p>We use laser layout on every job. If you've worked with rotary lasers and understand what tight tolerances mean for the trades coming after you, you'll fit right in.</p>
+                    <a href="apply.html" class="job-apply-btn" onclick="openApplyModal(event)">Apply for This Role →</a>
+                  </div>
+                  <div class="job-body-col">
+                    <h4>What We're Looking For</h4>
+                    <ul class="job-checklist">
+                      <li>3+ years commercial metal stud framing experience</li>
+                      <li>Proficiency reading architectural and structural drawings</li>
+                      <li>Experience with laser layout equipment</li>
+                      <li>Ability to work from scaffolding and aerial lifts (OSHA 10 preferred)</li>
+                      <li>Reliable transportation to job sites across Chicagoland</li>
+                      <li>Strong work ethic and attention to detail</li>
+                      <li>Experience with curtain wall backup, tall-wall, or complex assemblies a plus</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 2: Drywall Taper -->
+        <div class="job-item fade-up fade-up-delay-1">
+          <button class="job-header" aria-expanded="false">
+            <div class="job-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+            </div>
+            <div class="job-header-text">
+              <p class="job-title">Drywall Taper / Finisher</p>
+              <div class="job-meta">
+                <span class="job-badge job-badge--type">Full-Time</span>
+                <span class="job-badge job-badge--location">Greater Chicago, IL</span>
+                <span class="job-badge job-badge--pay">Competitive DOE</span>
+              </div>
+            </div>
+            <div class="job-expand-icon"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg></div>
+          </button>
+          <div class="job-body">
+            <div class="job-body-inner">
+              <div class="job-body-content">
+                <div class="job-body-grid">
+                  <div class="job-body-col">
+                    <h4>About the Role</h4>
+                    <p>The Edge operates an in-house prefabrication shop and invests in advanced finishing equipment — meaning our tapers work smarter, not just harder. We're looking for experienced commercial tapers and finishers who can deliver consistent Level 5 finish quality across a range of project types.</p>
+                    <p>You'll work alongside our framing crews in a coordinated sequence, with project management tools that keep the schedule tight and the handoffs clean.</p>
+                    <a href="apply.html" class="job-apply-btn" onclick="openApplyModal(event)">Apply for This Role →</a>
+                  </div>
+                  <div class="job-body-col">
+                    <h4>What We're Looking For</h4>
+                    <ul class="job-checklist">
+                      <li>3+ years commercial taping and finishing experience</li>
+                      <li>Level 4 and Level 5 finish capability</li>
+                      <li>Experience with spray texture and flat finish applications</li>
+                      <li>Familiarity with automatic taping tools a strong plus</li>
+                      <li>Ability to read and work from finish specifications</li>
+                      <li>Reliable transportation to job sites across Chicagoland</li>
+                      <li>OSHA 10 preferred; willing to train the right candidate</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 3: Drywall Hanger -->
+        <div class="job-item fade-up fade-up-delay-2">
+          <button class="job-header" aria-expanded="false">
+            <div class="job-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <div class="job-header-text">
+              <p class="job-title">Drywall Hanger</p>
+              <div class="job-meta">
+                <span class="job-badge job-badge--type">Full-Time</span>
+                <span class="job-badge job-badge--location">Greater Chicago, IL</span>
+                <span class="job-badge job-badge--pay">Competitive DOE</span>
+              </div>
+            </div>
+            <div class="job-expand-icon"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg></div>
+          </button>
+          <div class="job-body">
+            <div class="job-body-inner">
+              <div class="job-body-content">
+                <div class="job-body-grid">
+                  <div class="job-body-col">
+                    <h4>About the Role</h4>
+                    <p>We're looking for experienced commercial drywall hangers to join our production crews. Our prefab shop pre-builds many assemblies before they hit the field — so you spend your time hanging, not cutting and fitting from scratch. Efficient, clean, and professional.</p>
+                    <p>Projects range from large multi-family residential to commercial tenant improvements across the Chicagoland area.</p>
+                    <a href="apply.html" class="job-apply-btn" onclick="openApplyModal(event)">Apply for This Role →</a>
+                  </div>
+                  <div class="job-body-col">
+                    <h4>What We're Looking For</h4>
+                    <ul class="job-checklist">
+                      <li>2+ years commercial drywall hanging experience</li>
+                      <li>Proficiency with lift equipment and working at height</li>
+                      <li>Knowledge of fire-rated assembly requirements</li>
+                      <li>Ability to read architectural plans and mark-ups</li>
+                      <li>Efficient production pace on repetitive unit layouts</li>
+                      <li>Reliable transportation to Chicagoland job sites</li>
+                      <li>OSHA 10 a plus; will assist with certification</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 4: Framing Foreman -->
+        <div class="job-item fade-up">
+          <button class="job-header" aria-expanded="false">
+            <div class="job-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="job-header-text">
+              <p class="job-title">Framing Foreman</p>
+              <div class="job-meta">
+                <span class="job-badge job-badge--type">Full-Time</span>
+                <span class="job-badge job-badge--location">Greater Chicago, IL</span>
+                <span class="job-badge job-badge--pay">Salary — Competitive DOE</span>
+              </div>
+            </div>
+            <div class="job-expand-icon"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg></div>
+          </button>
+          <div class="job-body">
+            <div class="job-body-inner">
+              <div class="job-body-content">
+                <div class="job-body-grid">
+                  <div class="job-body-col">
+                    <h4>About the Role</h4>
+                    <p>We promote from within and we're growing. If you're an experienced framer who has run a crew — or is ready to — we want to talk. Foremen at The Edge are responsible for daily crew management, quality control, layout execution, and coordination with the GC and other trades.</p>
+                    <p>You'll have access to our project management software, laser equipment, and direct support from our project managers. We set our foremen up to succeed — not just put out fires.</p>
+                    <a href="apply.html" class="job-apply-btn" onclick="openApplyModal(event)">Apply for This Role →</a>
+                  </div>
+                  <div class="job-body-col">
+                    <h4>What We're Looking For</h4>
+                    <ul class="job-checklist">
+                      <li>5+ years commercial framing experience</li>
+                      <li>Prior foreman or lead carpenter experience preferred</li>
+                      <li>Strong laser layout skills — runner and column lines, elevations</li>
+                      <li>Ability to manage 4–10 person crews across a job site</li>
+                      <li>Comfortable with project management software and daily reporting</li>
+                      <li>Strong communication with GC supers and project managers</li>
+                      <li>OSHA 30 preferred; valid driver's license required</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 5: General Application -->
+        <div class="job-item fade-up fade-up-delay-1">
+          <button class="job-header" aria-expanded="false">
+            <div class="job-icon" style="background: rgba(168,152,92,0.12); border-color: rgba(168,152,92,0.25);">
+              <svg viewBox="0 0 24 24" style="stroke: var(--color-gold);"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="job-header-text">
+              <p class="job-title" style="color: var(--color-gold-700);">General Application</p>
+              <div class="job-meta">
+                <span class="job-badge" style="background:rgba(168,152,92,0.10);color:var(--color-gold-700);border:1px solid rgba(168,152,92,0.25);">Always Open</span>
+                <span class="job-badge job-badge--location">Greater Chicago, IL</span>
+              </div>
+            </div>
+            <div class="job-expand-icon"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg></div>
+          </button>
+          <div class="job-body">
+            <div class="job-body-inner">
+              <div class="job-body-content">
+                <div class="job-body-grid">
+                  <div class="job-body-col">
+                    <h4>Don't See Your Role?</h4>
+                    <p>We're always interested in connecting with skilled tradespeople — even if we don't have a specific opening at this moment. The right carpenter, taper, or millwork installer never has to wait long for an opportunity at The Edge.</p>
+                    <p>Send us your resume, a brief note on your experience and what you're looking for, and we'll keep you in our pipeline. When a fit comes up, you'll be the first call.</p>
+                    <a href="apply.html" class="job-apply-btn" onclick="openApplyModal(event)" style="background: var(--color-gold); border-color: var(--color-gold); color: var(--color-dark-900);">Send General Application →</a>
+                  </div>
+                  <div class="job-body-col">
+                    <h4>We're Interested In</h4>
+                    <ul class="job-checklist">
+                      <li>Commercial carpenters with specialty experience</li>
+                      <li>Millwork installers with commercial project history</li>
+                      <li>Acoustic and specialty ceiling installers</li>
+                      <li>Experienced estimators with drywall / framing background</li>
+                      <li>Project coordinators with construction industry experience</li>
+                      <li>Anyone with a strong work ethic and a commitment to quality</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /job-list -->
+    </div>
+  </section>
+
+  <!-- CULTURE / PHOTOS -->
+  <section class="section section--dark" aria-labelledby="culture-heading">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: center;">
+
+        <div class="fade-up">
+          <p class="eyebrow">Our Culture</p>
+          <h2 class="section-title section-title--light" id="culture-heading">People Who Take <em>Pride</em> in the Work</h2>
+          <p class="section-body section-body--light" style="max-width: 100%;">Commercial construction is hard. The weather, the schedules, the demanding specs — it takes people who genuinely care about the outcome to do it well consistently. That's the culture we've built at The Edge over 20 years.</p>
+          <p style="font-size: var(--fs-base); color: rgba(255,255,255,0.55); line-height: var(--lh-relaxed); margin-top: var(--space-4);">We invest in technology so that our crews can do their best work. We pay fairly so that good people want to stay. And we run our projects with enough discipline that our foremen can focus on quality — not crisis management.</p>
+          <p style="font-size: var(--fs-base); color: rgba(255,255,255,0.55); line-height: var(--lh-relaxed); margin-top: var(--space-4);">If that sounds like your kind of crew, we'd like to meet you.</p>
+          <div style="margin-top: var(--space-8);">
+            <a href="#" data-contact-modal data-subject="Career Inquiry" class="btn btn-gold btn-arrow">Get in Touch</a>
+          </div>
+        </div>
+
+        <div class="culture-grid fade-up fade-up-delay-1">
+          <div class="culture-img culture-img--tall">
+            <img src="images/edge-construction-crew-inside-job.jpeg"
+                 alt="The Edge Construction Co. crew framing inside a historic building — Varsity Theater Evanston"
+                 loading="lazy" width="600" height="800">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <div class="culture-img culture-img--wide" style="flex:1;">
+              <img src="images/edge-construction-walking-on-oakbrook-job.webp"
+                   alt="The Edge Construction Co. crew on an active Oakbrook job site"
+                   loading="lazy" width="600" height="400">
+            </div>
+            <div class="culture-img culture-img--wide" style="flex:1;">
+              <img src="images/projects/varsity-theater-evanston/IMG_8137.jpeg"
+                   alt="Crew member on scaffold — Varsity Theater historic renovation"
+                   loading="lazy" width="600" height="400">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO APPLY -->
+  <section class="section section--alt" aria-labelledby="apply-heading">
+    <div class="container">
+      <div style="max-width: 720px; margin-inline: auto; text-align: center;">
+        <div class="section-header--center fade-up">
+          <p class="eyebrow">How to Apply</p>
+          <h2 class="section-title" id="apply-heading">Simple. <em>Direct.</em> No Runaround.</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-bottom: var(--space-10);">
+          <div class="fade-up" style="text-align: center;">
+            <div style="font-family: var(--font-display); font-size: var(--fs-4xl); font-weight: var(--fw-extrabold); color: var(--color-blue); line-height:1; margin-bottom: var(--space-3);">01</div>
+            <p style="font-family: var(--font-display); font-size: var(--fs-md); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: var(--ls-wide); color: var(--color-dark-900); margin-bottom: var(--space-2);">Email Us</p>
+            <p style="font-size: var(--fs-sm); color: var(--text-secondary);">Send your resume and a brief note about your experience using the button below.</p>
+          </div>
+          <div class="fade-up fade-up-delay-1" style="text-align: center;">
+            <div style="font-family: var(--font-display); font-size: var(--fs-4xl); font-weight: var(--fw-extrabold); color: var(--color-blue); line-height:1; margin-bottom: var(--space-3);">02</div>
+            <p style="font-family: var(--font-display); font-size: var(--fs-md); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: var(--ls-wide); color: var(--color-dark-900); margin-bottom: var(--space-2);">Quick Call</p>
+            <p style="font-size: var(--fs-sm); color: var(--text-secondary);">We'll reach out for a brief phone conversation to get to know you and answer your questions about the role.</p>
+          </div>
+          <div class="fade-up fade-up-delay-2" style="text-align: center;">
+            <div style="font-family: var(--font-display); font-size: var(--fs-4xl); font-weight: var(--fw-extrabold); color: var(--color-blue); line-height:1; margin-bottom: var(--space-3);">03</div>
+            <p style="font-family: var(--font-display); font-size: var(--fs-md); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: var(--ls-wide); color: var(--color-dark-900); margin-bottom: var(--space-2);">Start Working</p>
+            <p style="font-size: var(--fs-sm); color: var(--text-secondary);">If it's a fit, we get you onboarded fast. No months-long hiring process — we respect your time.</p>
+          </div>
+        </div>
+        <div class="fade-up" style="display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap;">
+          <a href="#" data-contact-modal data-subject="Career Application" class="btn btn-primary">Send Your Resume</a>
+          <a href="tel:+12242081062" class="btn btn-outline-gold">Call (224) 208-1062</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co." width="180" height="44"><p>Safe, on-time, technology-driven commercial carpentry serving the greater Chicago area since 2004.</p></div>
+        <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="services/metal-stud-framing.html">Metal Stud Framing</a></li><li><a href="services/commercial-millwork.html">Commercial Millwork</a></li><li><a href="services/drywall-solutions.html">Drywall Solutions</a></li><li><a href="services/acoustic-installations.html">Acoustic Installations</a></li></ul></div>
+        <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="projects.html">Projects</a></li><li><a href="technology.html">Technology</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><p class="footer-col-title">Contact</p>
+          <div class="footer-contact-item"><a href="tel:+12242081062">(224) 208-1062</a></div>
+          <div class="footer-contact-item"><a href="#" data-contact-modal>Send a Message</a></div>
+          <div class="footer-contact-item">1540 Hecht Drive, Suite G<br>Bartlett, IL 60103</div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-legal">&copy; <span id="current-year">2026</span> The Edge Construction Co., Inc. All rights reserved.</p>
+        <ul class="footer-bottom-links"><li><a href="privacy.html">Privacy Policy</a></li><li><a href="sitemap.xml">Sitemap</a></li><li><a href="brand-guide.html">Brand Guide</a></li><li><a href="aeo-plan.html">AEO Plan</a></li></ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       APPLY MODAL
+       ============================================================ -->
+  <div class="apply-modal" id="apply-modal" role="dialog" aria-modal="true" aria-label="Job Application" aria-hidden="true">
+    <div class="apply-modal-backdrop" id="modal-backdrop"></div>
+
+    <div class="apply-modal-inner">
+
+      <button class="apply-modal-close" id="modal-close" aria-label="Close application form">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- Hidden Netlify form for build-time detection -->
+      <form name="job-application" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+            enctype="multipart/form-data" id="aw-netlify-form" style="display:none;">
+        <input type="hidden" name="form-name" value="job-application">
+        <input name="bot-field">
+        <input type="hidden" name="position">
+        <input type="hidden" name="first-name">
+        <input type="hidden" name="last-name">
+        <input type="hidden" name="street-address">
+        <input type="hidden" name="street-address-2">
+        <input type="hidden" name="city">
+        <input type="hidden" name="state">
+        <input type="hidden" name="zip">
+        <input type="hidden" name="phone">
+        <input type="hidden" name="email">
+        <input type="hidden" name="work-authorized">
+        <input type="hidden" name="can-commute">
+        <input type="hidden" name="osha-cert">
+        <input type="hidden" name="osha-level">
+        <input type="hidden" name="scissor-lift">
+        <input type="hidden" name="bilingual">
+        <input type="hidden" name="hourly-rate">
+        <input type="hidden" name="exp-layout">
+        <input type="hidden" name="exp-metal-stud">
+        <input type="hidden" name="exp-drywall-hanging">
+        <input type="hidden" name="exp-finish-taping">
+        <input type="hidden" name="exp-acoustic-grid">
+        <input type="hidden" name="exp-acoustic-tile">
+        <input type="hidden" name="exp-door-hardware">
+        <input type="hidden" name="exp-finish-carpentry">
+        <input type="file" name="resume" id="aw-netlify-resume">
+        <input type="hidden" name="comments">
+      </form>
+
+      <div class="aw-card">
+
+        <!-- Progress bar -->
+        <div class="aw-progress">
+          <div class="aw-progress-fill" id="aw-progress-fill" style="width:0%"></div>
+        </div>
+
+        <!-- Steps (scrollable) -->
+        <div class="aw-body" id="aw-body">
+
+          <!-- STEP 1: Position -->
+          <div class="aw-step aw-active" data-step="1" data-req="checkbox" data-field="position">
+            <h2 class="aw-question">Position <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="checkbox" name="position" value="Carpentry"><span class="aw-opt-label">Carpentry</span></label>
+              <label class="aw-opt"><input type="checkbox" name="position" value="Drywall Hanger or Taper"><span class="aw-opt-label">Drywall Hanger or Taper</span></label>
+            </div>
+          </div>
+
+          <!-- STEP 2: Name -->
+          <div class="aw-step" data-step="2" data-req="text" data-field="first-name">
+            <h2 class="aw-question">Name <span class="aw-req">*</span></h2>
+            <div class="aw-input-row">
+              <div class="aw-input-group">
+                <input class="aw-field" type="text" id="aw-first-name" name="first-name" placeholder="" autocomplete="given-name">
+                <span class="aw-field-label">First Name</span>
+              </div>
+              <div class="aw-input-group">
+                <input class="aw-field" type="text" name="last-name" placeholder="Last Name" autocomplete="family-name">
+                <span class="aw-field-label">Last Name</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Address -->
+          <div class="aw-step" data-step="3" data-req="text" data-field="street-address">
+            <h2 class="aw-question">Current Address <span class="aw-req">*</span></h2>
+            <div class="aw-address-stack">
+              <div class="aw-input-group">
+                <input class="aw-field" type="text" id="aw-street" name="street-address" placeholder="" autocomplete="address-line1">
+                <span class="aw-field-label">Street Address</span>
+              </div>
+              <input class="aw-field" type="text" name="street-address-2" placeholder="Street Address Line 2" autocomplete="address-line2">
+              <div class="aw-address-row">
+                <input class="aw-field" type="text" name="city" placeholder="City" autocomplete="address-level2">
+                <div class="aw-input-group">
+                  <select class="aw-field" name="state" autocomplete="address-level1">
+                    <option value="" disabled selected>State</option>
+                    <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
+                    <option>CA</option><option>CO</option><option>CT</option><option>DE</option>
+                    <option>FL</option><option>GA</option><option>HI</option><option>ID</option>
+                    <option selected>IL</option><option>IN</option><option>IA</option><option>KS</option>
+                    <option>KY</option><option>LA</option><option>ME</option><option>MD</option>
+                    <option>MA</option><option>MI</option><option>MN</option><option>MS</option>
+                    <option>MO</option><option>MT</option><option>NE</option><option>NV</option>
+                    <option>NH</option><option>NJ</option><option>NM</option><option>NY</option>
+                    <option>NC</option><option>ND</option><option>OH</option><option>OK</option>
+                    <option>OR</option><option>PA</option><option>RI</option><option>SC</option>
+                    <option>SD</option><option>TN</option><option>TX</option><option>UT</option>
+                    <option>VT</option><option>VA</option><option>WA</option><option>WV</option>
+                    <option>WI</option><option>WY</option>
+                  </select>
+                  <span class="aw-field-label">State</span>
+                </div>
+              </div>
+              <div class="aw-address-row">
+                <input class="aw-field" type="text" name="zip" placeholder="Zip Code" autocomplete="postal-code" inputmode="numeric" maxlength="10">
+                <div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Phone -->
+          <div class="aw-step" data-step="4" data-req="text" data-field="phone">
+            <h2 class="aw-question">Phone Number <span class="aw-req">*</span></h2>
+            <div class="aw-input-row aw-single">
+              <div class="aw-input-group">
+                <input class="aw-field" type="tel" name="phone" placeholder="(xxx) xxx-xxxx" autocomplete="tel">
+                <span class="aw-field-label">Please enter a valid phone number.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 5: Email -->
+          <div class="aw-step" data-step="5" data-req="text" data-field="email">
+            <h2 class="aw-question">Email <span class="aw-req">*</span></h2>
+            <div class="aw-input-row aw-single">
+              <div class="aw-input-group">
+                <input class="aw-field" type="email" name="email" placeholder="" autocomplete="email">
+                <span class="aw-field-label">example@example.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 6: Work authorized -->
+          <div class="aw-step" data-step="6" data-req="radio" data-field="work-authorized">
+            <h2 class="aw-question">Are you authorized to work in the U.S.? <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="work-authorized" value="Yes"><span class="aw-opt-label">Yes</span></label>
+              <label class="aw-opt"><input type="radio" name="work-authorized" value="No"><span class="aw-opt-label">No</span></label>
+            </div>
+          </div>
+
+          <!-- STEP 7: Commute -->
+          <div class="aw-step" data-step="7" data-req="radio" data-field="can-commute">
+            <h2 class="aw-question">Can you reliably commute to this job's location? <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="can-commute" value="Yes"><span class="aw-opt-label">Yes</span></label>
+              <label class="aw-opt"><input type="radio" name="can-commute" value="No"><span class="aw-opt-label">No</span></label>
+            </div>
+          </div>
+
+          <!-- STEP 8: OSHA? -->
+          <div class="aw-step" data-step="8" data-req="radio" data-field="osha-cert">
+            <h2 class="aw-question">Do you have any <strong>OSHA</strong> Certification? <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="osha-cert" value="Yes"><span class="aw-opt-label">Yes</span></label>
+              <label class="aw-opt"><input type="radio" name="osha-cert" value="No"><span class="aw-opt-label">No</span></label>
+            </div>
+          </div>
+
+          <!-- STEP 9: OSHA level (conditional) -->
+          <div class="aw-step" data-step="9" data-req="checkbox" data-field="osha-level" data-cond="osha-cert" data-cond-val="Yes">
+            <h2 class="aw-question">OSHA Certification <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="checkbox" name="osha-level" value="OSHA 10"><span class="aw-opt-label">OSHA 10</span></label>
+              <label class="aw-opt"><input type="checkbox" name="osha-level" value="OSHA 30"><span class="aw-opt-label">OSHA 30</span></label>
+            </div>
+          </div>
+
+          <!-- STEP 10: Scissor lift -->
+          <div class="aw-step" data-step="10" data-req="radio" data-field="scissor-lift">
+            <h2 class="aw-question">Do you have a Scissor Lift Certification? <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="scissor-lift" value="Yes"><span class="aw-opt-label">Yes</span></label>
+              <label class="aw-opt"><input type="radio" name="scissor-lift" value="No"><span class="aw-opt-label">No</span></label>
+            </div>
+          </div>
+
+          <!-- STEP 11: Bilingual -->
+          <div class="aw-step" data-step="11" data-req="radio" data-field="bilingual">
+            <h2 class="aw-question">Are you bilingual? <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="bilingual" value="Yes"><span class="aw-opt-label">Yes</span></label>
+              <label class="aw-opt"><input type="radio" name="bilingual" value="No"><span class="aw-opt-label">No</span></label>
+            </div>
+          </div>
+
+          <!-- STEP 12: Hourly rate -->
+          <div class="aw-step" data-step="12" data-req="text" data-field="hourly-rate">
+            <h2 class="aw-question">What is your required hourly rate? <span class="aw-req">*</span></h2>
+            <div class="aw-rate-wrap">
+              <span class="aw-dollar">$</span>
+              <input class="aw-field" type="number" name="hourly-rate" placeholder="00.00" min="1" max="999" step="0.01">
+            </div>
+          </div>
+
+          <!-- STEP 13–20: Experience ratings -->
+          <div class="aw-step" data-step="13" data-req="radio" data-field="exp-layout">
+            <h2 class="aw-question">Rate your Layout experience level? <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="exp-layout" value="Expert"><span class="aw-opt-label">Expert</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-layout" value="Journeyman"><span class="aw-opt-label">Journeyman</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-layout" value="Apprentice Level-3"><span class="aw-opt-label">Apprentice Level-3</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-layout" value="Apprentice Level-1 or 2"><span class="aw-opt-label">Apprentice Level-1 or 2</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-layout" value="Minimal"><span class="aw-opt-label">Minimal</span></label>
+            </div>
+          </div>
+
+          <div class="aw-step" data-step="14" data-req="radio" data-field="exp-metal-stud">
+            <h2 class="aw-question">Rate your Metal Stud experience level? <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="exp-metal-stud" value="Expert"><span class="aw-opt-label">Expert</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-metal-stud" value="Journeyman"><span class="aw-opt-label">Journeyman</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-metal-stud" value="Apprentice Level-3"><span class="aw-opt-label">Apprentice Level-3</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-metal-stud" value="Apprentice Level-1 or 2"><span class="aw-opt-label">Apprentice Level-1 or 2</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-metal-stud" value="Minimal"><span class="aw-opt-label">Minimal</span></label>
+            </div>
+          </div>
+
+          <div class="aw-step" data-step="15" data-req="radio" data-field="exp-drywall-hanging">
+            <h2 class="aw-question">Rate your Drywall Hanging experience level? <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="exp-drywall-hanging" value="Expert"><span class="aw-opt-label">Expert</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-drywall-hanging" value="Journeyman"><span class="aw-opt-label">Journeyman</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-drywall-hanging" value="Apprentice Level-3"><span class="aw-opt-label">Apprentice Level-3</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-drywall-hanging" value="Apprentice Level-1 or 2"><span class="aw-opt-label">Apprentice Level-1 or 2</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-drywall-hanging" value="Minimal"><span class="aw-opt-label">Minimal</span></label>
+            </div>
+          </div>
+
+          <div class="aw-step" data-step="16" data-req="radio" data-field="exp-finish-taping">
+            <h2 class="aw-question">Rate your Finish Taping experience level? <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="exp-finish-taping" value="Expert"><span class="aw-opt-label">Expert</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-finish-taping" value="Journeyman"><span class="aw-opt-label">Journeyman</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-finish-taping" value="Apprentice Level-3"><span class="aw-opt-label">Apprentice Level-3</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-finish-taping" value="Apprentice Level-1 or 2"><span class="aw-opt-label">Apprentice Level-1 or 2</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-finish-taping" value="Minimal"><span class="aw-opt-label">Minimal</span></label>
+            </div>
+          </div>
+
+          <div class="aw-step" data-step="17" data-req="radio" data-field="exp-acoustic-grid">
+            <h2 class="aw-question">Rate your Acoustic Grid Install experience level? <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="exp-acoustic-grid" value="Expert"><span class="aw-opt-label">Expert</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-acoustic-grid" value="Journeyman"><span class="aw-opt-label">Journeyman</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-acoustic-grid" value="Apprentice Level-3"><span class="aw-opt-label">Apprentice Level-3</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-acoustic-grid" value="Apprentice Level-1 or 2"><span class="aw-opt-label">Apprentice Level-1 or 2</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-acoustic-grid" value="Minimal"><span class="aw-opt-label">Minimal</span></label>
+            </div>
+          </div>
+
+          <div class="aw-step" data-step="18" data-req="radio" data-field="exp-acoustic-tile">
+            <h2 class="aw-question">Rate your Acoustic Tile installation experience? <span class="aw-req">*</span></h2>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="exp-acoustic-tile" value="Expert"><span class="aw-opt-label">Expert</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-acoustic-tile" value="Journeyman"><span class="aw-opt-label">Journeyman</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-acoustic-tile" value="Apprentice Level-3"><span class="aw-opt-label">Apprentice Level-3</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-acoustic-tile" value="Apprentice Level-1 or 2"><span class="aw-opt-label">Apprentice Level-1 or 2</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-acoustic-tile" value="Minimal"><span class="aw-opt-label">Minimal</span></label>
+            </div>
+          </div>
+
+          <div class="aw-step" data-step="19" data-req="radio" data-field="exp-door-hardware">
+            <h2 class="aw-question">Rate your Door Hardware installation experience? <span class="aw-req">*</span></h2>
+            <p class="aw-hint">Includes Door Frame / Lockset / Butts / Panic Bars / Door Closures with full adjustment</p>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="exp-door-hardware" value="Expert"><span class="aw-opt-label">Expert</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-door-hardware" value="Journeyman"><span class="aw-opt-label">Journeyman</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-door-hardware" value="Apprentice Level-3"><span class="aw-opt-label">Apprentice Level-3</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-door-hardware" value="Apprentice Level-1 or 2"><span class="aw-opt-label">Apprentice Level-1 or 2</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-door-hardware" value="Minimal"><span class="aw-opt-label">Minimal</span></label>
+            </div>
+          </div>
+
+          <div class="aw-step" data-step="20" data-req="radio" data-field="exp-finish-carpentry">
+            <h2 class="aw-question">Rate your Finish Carpentry experience? <span class="aw-req">*</span></h2>
+            <p class="aw-hint">Installation of Cabinets, Baseboard, Windowsills</p>
+            <div class="aw-options">
+              <label class="aw-opt"><input type="radio" name="exp-finish-carpentry" value="Expert"><span class="aw-opt-label">Expert</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-finish-carpentry" value="Journeyman"><span class="aw-opt-label">Journeyman</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-finish-carpentry" value="Apprentice Level-3"><span class="aw-opt-label">Apprentice Level-3</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-finish-carpentry" value="Apprentice Level-1 or 2"><span class="aw-opt-label">Apprentice Level-1 or 2</span></label>
+              <label class="aw-opt"><input type="radio" name="exp-finish-carpentry" value="Minimal"><span class="aw-opt-label">Minimal</span></label>
+            </div>
+          </div>
+
+          <!-- STEP 21: Resume upload -->
+          <div class="aw-step" data-step="21" data-req="none" data-field="resume">
+            <h2 class="aw-question">Optional: Upload Your Resume</h2>
+            <div class="aw-file-zone" id="aw-file-zone">
+              <div class="aw-file-icon">
+                <svg viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg>
+              </div>
+              <div class="aw-file-text">
+                <strong>Drag and drop files here</strong>
+                <span>Max. file size: 10 MB — PDF, DOC, DOCX</span>
+                <div class="aw-file-name" id="aw-file-name"></div>
+              </div>
+              <button type="button" class="aw-browse-btn" id="aw-browse-btn">Browse Files</button>
+            </div>
+            <input type="file" id="aw-resume-input" accept=".pdf,.doc,.docx">
+          </div>
+
+          <!-- STEP 22: Comments -->
+          <div class="aw-step" data-step="22" data-req="none" data-field="comments">
+            <h2 class="aw-question">Comments</h2>
+            <textarea class="aw-textarea" name="comments" placeholder="Anything else you'd like us to know…"></textarea>
+          </div>
+
+        </div><!-- /aw-body -->
+
+        <!-- Success screen -->
+        <div class="aw-success" id="aw-success">
+          <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24"/><polyline points="17 28 25 36 39 21"/></svg>
+          <h2>Application Submitted</h2>
+          <p>Thanks for applying. We'll review your information and reach out within a few business days.</p>
+          <button class="aw-success-close" id="aw-success-close">Close</button>
+        </div>
+
+        <!-- Footer -->
+        <div class="aw-footer" id="aw-footer">
+          <button class="aw-btn aw-btn--prev" id="aw-prev" disabled>
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            Previous
+          </button>
+          <div class="aw-footer-center">
+            <span class="aw-counter" id="aw-counter">1 of 22</span>
+            <span class="aw-err-badge" id="aw-err">This field is required.</span>
+          </div>
+          <button class="aw-btn aw-btn--next" id="aw-next">
+            Next
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+      </div><!-- /aw-card -->
+    </div><!-- /apply-modal-inner -->
+  </div><!-- /apply-modal -->
+
+  <script src="js/main.js" defer></script>
+  <script src="js/contact-modal.js" defer></script>
+  <script>
+    // Job accordion
+    document.querySelectorAll('.job-header').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const body = btn.nextElementSibling;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        // Close all
+        document.querySelectorAll('.job-header').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.classList.remove('open');
+        });
+        // Toggle clicked
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          body.classList.add('open');
+        }
+      });
+    });
+  </script>
+
+  <script>
+    // ================================================================
+    // APPLY MODAL + WIZARD
+    // ================================================================
+
+    const modal      = document.getElementById('apply-modal');
+    const backdrop   = document.getElementById('modal-backdrop');
+    const modalClose = document.getElementById('modal-close');
+    const awBody     = document.getElementById('aw-body');
+    const awFooter   = document.getElementById('aw-footer');
+    const awSuccess  = document.getElementById('aw-success');
+    const awPrev     = document.getElementById('aw-prev');
+    const awNext     = document.getElementById('aw-next');
+    const awCounter  = document.getElementById('aw-counter');
+    const awErrBadge = document.getElementById('aw-err');
+    const awProgress = document.getElementById('aw-progress-fill');
+
+    const allAwSteps = Array.from(document.querySelectorAll('.aw-step'));
+    let awIndex = 0;
+    let awAnswers = {};
+
+    // ---- Open / close ----
+    function openApplyModal(e) {
+      if (e) e.preventDefault();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      resetWizard();
+      // Focus first focusable element after open transition
+      setTimeout(() => {
+        const first = modal.querySelector('input, button, select, textarea');
+        if (first) first.focus();
+      }, 320);
+    }
+
+    function closeApplyModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    backdrop.addEventListener('click', closeApplyModal);
+    modalClose.addEventListener('click', closeApplyModal);
+    document.getElementById('aw-success-close').addEventListener('click', closeApplyModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeApplyModal();
+    });
+
+    // ---- Reset wizard to step 1 ----
+    function resetWizard() {
+      awAnswers = {};
+      awIndex = 0;
+      awBody.style.display = '';
+      awFooter.style.display = '';
+      awSuccess.style.display = 'none';
+      // Clear all inputs
+      allAwSteps.forEach(s => {
+        s.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(i => { i.checked = false; });
+        s.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"], textarea').forEach(i => { i.value = ''; });
+        s.querySelectorAll('.aw-opt').forEach(o => o.classList.remove('aw-selected'));
+        s.querySelector('.aw-question')?.classList.remove('aw-error');
+      });
+      document.getElementById('aw-file-name').style.display = 'none';
+      document.getElementById('aw-file-name').textContent = '';
+      document.getElementById('aw-file-zone').classList.remove('aw-has-file');
+      document.getElementById('aw-resume-input').value = '';
+      awRender('forward');
+    }
+
+    // ---- Visible steps (respects conditional) ----
+    function awVisible() {
+      return allAwSteps.filter(s => {
+        const cond = s.dataset.cond, condVal = s.dataset.condVal;
+        return !cond || awAnswers[cond] === condVal;
+      });
+    }
+
+    // ---- Render step ----
+    function awRender(dir) {
+      const visible = awVisible();
+      const step = visible[awIndex];
+      allAwSteps.forEach(s => s.classList.remove('aw-active', 'aw-going-back'));
+      step.classList.add('aw-active');
+      if (dir === 'back') step.classList.add('aw-going-back');
+
+      const total = visible.length;
+      awCounter.textContent = `${awIndex + 1} of ${total}`;
+      awProgress.style.width = `${(awIndex / (total - 1)) * 100}%`;
+      awPrev.disabled = awIndex === 0;
+
+      const isLast = awIndex === total - 1;
+      awNext.innerHTML = isLast
+        ? 'Submit'
+        : 'Next <svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><polyline points="9 18 15 12 9 6"/></svg>';
+
+      awHideErr();
+      // Scroll modal body to top on each step
+      awBody.scrollTop = 0;
+    }
+
+    // ---- Validate ----
+    function awValidate(step) {
+      const req = step.dataset.req, field = step.dataset.field;
+      if (req === 'none') return true;
+      if (req === 'radio')    return !!step.querySelector('input[type="radio"]:checked');
+      if (req === 'checkbox') return !!step.querySelector('input[type="checkbox"]:checked');
+      if (req === 'text') {
+        const el = step.querySelector(`#aw-${field}, [name="${field}"]`);
+        if (el) return el.value.trim().length > 0;
+        const first = step.querySelector('input[type="text"], input[type="email"], input[type="tel"], input[type="number"]');
+        return first && first.value.trim().length > 0;
+      }
+      return true;
+    }
+
+    // ---- Save answers ----
+    function awSave(step) {
+      const req = step.dataset.req, field = step.dataset.field;
+      if (req === 'radio') {
+        const c = step.querySelector('input[type="radio"]:checked');
+        if (c) awAnswers[field] = c.value;
+      } else if (req === 'checkbox') {
+        awAnswers[field] = [...step.querySelectorAll('input[type="checkbox"]:checked')].map(c => c.value).join(', ');
+      } else {
+        step.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]):not([type="file"]), select, textarea').forEach(el => {
+          if (el.name) awAnswers[el.name] = el.value;
+        });
+      }
+    }
+
+    // ---- Error helpers ----
+    function awShowErr() {
+      awVisible()[awIndex].querySelector('.aw-question')?.classList.add('aw-error');
+      awErrBadge.style.display = 'block';
+    }
+    function awHideErr() {
+      allAwSteps.forEach(s => s.querySelector('.aw-question')?.classList.remove('aw-error'));
+      awErrBadge.style.display = 'none';
+    }
+
+    // ---- Navigation ----
+    awNext.addEventListener('click', () => {
+      const visible = awVisible();
+      const step = visible[awIndex];
+      if (!awValidate(step)) { awShowErr(); return; }
+      awSave(step);
+      if (awIndex < visible.length - 1) { awIndex++; awRender('forward'); }
+      else awSubmit();
+    });
+
+    awPrev.addEventListener('click', () => {
+      if (awIndex > 0) { awHideErr(); awIndex--; awRender('back'); }
+    });
+
+    // ---- Option highlight ----
+    document.querySelectorAll('.aw-opt input').forEach(input => {
+      input.addEventListener('change', () => {
+        if (input.type === 'radio') {
+          document.querySelectorAll(`input[name="${input.name}"]`).forEach(r => {
+            r.closest('.aw-opt').classList.remove('aw-selected');
+          });
+        }
+        input.closest('.aw-opt').classList.toggle('aw-selected', input.checked);
+        awHideErr();
+      });
+    });
+
+    // ---- File upload ----
+    const awFileZone   = document.getElementById('aw-file-zone');
+    const awResumeInput = document.getElementById('aw-resume-input');
+    const awBrowseBtn  = document.getElementById('aw-browse-btn');
+    const awFileName   = document.getElementById('aw-file-name');
+
+    awBrowseBtn.addEventListener('click', () => awResumeInput.click());
+    awFileZone.addEventListener('click', (e) => { if (e.target !== awBrowseBtn) awResumeInput.click(); });
+
+    awResumeInput.addEventListener('change', () => {
+      const f = awResumeInput.files[0];
+      if (f) {
+        awFileName.textContent = '✓ ' + f.name;
+        awFileName.style.display = 'block';
+        awFileZone.classList.add('aw-has-file');
+        awAnswers['_resumeFile'] = f;
+      }
+    });
+
+    awFileZone.addEventListener('dragover', (e) => { e.preventDefault(); awFileZone.style.borderColor = '#1164C2'; });
+    awFileZone.addEventListener('dragleave', () => { awFileZone.style.borderColor = ''; });
+    awFileZone.addEventListener('drop', (e) => {
+      e.preventDefault(); awFileZone.style.borderColor = '';
+      const f = e.dataTransfer.files[0];
+      if (f) {
+        const dt = new DataTransfer(); dt.items.add(f); awResumeInput.files = dt.files;
+        awFileName.textContent = '✓ ' + f.name; awFileName.style.display = 'block';
+        awFileZone.classList.add('aw-has-file'); awAnswers['_resumeFile'] = f;
+      }
+    });
+
+    // ---- Submit ----
+    async function awSubmit() {
+      const visible = awVisible();
+      awSave(visible[awIndex]);
+
+      const netlifyForm = document.getElementById('aw-netlify-form');
+      Object.keys(awAnswers).forEach(key => {
+        if (key === '_resumeFile') return;
+        const el = netlifyForm.querySelector(`[name="${key}"]`);
+        if (el) el.value = awAnswers[key];
+      });
+
+      if (awAnswers['_resumeFile']) {
+        const nr = document.getElementById('aw-netlify-resume');
+        const dt = new DataTransfer(); dt.items.add(awAnswers['_resumeFile']); nr.files = dt.files;
+      }
+
+      try {
+        let resp;
+        if (awAnswers['_resumeFile']) {
+          resp = await fetch('/', { method: 'POST', body: new FormData(netlifyForm) });
+        } else {
+          const params = new URLSearchParams();
+          params.append('form-name', 'job-application');
+          netlifyForm.querySelectorAll('input[type="hidden"]').forEach(el => {
+            if (el.name && el.value) params.append(el.name, el.value);
+          });
+          resp = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: params.toString() });
+        }
+        awBody.style.display = 'none';
+        awFooter.style.display = 'none';
+        awSuccess.style.display = 'block';
+        awProgress.style.width = '100%';
+      } catch(err) {
+        netlifyForm.style.display = 'block';
+        netlifyForm.submit();
+      }
+    }
+
+  </script>
+</body>
+</html>

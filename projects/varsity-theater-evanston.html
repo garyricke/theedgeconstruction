@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="../brand/Favicon-edge.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Varsity Theater Evanston — Historic Renovation | The Edge Construction Co.</title>
+  <meta name="description" content="The Edge Construction Co. converted the historic 1926 Varsity Theater in Evanston into 35 residential units — complex metal stud framing, prefabrication, and precision coordination within a landmark structure.">
+  <link rel="canonical" href="https://www.theedgeconstructionco.com/projects/varsity-theater-evanston">
+  <meta property="og:title" content="Varsity Theater Evanston — Historic Renovation Case Study">
+  <meta property="og:description" content="Converting a 1926 Evanston landmark into 35 residential units — complex framing, prefab assemblies, and historic preservation by The Edge Construction Co.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.theedgeconstructionco.com/images/projects/varsity-theater-evanston/DE5967A9-E0A6-4149-8F76-F473319ABCB4.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/pages.css">
+
+  <style>
+    /* Project stats bar */
+    .project-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+      background: var(--color-dark-800);
+      border-radius: var(--radius-md);
+      padding: var(--space-8) var(--space-8);
+      margin-bottom: var(--space-12);
+      border: 1px solid rgba(168,152,92,0.15);
+    }
+
+    .project-stat {
+      text-align: center;
+      position: relative;
+    }
+
+    .project-stat:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 10%;
+      height: 80%; width: 1px;
+      background: rgba(168,152,92,0.2);
+    }
+
+    .project-stat-value {
+      font-family: var(--font-display);
+      font-size: var(--fs-3xl);
+      font-weight: var(--fw-extrabold);
+      color: var(--color-gold);
+      line-height: 1;
+      display: block;
+    }
+
+    .project-stat-label {
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      letter-spacing: var(--ls-wider);
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      display: block;
+      margin-top: var(--space-2);
+    }
+
+    /* Full-width gallery */
+    .photo-gallery {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .gallery-row {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .gallery-row--2 { grid-template-columns: 1fr 1fr; }
+    .gallery-row--3 { grid-template-columns: 1fr 1fr 1fr; }
+    .gallery-row--2-1 { grid-template-columns: 2fr 1fr; }
+    .gallery-row--1-2 { grid-template-columns: 1fr 2fr; }
+
+    .gallery-photo {
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      background: var(--color-neutral-200);
+    }
+
+    .gallery-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-slow);
+    }
+
+    .gallery-photo:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-photo--tall { aspect-ratio: 3/4; }
+    .gallery-photo--wide { aspect-ratio: 16/9; }
+    .gallery-photo--square { aspect-ratio: 1; }
+    .gallery-photo--auto img { height: auto; }
+
+    /* Service tags */
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+    }
+
+    .service-tag {
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      background: var(--color-blue-50);
+      color: var(--color-blue);
+      border: 1px solid rgba(17,100,194,0.2);
+    }
+
+    /* Project nav */
+    .project-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-8) 0;
+      border-top: 1px solid var(--color-neutral-200);
+      margin-top: var(--space-12);
+    }
+
+    .project-nav-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      color: var(--color-neutral-600);
+      text-decoration: none;
+      transition: color var(--transition-base);
+    }
+
+    .project-nav-link:hover { color: var(--color-blue); }
+
+    @media (max-width: 768px) {
+      .project-stats { grid-template-columns: repeat(2,1fr); }
+      .gallery-row--3 { grid-template-columns: 1fr 1fr; }
+      .gallery-row--2-1, .gallery-row--1-2 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .gallery-row--2, .gallery-row--3 { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Varsity Theater Evanston — Historic Renovation Case Study",
+    "description": "The Edge Construction Co. converted the historic 1926 Varsity Theater in Evanston, IL into 35 residential units using precision metal stud framing, on-site prefabrication, and careful coordination around preserved historic elements.",
+    "author": {
+      "@type": "Person",
+      "name": "Bill Haidl",
+      "jobTitle": "Owner / Principal",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "The Edge Construction Co., Inc.",
+        "url": "https://www.theedgeconstructionco.com"
+      }
+    },
+    "publisher": { "@type": "Organization", "name": "The Edge Construction Co., Inc.", "url": "https://www.theedgeconstructionco.com" },
+    "image": "https://www.theedgeconstructionco.com/images/projects/varsity-theater-evanston/DE5967A9-E0A6-4149-8F76-F473319ABCB4.jpg",
+    "url": "https://www.theedgeconstructionco.com/projects/varsity-theater-evanston",
+    "datePublished": "2021-11-01",
+    "dateModified": "2026-01-01",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.theedgeconstructionco.com/projects/varsity-theater-evanston"
+    },
+    "articleBody": "The Varsity Theater opened in Evanston in 1926 as a neighborhood movie palace. Nearly a century later, its bones were structurally sound but its interior needed to be completely reimagined — converting the original single-volume theater space into 35 modern residential units while preserving its historic character. The Edge handled metal stud framing, drywall, and prefabricated assembly scopes across the entire building. Our prefabrication shop pre-built wall assemblies and stair components off-site, staged on the Evanston street for same-day installation."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"><img src="../brand/the-edge-logo-gold.png" alt="The Edge Construction Co." width="180" height="40"></a>
+        <ul class="nav-links" role="list">
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../projects.html" aria-current="page">Projects</a></li>
+          <li><a href="../technology.html">Technology</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../careers.html">Careers</a></li>
+        </ul>
+        <a href="../contact.html" class="nav-cta">Request a Bid</a>
+        <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <nav id="mobile-nav" class="nav-mobile" aria-label="Mobile navigation">
+    <a href="../services.html">Services</a><a href="../projects.html">Projects</a><a href="../technology.html">Technology</a><a href="../about.html">About</a><a href="../careers.html">Careers</a>
+    <a href="../contact.html" class="nav-mobile-cta">Request a Bid</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" style="min-height: 65vh;">
+    <div class="page-hero-bg">
+      <img src="../images/projects/varsity-theater-evanston/DE5967A9-E0A6-4149-8F76-F473319ABCB4.jpg"
+           alt="Metal stud framing inside the historic 1926 Varsity Theater — Evanston, IL"
+           loading="eager" fetchpriority="high">
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li>Varsity Theater</li>
+          </ol>
+        </nav>
+        <p class="hero-eyebrow" style="color: var(--color-gold); font-family: var(--font-display); font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-widest); text-transform: uppercase; display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-5);">
+          <span style="display:block;width:32px;height:2px;background:var(--color-gold);flex-shrink:0;"></span>
+          Historic Renovation &nbsp;·&nbsp; Evanston, IL
+        </p>
+        <h1 class="page-hero-title">Varsity Theater<br><em>Evanston</em></h1>
+        <p class="page-hero-sub">Converting a 1926 landmark into 35 residential units — complex framing, on-site prefabrication, and precision coordination within a century-old structure.</p>
+        <div class="service-tags" style="margin-top: var(--space-6);">
+          <span class="service-tag" style="background:rgba(168,152,92,0.15); color:var(--color-gold-300); border-color:rgba(168,152,92,0.3);">Metal Stud Framing</span>
+          <span class="service-tag" style="background:rgba(168,152,92,0.15); color:var(--color-gold-300); border-color:rgba(168,152,92,0.3);">Drywall Solutions</span>
+          <span class="service-tag" style="background:rgba(168,152,92,0.15); color:var(--color-gold-300); border-color:rgba(168,152,92,0.3);">Prefabrication</span>
+          <span class="service-tag" style="background:rgba(168,152,92,0.15); color:var(--color-gold-300); border-color:rgba(168,152,92,0.3);">Historic Renovation</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROJECT OVERVIEW -->
+  <section class="section section--light">
+    <div class="container">
+
+      <!-- Stats Bar -->
+      <div class="project-stats fade-up">
+        <div class="project-stat">
+          <span class="project-stat-value">1926</span>
+          <span class="project-stat-label">Year Built</span>
+        </div>
+        <div class="project-stat">
+          <span class="project-stat-value">35</span>
+          <span class="project-stat-label">Residential Units</span>
+        </div>
+        <div class="project-stat">
+          <span class="project-stat-value">3</span>
+          <span class="project-stat-label">Scopes Delivered</span>
+        </div>
+        <div class="project-stat">
+          <span class="project-stat-value">On Time</span>
+          <span class="project-stat-label">Delivery</span>
+        </div>
+      </div>
+
+      <!-- Overview Copy -->
+      <div class="service-overview fade-up">
+        <div class="service-overview-body">
+          <h2>A Century-Old <em>Theater</em> Reborn</h2>
+          <p>The Varsity Theater opened in Evanston in 1926 as a neighborhood movie palace. Nearly a century later, its bones were structurally sound but its interior needed to be completely reimagined — converting the original single-volume theater space into 35 modern residential units while preserving its historic character.</p>
+          <p>The Edge Construction Co. was brought in to handle the metal stud framing, drywall, and prefabricated assembly scopes across the entire building. Working within an existing 97-year-old structure — with original timber roof trusses, clay brick bearing walls, and century-old wood floors underfoot — required a precision and care that generic production framing simply can't deliver.</p>
+          <p>One of the most challenging and rewarding aspects: our prefabrication shop pre-built wall assemblies and stair components off-site, then staged them on the Evanston street for same-day installation. The result was a dramatically faster installation cycle without any of the fit issues that arise from trying to build complex assemblies from scratch inside a constrained historic floor plate.</p>
+          <a href="../contact.html" class="btn btn-primary btn-arrow" style="margin-top: var(--space-4);">Work With Us</a>
+        </div>
+
+        <div>
+          <div class="key-points">
+            <div class="key-point">
+              <div class="key-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+              <div>
+                <p class="key-point-title">Historic Structure Integration</p>
+                <p class="key-point-desc">New framing coordinated with original 1926 timber trusses, brick bearing walls, and structural elements that had to remain undisturbed.</p>
+              </div>
+            </div>
+            <div class="key-point">
+              <div class="key-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+              <div>
+                <p class="key-point-title">Street-Side Prefabrication Staging</p>
+                <p class="key-point-desc">Pre-built assemblies staged on the street and craned in — reducing on-site cutting, waste, and installation time across 35 units.</p>
+              </div>
+            </div>
+            <div class="key-point">
+              <div class="key-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+              <div>
+                <p class="key-point-title">Precision Layout in Constrained Space</p>
+                <p class="key-point-desc">Laser layout established control lines across irregular floor plates — ensuring unit walls aligned correctly floor to floor in a non-uniform structure.</p>
+              </div>
+            </div>
+            <div class="key-point">
+              <div class="key-point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+              <div>
+                <p class="key-point-title">Multi-Scope Coordination</p>
+                <p class="key-point-desc">Framing, drywall, and prefab scopes all managed under one contract — single point of accountability for the GC on a complex, phased project.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY — FULL SPREAD -->
+  <section class="section section--dark" aria-labelledby="gallery-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="eyebrow">Project Photography</p>
+        <h2 class="section-title section-title--light" id="gallery-heading">Inside the <em>Varsity</em></h2>
+        <p class="section-body section-body--light">From raw demolition through framing completion — 25+ photos documenting the full scope.</p>
+      </div>
+
+      <div class="photo-gallery">
+
+        <!-- Row 1: Wide hero shots -->
+        <div class="gallery-row gallery-row--2-1 fade-up">
+          <div class="gallery-photo gallery-photo--tall">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8103.jpeg"
+                 alt="Wide view of metal stud framing across the main Varsity Theater floor — Evanston renovation"
+                 loading="lazy" width="800" height="1067">
+          </div>
+          <div class="gallery-photo gallery-photo--wide" style="display:flex;flex-direction:column;gap:var(--space-3);">
+            <div class="gallery-photo gallery-photo--wide" style="flex:1;">
+              <img src="../images/projects/varsity-theater-evanston/41FED43B-6BEA-4E5B-A380-D2C136AA4E15.jpg"
+                   alt="Worker on scaffold installing tall-wall framing inside the Varsity Theater"
+                   loading="lazy" width="600" height="800">
+            </div>
+            <div class="gallery-photo gallery-photo--wide" style="flex:1;">
+              <img src="../images/projects/varsity-theater-evanston/CFFAC7B3-2710-410C-9D29-6CC6DA2E3826.jpg"
+                   alt="Complex metal stud framing with timber roof structure — Varsity Theater, Evanston"
+                   loading="lazy" width="600" height="600">
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Three equal -->
+        <div class="gallery-row gallery-row--3 fade-up">
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8137.jpeg"
+                 alt="Crew member on scaffold installing framing — Varsity Theater Evanston"
+                 loading="lazy" width="600" height="800">
+          </div>
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8107.jpeg"
+                 alt="Metal stud framing detail — Varsity Theater renovation"
+                 loading="lazy" width="600" height="800">
+          </div>
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8108.jpeg"
+                 alt="Interior framing progress — Varsity Theater Evanston"
+                 loading="lazy" width="600" height="800">
+          </div>
+        </div>
+
+        <!-- Row 3: Prefab staging photo + interior -->
+        <div class="gallery-row gallery-row--1-2 fade-up">
+          <div class="gallery-photo gallery-photo--tall">
+            <img src="../images/projects/varsity-theater-evanston/IMG_2023_11_14_10_42_05_880.jpg"
+                 alt="Pre-built framing assemblies and trusses staged on the street in Evanston — ready for installation"
+                 loading="lazy" width="600" height="800">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+            <div class="gallery-photo gallery-photo--wide" style="flex:1;">
+              <img src="../images/projects/varsity-theater-evanston/IMG_8111.jpeg"
+                   alt="Framing progress across multiple bays — Varsity Theater"
+                   loading="lazy" width="800" height="500">
+            </div>
+            <div class="gallery-photo gallery-photo--wide" style="flex:1;">
+              <img src="../images/projects/varsity-theater-evanston/IMG_8112.jpeg"
+                   alt="Interior framing and historic masonry — Varsity Theater Evanston renovation"
+                   loading="lazy" width="800" height="500">
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4: Three more -->
+        <div class="gallery-row gallery-row--3 fade-up">
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8118.jpeg"
+                 alt="Structural framing detail — Varsity Theater Evanston"
+                 loading="lazy" width="600" height="800">
+          </div>
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8131.jpeg"
+                 alt="Framing assembly inside historic Varsity Theater"
+                 loading="lazy" width="600" height="800">
+          </div>
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8138.jpeg"
+                 alt="Framing installation Varsity Theater historic renovation"
+                 loading="lazy" width="600" height="800">
+          </div>
+        </div>
+
+        <!-- Row 5: Two wide -->
+        <div class="gallery-row gallery-row--2 fade-up">
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8147.jpeg"
+                 alt="Wall framing with original brick exposed — Varsity Theater"
+                 loading="lazy" width="800" height="600">
+          </div>
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8161.jpeg"
+                 alt="Framing and structural integration — Varsity Theater Evanston"
+                 loading="lazy" width="800" height="600">
+          </div>
+        </div>
+
+        <!-- Row 6: Three -->
+        <div class="gallery-row gallery-row--3 fade-up">
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8162.jpeg"
+                 alt="Construction progress — Varsity Theater Evanston"
+                 loading="lazy" width="600" height="800">
+          </div>
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8163.jpeg"
+                 alt="Interior framing completion view — Varsity Theater"
+                 loading="lazy" width="600" height="800">
+          </div>
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8177.jpeg"
+                 alt="Late-stage framing Varsity Theater renovation Evanston"
+                 loading="lazy" width="600" height="800">
+          </div>
+        </div>
+
+        <!-- Row 7: Final shots -->
+        <div class="gallery-row gallery-row--2 fade-up">
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8200.jpeg"
+                 alt="Framing nearing completion — Varsity Theater Evanston"
+                 loading="lazy" width="800" height="600">
+          </div>
+          <div class="gallery-photo gallery-photo--wide">
+            <img src="../images/projects/varsity-theater-evanston/IMG_8235.jpeg"
+                 alt="Final framing phase — Varsity Theater historic renovation"
+                 loading="lazy" width="800" height="600">
+          </div>
+        </div>
+
+      </div><!-- /photo-gallery -->
+
+    </div>
+  </section>
+
+  <!-- PROJECT NAV + RELATED -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header--center fade-up">
+        <p class="eyebrow">More Projects</p>
+        <h2 class="section-title">See More <em>Work</em></h2>
+      </div>
+      <div class="related-services-grid">
+        <a href="otis-deck.html" class="related-card fade-up">
+          <div class="related-card-img"><img src="../images/projects/otis-deck/709A8E78-E460-4C0E-A08E-DAB1E6B0AD2C.jpg" alt="Otis Rooftop Deck" loading="lazy" width="600" height="338"></div>
+          <div class="related-card-body"><p class="related-card-title">Otis Rooftop Deck</p><span class="related-card-link">View Project →</span></div>
+        </a>
+        <a href="health-club-northbrook.html" class="related-card fade-up fade-up-delay-1">
+          <div class="related-card-img"><img src="../images/projects/health-club-northbrook/47098273_10158621877868084_81170548272398336_n.jpg" alt="Health Club Northbrook" loading="lazy" width="600" height="338"></div>
+          <div class="related-card-body"><p class="related-card-title">Health Club Northbrook</p><span class="related-card-link">View Project →</span></div>
+        </a>
+        <a href="434-melrose.html" class="related-card fade-up fade-up-delay-2">
+          <div class="related-card-img"><img src="../images/projects/434-melrose/photo_2-1.jpg" alt="434 Melrose" loading="lazy" width="600" height="338"></div>
+          <div class="related-card-body"><p class="related-card-title">434 Melrose</p><span class="related-card-link">View Project →</span></div>
+        </a>
+      </div>
+
+      <div class="project-nav fade-up">
+        <a href="../projects.html" class="project-nav-link">← All Projects</a>
+        <a href="../contact.html" class="btn btn-primary">Request a Bid</a>
+        <a href="otis-deck.html" class="project-nav-link">Next Project →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-inner">
+        <div class="cta-banner-text fade-up">
+          <h2>Have a Similar <em>Project?</em></h2>
+          <p>Historic structures. Complex phasing. Tight schedules. We've been here before — and we know how to deliver.</p>
+        </div>
+        <div class="cta-banner-actions fade-up fade-up-delay-1">
+          <a href="tel:+12242081062" class="cta-phone">(224) 208-1062</a>
+          <a href="../contact.html" class="btn btn-gold">Submit Bid Request</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="../brand/the-edge-logo-gold.png" alt="The Edge Construction Co." width="180" height="44"><p>Safe, on-time, technology-driven commercial carpentry serving the greater Chicago area since 2004.</p></div>
+        <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="../services/metal-stud-framing.html">Metal Stud Framing</a></li><li><a href="../services/commercial-millwork.html">Commercial Millwork</a></li><li><a href="../services/drywall-solutions.html">Drywall Solutions</a></li><li><a href="../services/acoustic-installations.html">Acoustic Installations</a></li></ul></div>
+        <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="../about.html">About Us</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../technology.html">Technology</a></li><li><a href="../careers.html">Careers</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+        <div><p class="footer-col-title">Contact</p><div class="footer-contact-item"><a href="tel:+12242081062">(224) 208-1062</a></div><div class="footer-contact-item"><a href="#" data-contact-modal>Send a Message</a></div><div class="footer-contact-item">1540 Hecht Drive, Suite G<br>Bartlett, IL 60103</div></div>
+      </div>
+    </div>
+    <div class="container"><div class="footer-bottom"><p class="footer-legal">&copy; <span id="current-year">2026</span> The Edge Construction Co., Inc. All rights reserved.</p><ul class="footer-bottom-links"><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../sitemap.xml">Sitemap</a></li><li><a href="../brand-guide.html">Brand Guide</a></li><li><a href="../aeo-plan.html">AEO Plan</a></li></ul></div></div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+  <script src="../js/contact-modal.js" defer></script>
+</body>
+</html>

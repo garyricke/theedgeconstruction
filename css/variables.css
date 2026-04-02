@@ -1,0 +1,226 @@
+/* =============================================================
+   THE EDGE CONSTRUCTION CO. — DESIGN TOKENS
+   Brand Guide v1.0 | 2026
+   ============================================================= */
+
+:root {
+
+  /* -----------------------------------------------------------
+     BRAND COLORS — PRIMARY
+     ----------------------------------------------------------- */
+  --color-blue:       #1164C2;   /* Edge Blue   — trust, strength, precision */
+  --color-gold:       #A8985C;   /* Edge Gold   — craftsmanship, premium, legacy */
+
+  /* -----------------------------------------------------------
+     BRAND COLORS — BLUE SCALE
+     ----------------------------------------------------------- */
+  --color-blue-50:    #EAF1FB;   /* Tint — bg highlights */
+  --color-blue-100:   #C0D8F5;
+  --color-blue-200:   #7EB2EC;
+  --color-blue-300:   #3A7FD4;   /* Hover state */
+  --color-blue:       #1164C2;   /* Primary */
+  --color-blue-600:   #0D52A8;   /* Active / pressed */
+  --color-blue-700:   #0A4090;   /* Dark */
+  --color-blue-900:   #05204A;   /* Near-black blue */
+
+  /* -----------------------------------------------------------
+     BRAND COLORS — GOLD SCALE
+     ----------------------------------------------------------- */
+  --color-gold-100:   #F0EBD8;   /* Tint — warm bg */
+  --color-gold-200:   #D9CC9C;
+  --color-gold-300:   #C2B070;   /* Light gold — highlights */
+  --color-gold:       #A8985C;   /* Primary */
+  --color-gold-600:   #8A7C44;   /* Hover / active */
+  --color-gold-700:   #6E6230;   /* Dark gold */
+  --color-gold-900:   #3D350F;   /* Near-black gold */
+
+  /* -----------------------------------------------------------
+     BRAND COLORS — DARK SCALE  (blue-tinted darks)
+     Ideal for headers, dark sections, nav backgrounds
+     ----------------------------------------------------------- */
+  --color-dark-950:   #060D1A;   /* Near-black — deepest dark */
+  --color-dark-900:   #0A1628;   /* Primary dark bg */
+  --color-dark-800:   #0F1E38;   /* Dark section bg */
+  --color-dark-700:   #152847;   /* Slightly lighter dark */
+  --color-dark-600:   #1D3560;   /* Dark card bg */
+
+  /* -----------------------------------------------------------
+     BRAND COLORS — NEUTRAL SCALE  (warm grays)
+     ----------------------------------------------------------- */
+  --color-neutral-50:   #FAFAF8;   /* Page background */
+  --color-neutral-100:  #F6F4F0;   /* Section alt background */
+  --color-neutral-200:  #EAE7E0;   /* Card / input background */
+  --color-neutral-300:  #D1CCC2;   /* Borders / dividers */
+  --color-neutral-400:  #B0AA9F;   /* Placeholder text */
+  --color-neutral-500:  #8A8680;   /* Secondary text */
+  --color-neutral-600:  #6B6660;   /* Muted text */
+  --color-neutral-700:  #4A4845;   /* Body text light bg */
+  --color-neutral-800:  #2E2C2A;   /* Strong body text */
+  --color-neutral-900:  #1A1817;   /* Near-black text */
+
+  /* -----------------------------------------------------------
+     BRAND COLORS — FUNCTIONAL
+     ----------------------------------------------------------- */
+  --color-white:      #FFFFFF;
+  --color-black:      #000000;
+  --color-success:    #2A7A50;   /* Form success */
+  --color-warning:    #C27A11;   /* Alert / warning */
+  --color-error:      #C23535;   /* Form error */
+
+  /* -----------------------------------------------------------
+     SEMANTIC ALIASES  (use these in components)
+     ----------------------------------------------------------- */
+
+  /* Backgrounds */
+  --bg-primary:       var(--color-white);
+  --bg-secondary:     var(--color-neutral-100);
+  --bg-dark:          var(--color-dark-900);
+  --bg-dark-alt:      var(--color-dark-800);
+  --bg-gold-tint:     var(--color-gold-100);
+  --bg-blue-tint:     var(--color-blue-50);
+
+  /* Text */
+  --text-primary:     var(--color-neutral-900);
+  --text-secondary:   var(--color-neutral-600);
+  --text-muted:       var(--color-neutral-500);
+  --text-on-dark:     var(--color-white);
+  --text-on-dark-muted: rgba(255, 255, 255, 0.65);
+  --text-gold:        var(--color-gold);
+  --text-blue:        var(--color-blue);
+
+  /* Borders */
+  --border-light:     var(--color-neutral-200);
+  --border-medium:    var(--color-neutral-300);
+  --border-gold:      var(--color-gold);
+  --border-blue:      var(--color-blue);
+
+  /* Interactive */
+  --color-cta:        var(--color-blue);
+  --color-cta-hover:  var(--color-blue-300);
+  --color-cta-gold:   var(--color-gold);
+  --color-cta-gold-hover: var(--color-gold-300);
+
+  /* -----------------------------------------------------------
+     TYPOGRAPHY
+     ----------------------------------------------------------- */
+
+  /* Font Families */
+  --font-display:     'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body:        'Barlow', 'Arial', sans-serif;
+  --font-mono:        'JetBrains Mono', 'Courier New', monospace;
+
+  /* Font Weights */
+  --fw-regular:       400;
+  --fw-medium:        500;
+  --fw-semibold:      600;
+  --fw-bold:          700;
+  --fw-extrabold:     800;
+
+  /* Font Sizes — fluid scale */
+  --fs-xs:     clamp(0.75rem,  1.5vw, 0.8125rem);    /* 12–13px */
+  --fs-sm:     clamp(0.8125rem,1.8vw, 0.9375rem);    /* 13–15px */
+  --fs-base:   clamp(1rem,     2vw,   1.0625rem);    /* 16–17px */
+  --fs-md:     clamp(1.0625rem,2.2vw, 1.1875rem);    /* 17–19px */
+  --fs-lg:     clamp(1.125rem, 2.5vw, 1.3125rem);    /* 18–21px */
+  --fs-xl:     clamp(1.25rem,  3vw,   1.5rem);       /* 20–24px */
+  --fs-2xl:    clamp(1.5rem,   4vw,   2rem);         /* 24–32px */
+  --fs-3xl:    clamp(2rem,     5vw,   2.75rem);      /* 32–44px */
+  --fs-4xl:    clamp(2.5rem,   6vw,   3.5rem);       /* 40–56px */
+  --fs-5xl:    clamp(3rem,     7.5vw, 5rem);         /* 48–80px */
+  --fs-hero:   clamp(3.5rem,   9vw,   7rem);         /* 56–112px */
+
+  /* Line Heights */
+  --lh-tight:   1.1;
+  --lh-snug:    1.25;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.7;
+
+  /* Letter Spacing */
+  --ls-tight:   -0.02em;
+  --ls-normal:  0;
+  --ls-wide:    0.05em;
+  --ls-wider:   0.1em;
+  --ls-widest:  0.15em;
+
+  /* -----------------------------------------------------------
+     SPACING SCALE
+     ----------------------------------------------------------- */
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-7:   1.75rem;   /* 28px */
+  --space-8:   2rem;      /* 32px */
+  --space-9:   2.25rem;   /* 36px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+  --space-32:  8rem;      /* 128px */
+  --space-40:  10rem;     /* 160px */
+
+  /* Section padding */
+  --section-py:     clamp(4rem, 8vw, 7rem);
+  --section-px:     clamp(1.25rem, 5vw, 2rem);
+
+  /* -----------------------------------------------------------
+     LAYOUT
+     ----------------------------------------------------------- */
+  --max-width:        1320px;
+  --max-width-narrow: 800px;
+  --max-width-wide:   1600px;
+
+  /* Grid */
+  --grid-cols:        12;
+  --grid-gap:         clamp(1rem, 2.5vw, 1.5rem);
+
+  /* -----------------------------------------------------------
+     BORDERS & RADIUS
+     ----------------------------------------------------------- */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   20px;
+  --radius-full: 9999px;
+
+  --border-width:      1px;
+  --border-width-md:   2px;
+  --border-width-lg:   3px;
+
+  /* -----------------------------------------------------------
+     SHADOWS
+     ----------------------------------------------------------- */
+  --shadow-sm:  0 1px 3px rgba(10, 22, 40, 0.12),
+                0 1px 2px rgba(10, 22, 40, 0.08);
+  --shadow-md:  0 4px 16px rgba(10, 22, 40, 0.12),
+                0 2px 6px  rgba(10, 22, 40, 0.08);
+  --shadow-lg:  0 10px 32px rgba(10, 22, 40, 0.16),
+                0 4px 12px  rgba(10, 22, 40, 0.10);
+  --shadow-xl:  0 20px 60px rgba(10, 22, 40, 0.20),
+                0 8px 24px  rgba(10, 22, 40, 0.12);
+  --shadow-gold: 0 4px 20px rgba(168, 152, 92, 0.30);
+  --shadow-blue: 0 4px 20px rgba(17,  100, 194, 0.30);
+
+  /* -----------------------------------------------------------
+     TRANSITIONS & ANIMATION
+     ----------------------------------------------------------- */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+  --transition-bounce: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* -----------------------------------------------------------
+     Z-INDEX SCALE
+     ----------------------------------------------------------- */
+  --z-below:   -1;
+  --z-base:     0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+}

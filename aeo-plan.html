@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="brand/Favicon-edge.svg">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEO Implementation Plan — The Edge Construction Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <style>
+    body {
+      background: var(--color-neutral-100);
+      padding: var(--space-16) var(--space-8);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .guide-header {
+      background: var(--color-dark-900);
+      border-radius: var(--radius-lg);
+      padding: var(--space-12);
+      margin-bottom: var(--space-12);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+    }
+    .guide-header img { height: 56px; width: auto; }
+    .guide-header-text h1 {
+      font-family: var(--font-display);
+      font-size: var(--fs-3xl);
+      font-weight: var(--fw-extrabold);
+      color: var(--color-gold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+    }
+    .guide-header-text p {
+      color: rgba(255,255,255,0.5);
+      font-size: var(--fs-md);
+      margin-top: var(--space-2);
+    }
+
+    .guide-section {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-10);
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-sm);
+    }
+    .guide-section h2 {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-wider);
+      color: var(--color-blue);
+      border-bottom: 2px solid var(--color-gold);
+      padding-bottom: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+    .guide-section h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-md);
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-wide);
+      color: var(--color-dark-900);
+      margin: var(--space-8) 0 var(--space-3);
+    }
+    .guide-section h3:first-of-type { margin-top: 0; }
+    .guide-section p {
+      font-size: var(--fs-base);
+      color: var(--text-secondary);
+      line-height: var(--lh-relaxed);
+      margin-bottom: var(--space-4);
+    }
+    .guide-section p:last-child { margin-bottom: 0; }
+
+    /* Status badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-family: var(--font-display);
+      font-size: 0.625rem;
+      font-weight: var(--fw-bold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.625rem;
+      border-radius: 999px;
+      vertical-align: middle;
+      margin-left: 0.5rem;
+    }
+    .badge--done   { background: #e6f4ea; color: #1a7a36; }
+    .badge--active { background: #fff4e0; color: #a05c00; }
+    .badge--todo   { background: #f0f3f8; color: #4a5568; }
+    .badge svg { width: 10px; height: 10px; }
+
+    /* Item rows */
+    .plan-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-4);
+      align-items: start;
+      padding: var(--space-5) 0;
+      border-bottom: 1px solid var(--color-neutral-200);
+    }
+    .plan-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .plan-item:first-child { padding-top: 0; }
+    .plan-item-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-base);
+      font-weight: var(--fw-semibold);
+      color: var(--color-dark-900);
+      margin-bottom: var(--space-1);
+    }
+    .plan-item-desc {
+      font-size: var(--fs-sm);
+      color: var(--text-secondary);
+      line-height: var(--lh-relaxed);
+      margin: 0;
+    }
+
+    /* Dashboard grid */
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    .dash-card {
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      text-align: center;
+    }
+    .dash-card--done   { background: #e6f4ea; }
+    .dash-card--active { background: #fff4e0; }
+    .dash-card--todo   { background: #f0f3f8; }
+    .dash-num {
+      font-family: var(--font-display);
+      font-size: var(--fs-4xl);
+      font-weight: var(--fw-extrabold);
+      line-height: 1;
+      margin-bottom: var(--space-1);
+    }
+    .dash-card--done   .dash-num { color: #1a7a36; }
+    .dash-card--active .dash-num { color: #a05c00; }
+    .dash-card--todo   .dash-num { color: #4a5568; }
+    .dash-label {
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      font-weight: var(--fw-bold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .dash-card--done   .dash-label { color: #1a7a36; }
+    .dash-card--active .dash-label { color: #a05c00; }
+    .dash-card--todo   .dash-label { color: #4a5568; }
+
+    /* Callout boxes */
+    .callout {
+      border-left: 3px solid var(--color-gold);
+      background: #fffdf5;
+      padding: var(--space-4) var(--space-5);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: var(--space-6) 0;
+    }
+    .callout p {
+      font-size: var(--fs-sm);
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: var(--lh-relaxed);
+    }
+    .callout strong { color: var(--color-dark-900); }
+
+    .query-block {
+      background: var(--color-dark-900);
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-5);
+      margin: var(--space-3) 0;
+    }
+    .query-block p {
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      color: var(--color-gold);
+      margin: 0;
+      font-style: italic;
+    }
+
+    code {
+      background: var(--color-neutral-100);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: 3px;
+      font-size: 0.8125rem;
+      padding: 0.1em 0.4em;
+      color: var(--color-blue);
+    }
+
+    @media (max-width: 640px) {
+      body { padding: var(--space-8) var(--space-4); }
+      .guide-header { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+      .dashboard { grid-template-columns: 1fr; }
+      .plan-item { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="guide-header">
+    <img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co.">
+    <div class="guide-header-text">
+      <h1>AEO Implementation Plan</h1>
+      <p>Answer Engine Optimization — Internal Reference &amp; Status Tracker</p>
+    </div>
+  </div>
+
+
+  <!-- WHAT IS AEO -->
+  <div class="guide-section">
+    <h2>What Is AEO and Why It Matters</h2>
+    <p><strong>Answer Engine Optimization (AEO)</strong> — also called GEO (Generative Engine Optimization) or AIO (AI Optimization) — is the practice of structuring a website so that AI-powered answer engines (ChatGPT, Google Gemini, Perplexity, SearchGPT) can find, read, understand, and cite it as an authoritative source.</p>
+    <p>These tools use Retrieval-Augmented Generation (RAG): they search the web, pull the most relevant content, and synthesize an answer. <strong>If your site isn't structured for machines to read, you won't be cited — even if you rank on Google.</strong></p>
+    <p>For The Edge, the goal is to become the cited source when a GC, owner, or developer asks an AI: <em>"Who does commercial carpentry in Chicago?"</em> or <em>"Which framing sub uses Procore and laser layout?"</em> That requires winning on three fronts: technical markup, on-site content, and off-site authority.</p>
+
+    <div class="callout">
+      <p><strong>Test it now:</strong> Go to <a href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity.ai</a> and type: <em>"Who are the best commercial carpentry subcontractors in Chicago?"</em> — the sources it cites are the sites we need to match or appear on.</p>
+    </div>
+  </div>
+
+
+  <!-- STATUS DASHBOARD -->
+  <div class="guide-section">
+    <h2>Status Dashboard</h2>
+    <div class="dashboard">
+      <div class="dash-card dash-card--done">
+        <div class="dash-num">12</div>
+        <div class="dash-label">Completed</div>
+      </div>
+      <div class="dash-card dash-card--active">
+        <div class="dash-num">3</div>
+        <div class="dash-label">In Progress</div>
+      </div>
+      <div class="dash-card dash-card--todo">
+        <div class="dash-num">7</div>
+        <div class="dash-label">To Do</div>
+      </div>
+    </div>
+    <p style="font-size:var(--fs-sm);color:var(--text-secondary);margin:0;">Status as of site launch. Update this tracker as items are completed.</p>
+  </div>
+
+
+  <!-- PLATFORM MIGRATION -->
+  <div class="guide-section">
+    <h2>0. Platform Migration — Squarespace → HTML / Netlify</h2>
+    <p>The foundation of this entire AEO plan is the decision to abandon Squarespace and rebuild the site as hand-coded HTML/CSS/JS hosted on Netlify. This is not a cosmetic change — it is the single most important structural decision for AI citability.</p>
+
+    <h3>What the Old Site Looked Like</h3>
+    <p>The prior Squarespace site had <strong>16 indexed URLs</strong> — almost entirely blog posts buried at <code>/commercial-construction-blog/*</code> slugs. The sitemap contained no dedicated service pages, no project detail pages, two orphaned clone URLs (<code>/gallery-clone-…</code>, <code>/home-clone-…</code>), and two draft posts with machine-generated gibberish slugs (<code>/di9xcffcm…</code>, <code>/d9gyvybc…</code>). The site was not structured for discovery by AI or search crawlers. It was a portfolio with a blog tacked on.</p>
+
+    <div class="callout">
+      <p><strong>Old sitemap coverage:</strong> 1 blog index · 9 blog posts · 1 careers page · 1 gallery page · 2 clone/draft artifacts = 14 real pages, none purpose-built for service- or location-based AI queries.</p>
+    </div>
+
+    <h3>What the New Site Has</h3>
+    <p>The rebuilt site ships with <strong>22 purpose-built pages</strong>: a home page, services hub, 4 individual service pages, projects hub, 10 project case study pages, technology page, about page, careers page, contact page, and privacy policy — every one with a clean slug that maps directly to what contractors and owners search for. All pages carry full JSON-LD schema, canonical URLs, OG tags, and author attribution.</p>
+
+    <h3>Why Netlify + Static HTML Is Superior for AEO</h3>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Full Schema Control — No Workarounds <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Squarespace restricts JSON-LD injection to Code Injection blocks that execute unreliably and are stripped in some render contexts. On the new site, <code>&lt;script type="application/ld+json"&gt;</code> blocks live directly in each page's <code>&lt;head&gt;</code> — exactly where Google's and Bing's structured data parsers expect them. No middleware, no platform stripping, no race conditions.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Clean Crawlable HTML — No Client-Side Rendering <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Squarespace pages are JavaScript-rendered: the initial HTML response is a shell, with content injected after a JS bundle loads. Many AI crawlers (Perplexity's Spider, Anthropic's ClaudeBot, OpenAI's GPTBot) are lightweight scrapers that do not execute JavaScript. They see a blank page. Static HTML delivers the full content in the first byte — every heading, every paragraph, every schema block — to any crawler, every time.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Root-Level File Placement (llm.txt, robots.txt, ai-info.html) <span class="badge badge--todo">To Do</span></div>
+        <div class="plan-item-desc">Squarespace does not allow arbitrary files at the site root — you cannot place an <code>llm.txt</code> or a custom <code>robots.txt</code>. On Netlify, the <code>/public</code> folder is the root: drop any file and it is immediately live at that URL. This unlocks the <code>llm.txt</code> and <code>/ai-info.html</code> pages that are critical to-do items on this plan.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Faster Load Times — No Squarespace Platform JS <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Squarespace loads 400–600KB of platform JavaScript on every page regardless of what features you use. The new site loads only the CSS and JS it actually needs. Google's Core Web Vitals — which influence AI-source credibility scoring — benefit directly from lighter pages. Netlify's global edge CDN serves static assets from nodes closest to the visitor, reducing TTFB further.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">URL Structure Matches Service + Location Taxonomy <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">The old site buried project content at <code>/commercial-construction-blog/varsity-theater-project</code>. The new site uses <code>/projects/varsity-theater-evanston</code> and <code>/services/metal-stud-framing</code> — URL slugs that map directly to the entity type and service keyword. AI models parse URL structure as a relevance signal; descriptive slugs in a logical hierarchy outperform blog-style URLs for every service and location query this site needs to win.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">No Platform Lock-in on Any HTML Element <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Squarespace controls which meta tags, heading structures, and link attributes it will render. Custom <code>rel</code> attributes, <code>aria-label</code> usage, and schema nesting are all subject to platform quirks. The new site is vanilla HTML — every tag, attribute, and schema property works exactly as the spec defines it. No surprises, no undocumented stripping.</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- TECHNICAL -->
+  <div class="guide-section">
+    <h2>1. Technical Foundation</h2>
+    <p>The most reliable way to get cited by an AI is to tell it exactly who you are, what you do, and where you operate in a format it cannot misinterpret. That means JSON-LD structured data (Schema.org) and a human-readable AI summary page.</p>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">LocalBusiness / GeneralContractor Schema <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Full <code>GeneralContractor</code> JSON-LD on <code>index.html</code> — includes name, address, geo coordinates, phone, service area, priceRange, and <code>knowsAbout</code> array for all four services.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">FAQPage Schema <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">FAQPage JSON-LD implemented on: <code>index.html</code>, <code>services.html</code>, <code>technology.html</code>, and all four service pages. Each FAQ uses question-format H2 headings to match natural AI queries.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Service Schema on all Service Pages <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Individual <code>Service</code> schema with <code>provider</code>, <code>areaServed</code>, and <code>description</code> on Metal Stud Framing, Commercial Millwork, Drywall Solutions, and Acoustic Installations pages.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Article Schema on all Project Pages <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">All 10 project pages carry full <code>Article</code> schema: author (Bill Haidl), <code>datePublished</code>, <code>dateModified</code>, <code>articleBody</code>, and <code>mainEntityOfPage</code>.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Speakable Schema on Service Pages <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc"><code>SpeakableSpecification</code> markup flags the most AI-relevant content blocks on each service page for voice and AI summarization.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">BreadcrumbList Schema <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">BreadcrumbList on all service pages, project pages, and privacy.html — helps AI models understand site hierarchy and content relationships.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Canonical URLs + Open Graph on all pages <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Every page has a <code>&lt;link rel="canonical"&gt;</code>, and full OG tags (<code>og:title</code>, <code>og:description</code>, <code>og:url</code>, <code>og:type</code>, <code>og:image</code>). Titles ≤60 chars, descriptions ≤160 chars.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">AI Summary Page (<code>/ai-info</code>) <span class="badge badge--todo">To Do</span></div>
+        <div class="plan-item-desc">Create a plain-text, crawler-friendly page at <code>/ai-info.html</code> that summarizes The Edge in structured prose — company description, services, location, differentiators, key personnel. This acts as a human-readable "cheat sheet" for AI crawlers, equivalent to the emerging <code>llm.txt</code> standard. Link it quietly in the footer.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title"><code>llm.txt</code> at root <span class="badge badge--todo">To Do</span></div>
+        <div class="plan-item-desc">Once deployed on Netlify, add an <code>llm.txt</code> file at the site root. Follows the emerging standard (similar to <code>robots.txt</code>) — a structured plain-text summary that AI crawlers can consume directly. Keep it concise: company, services, service area, key facts.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">NAP Consistency Audit <span class="badge badge--active">In Progress</span></div>
+        <div class="plan-item-desc">Name, Address, and Phone must be <em>identical</em> everywhere — website footer, Google Business, LinkedIn, BBB, The Blue Book, Houzz, Yelp, Angi. Even a difference between "The Edge Construction Co." and "Edge Construction" causes AI models to treat them as separate entities and dilutes authority. Canonical form: <strong>The Edge Construction Co., Inc. · 1540 Hecht Drive, Suite G, Bartlett, IL 60103 · (224) 208-1062</strong></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ON-SITE CONTENT -->
+  <div class="guide-section">
+    <h2>2. On-Site Content</h2>
+    <p>AI models primarily read text. Video reels and photo galleries are invisible to them without accompanying descriptions. The site needs to be a source AI can quote — which means structured, question-answer-friendly text that directly addresses what GCs and owners are searching for.</p>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">10 Project Case Study Pages (500+ words each) <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">All 10 project pages carry full written case studies: scope, materials, challenges, technology used, and results. AI can cite these as expert references for specific niches (hospital fit-outs, historic restorations, automotive builds, etc.).</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">FAQ Sections with Question-Format H2 Headings <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Service pages use question-format H2 headings throughout body copy (e.g., "What Is Light Gauge Metal Framing?"). FAQ accordion sections appear on the home page, services hub, technology page, and all four service pages — each with matching FAQPage schema.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Author Attribution (Bill Haidl, OSHA-30) <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">All service pages and project pages carry a byline and <code>Person</code> schema for Bill Haidl. AI models weight "E-E-A-T" (Experience, Expertise, Authoritativeness, Trust) signals heavily — a named, credentialed author strengthens citability.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">External Authority Links (ASTM, IBC, UL, AWI) <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Service pages link out to recognized standards bodies (ASTM, IBC, UL, AWI). Outbound links to authoritative sources signal domain expertise to both search engines and AI content evaluators.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Video Caption / Description Text <span class="badge badge--active">In Progress</span></div>
+        <div class="plan-item-desc">The "Watch Us Work" video carousel is invisible to AI without associated text. Each video card already has a <code>data-title</code> and a <code>.vr-card-desc</code> description below it — review these for keyword richness. Consider adding a short text summary below the entire section for crawler context.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Dedicated <code>/faq</code> Page <span class="badge badge--todo">To Do</span></div>
+        <div class="plan-item-desc">A standalone FAQ page consolidating the top questions from all service areas and the technology stack. LLMs treat FAQ pages as "honey pots" — if the answer is clearly written, the AI will quote it verbatim. Target questions like: <em>"What is the difference between light gauge and structural metal framing?"</em>, <em>"How does Procore improve commercial construction timelines?"</em>, <em>"What is Continuous Flow Drywall finishing?"</em></div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">SEO Title Optimization — "Chicago" in Titles <span class="badge badge--todo">To Do</span></div>
+        <div class="plan-item-desc">Ensure key service pages include the city in the page <code>&lt;title&gt;</code>. Recommended format: <em>Commercial Metal Stud Framing Chicago | The Edge Construction Co.</em> — AI models scrape and prioritize pages where the service + city appear in the title tag.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- OFF-SITE AUTHORITY -->
+  <div class="guide-section">
+    <h2>3. Off-Site Authority</h2>
+    <p>AI models don't just read your site — they triangulate authority from directories, review platforms, and third-party mentions. A strong profile on the sites that AI scrapes is as important as on-site content.</p>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Google Business Profile — Complete &amp; Active <span class="badge badge--active">In Progress</span></div>
+        <div class="plan-item-desc">Google Business Profile is the #1 driver for local construction SEO and is heavily weighted by Google Gemini. Profile must be 100% complete: photos updated, services listed, responses to all reviews. <strong>Goal: acquire 3+ new reviews per month.</strong> AI models treat high-rated, frequently-reviewed companies as trusted entities.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">Houzz Profile — Add Project Text <span class="badge badge--todo">To Do</span></div>
+        <div class="plan-item-desc">The Edge is currently listed on Houzz under "Carpenters near Morris, IL" but the profile is thin. LLMs scrape Houzz listings frequently. Add project descriptions, photos with captions, and service descriptions. Match the NAP exactly to the site.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">LinkedIn Articles — Tech Differentiators <span class="badge badge--todo">To Do</span></div>
+        <div class="plan-item-desc">LinkedIn Articles (not just posts) are indexed very highly by Google Gemini and SearchGPT. Write 3-paragraph articles on: (1) <em>Factory in the Field</em>, (2) <em>Continuous Flow Drywall Finishing</em>, (3) <em>Running Every Job on Procore</em>. Use the same language as the site. These create a second citeable source for the same keywords.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">BBB + The Blue Book — Verify Listings <span class="badge badge--todo">To Do</span></div>
+        <div class="plan-item-desc">The Edge already appears on The Blue Book and BBB. Verify NAP is identical, add a description, and ensure the website URL is current. These are high-authority directories that AI scrapes for "top contractors" lists.</div>
+      </div>
+    </div>
+
+    <div class="plan-item">
+      <div>
+        <div class="plan-item-title">ABC Illinois + CNG — Ensure Web Listing <span class="badge badge--todo">To Do</span></div>
+        <div class="plan-item-desc">As an ABC member and CNG affiliate, ensure The Edge has an active, text-rich profile on both directories with a backlink to the site. Trade association membership pages are trusted by AI as authority signals for professional standing.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MONITORING -->
+  <div class="guide-section">
+    <h2>4. Monitoring — Are We Being Cited?</h2>
+    <p>Run these queries monthly in Perplexity, ChatGPT, and Google Gemini to track whether The Edge is being cited and who the competition is. Look at the source footnotes — those are the sites you need to match or appear on.</p>
+
+    <div class="query-block">
+      <p>"Who are the best commercial carpentry subcontractors in Chicago?"</p>
+    </div>
+    <div class="query-block">
+      <p>"Which commercial framing contractors in Chicago use Procore?"</p>
+    </div>
+    <div class="query-block">
+      <p>"What is Continuous Flow Drywall finishing and who uses it?"</p>
+    </div>
+    <div class="query-block">
+      <p>"Best metal stud framing companies in the greater Chicago area?"</p>
+    </div>
+    <div class="query-block">
+      <p>"Commercial drywall prefabrication subcontractors Chicago suburbs?"</p>
+    </div>
+
+    <div class="callout" style="margin-top:var(--space-6);">
+      <p><strong>If The Edge doesn't appear:</strong> Look at the sites that ARE cited. Get listed on those directories, get a mention in those publications, or outrank them on the matching keyword. The answer is always "show up where the AI is already looking."</p>
+    </div>
+  </div>
+
+
+  <!-- KEY PRINCIPLE -->
+  <div class="guide-section">
+    <h2>5. The Core Principle</h2>
+    <p>AEO isn't a separate discipline from SEO — it's SEO taken seriously. Every item on this plan makes the site better for Google <em>and</em> for AI answer engines simultaneously.</p>
+    <p>The Edge has a genuine story to tell: 20+ years, real technology (Procore, laser layout, Continuous Flow Drywall, prefab shop), named experts, real projects, real testimonials. That content exists. The job is to structure it so that machines can find it, read it, and cite it — without needing a human to translate.</p>
+    <p><strong>The single highest-leverage action remaining:</strong> Build the <code>/ai-info</code> page and the standalone <code>/faq</code> page. These are the two formats AI crawlers consume most directly and quote most frequently.</p>
+  </div>
+
+
+  <!-- Password gate -->
+  <div id="bg-gate" style="position:fixed;inset:0;z-index:9999;background:#0d1420;display:flex;align-items:center;justify-content:center;padding:1.5rem;">
+    <div style="width:100%;max-width:360px;text-align:center;">
+      <img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co." style="height:36px;width:auto;margin-bottom:2rem;opacity:0.9;">
+      <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(168,152,92,0.8);margin-bottom:0.5rem;">Internal Resource</p>
+      <h1 style="font-family:'Barlow Condensed',sans-serif;font-size:1.75rem;font-weight:800;color:#fff;margin:0 0 1.75rem;line-height:1.2;">AEO Plan</h1>
+      <form id="bg-form" style="display:flex;flex-direction:column;gap:0.75rem;">
+        <input id="bg-input" type="password" placeholder="Enter password" autocomplete="current-password"
+          style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:4px;color:#fff;font-size:1rem;padding:0.75rem 1rem;box-sizing:border-box;outline:none;font-family:'Barlow',sans-serif;">
+        <button type="submit"
+          style="background:#1164C2;color:#fff;border:none;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.75rem;cursor:pointer;">
+          Enter
+        </button>
+        <p id="bg-error" style="display:none;color:#e05;font-size:0.875rem;margin:0;">Incorrect password. Try again.</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var PASS = 'edgerules';
+    var gate  = document.getElementById('bg-gate');
+    var form  = document.getElementById('bg-form');
+    var input = document.getElementById('bg-input');
+    var error = document.getElementById('bg-error');
+
+    if (sessionStorage.getItem('bg-auth') === '1') {
+      gate.style.display = 'none';
+      return;
+    }
+
+    document.body.style.overflow = 'hidden';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (input.value === PASS) {
+        sessionStorage.setItem('bg-auth', '1');
+        gate.style.display = 'none';
+        document.body.style.overflow = '';
+      } else {
+        error.style.display = 'block';
+        input.value = '';
+        input.focus();
+      }
+    });
+  })();
+  </script>
+
+</body>
+</html>
