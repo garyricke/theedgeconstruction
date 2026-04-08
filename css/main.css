@@ -793,12 +793,15 @@
 }
 
 .project-card {
+  display: block;
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-neutral-200);
   aspect-ratio: 3 / 4;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .project-card-img {

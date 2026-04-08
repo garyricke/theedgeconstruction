@@ -237,19 +237,19 @@
     <h2>Status Dashboard</h2>
     <div class="dashboard">
       <div class="dash-card dash-card--done">
-        <div class="dash-num">12</div>
+        <div class="dash-num">22</div>
         <div class="dash-label">Completed</div>
       </div>
       <div class="dash-card dash-card--active">
-        <div class="dash-num">3</div>
+        <div class="dash-num">2</div>
         <div class="dash-label">In Progress</div>
       </div>
       <div class="dash-card dash-card--todo">
-        <div class="dash-num">7</div>
+        <div class="dash-num">4</div>
         <div class="dash-label">To Do</div>
       </div>
     </div>
-    <p style="font-size:var(--fs-sm);color:var(--text-secondary);margin:0;">Status as of site launch. Update this tracker as items are completed.</p>
+    <p style="font-size:var(--fs-sm);color:var(--text-secondary);margin:0;">Last updated: April 8, 2026. Remaining work is entirely off-site authority building.</p>
   </div>
 
 
@@ -266,7 +266,7 @@
     </div>
 
     <h3>What the New Site Has</h3>
-    <p>The rebuilt site ships with <strong>22 purpose-built pages</strong>: a home page, services hub, 4 individual service pages, projects hub, 10 project case study pages, technology page, about page, careers page, contact page, and privacy policy — every one with a clean slug that maps directly to what contractors and owners search for. All pages carry full JSON-LD schema, canonical URLs, OG tags, and author attribution.</p>
+    <p>The rebuilt site ships with <strong>28 purpose-built pages</strong>: a home page, services hub, 5 individual service pages, projects hub, 10 project case study pages, technology page, about page, careers page, contact page, FAQ page, AI info page, and privacy policy — every one with a clean slug that maps directly to what contractors and owners search for. All pages carry full JSON-LD schema, canonical URLs, OG tags, and author attribution.</p>
 
     <h3>Why Netlify + Static HTML Is Superior for AEO</h3>
 
@@ -286,8 +286,8 @@
 
     <div class="plan-item">
       <div>
-        <div class="plan-item-title">Root-Level File Placement (llm.txt, robots.txt, ai-info.html) <span class="badge badge--todo">To Do</span></div>
-        <div class="plan-item-desc">Squarespace does not allow arbitrary files at the site root — you cannot place an <code>llm.txt</code> or a custom <code>robots.txt</code>. On Netlify, the <code>/public</code> folder is the root: drop any file and it is immediately live at that URL. This unlocks the <code>llm.txt</code> and <code>/ai-info.html</code> pages that are critical to-do items on this plan.</div>
+        <div class="plan-item-title">Root-Level File Placement (llm.txt, robots.txt, ai-info.html) <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc"><code>robots.txt</code> deployed welcoming all AI crawlers (GPTBot, ClaudeBot, PerplexityBot, anthropic-ai, cohere-ai). <code>llm.txt</code> live at site root with structured plain-text company summary. <code>/ai-info</code> page live with full LocalBusiness schema and prose summary for AI crawlers.</div>
       </div>
     </div>
 
@@ -330,7 +330,7 @@
     <div class="plan-item">
       <div>
         <div class="plan-item-title">FAQPage Schema <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
-        <div class="plan-item-desc">FAQPage JSON-LD implemented on: <code>index.html</code>, <code>services.html</code>, <code>technology.html</code>, and all four service pages. Each FAQ uses question-format H2 headings to match natural AI queries.</div>
+        <div class="plan-item-desc">FAQPage JSON-LD implemented on: <code>index.html</code>, <code>services.html</code>, <code>technology.html</code>, <code>faq.html</code>, and all five service pages. Each FAQ uses question-format H2 headings to match natural AI queries.</div>
       </div>
     </div>
 
@@ -371,15 +371,15 @@
 
     <div class="plan-item">
       <div>
-        <div class="plan-item-title">AI Summary Page (<code>/ai-info</code>) <span class="badge badge--todo">To Do</span></div>
-        <div class="plan-item-desc">Create a plain-text, crawler-friendly page at <code>/ai-info.html</code> that summarizes The Edge in structured prose — company description, services, location, differentiators, key personnel. This acts as a human-readable "cheat sheet" for AI crawlers, equivalent to the emerging <code>llm.txt</code> standard. Link it quietly in the footer.</div>
+        <div class="plan-item-title">AI Summary Page (<code>/ai-info</code>) <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Live at <code>/ai-info</code>. Clean, minimal HTML with full prose descriptions of all five services, differentiators, service area, company facts, key personnel, and LocalBusiness JSON-LD schema. Linked in footer of all pages.</div>
       </div>
     </div>
 
     <div class="plan-item">
       <div>
-        <div class="plan-item-title"><code>llm.txt</code> at root <span class="badge badge--todo">To Do</span></div>
-        <div class="plan-item-desc">Once deployed on Netlify, add an <code>llm.txt</code> file at the site root. Follows the emerging standard (similar to <code>robots.txt</code>) — a structured plain-text summary that AI crawlers can consume directly. Keep it concise: company, services, service area, key facts.</div>
+        <div class="plan-item-title"><code>llm.txt</code> at root <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Live at <code>/llm.txt</code>. Structured plain-text summary covering company NAP, founding year (1996), all five services with descriptions, differentiators, service area, key personnel, and pointer to <code>/ai-info</code>.</div>
       </div>
     </div>
 
@@ -407,7 +407,7 @@
     <div class="plan-item">
       <div>
         <div class="plan-item-title">FAQ Sections with Question-Format H2 Headings <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
-        <div class="plan-item-desc">Service pages use question-format H2 headings throughout body copy (e.g., "What Is Light Gauge Metal Framing?"). FAQ accordion sections appear on the home page, services hub, technology page, and all four service pages — each with matching FAQPage schema.</div>
+        <div class="plan-item-desc">Service pages use question-format H2 headings throughout body copy (e.g., "How does The Edge reduce RFIs on framing scopes?"). FAQ accordion sections appear on the home page, services hub, technology page, all five service pages, and the dedicated <code>/faq</code> page — each with matching FAQPage schema.</div>
       </div>
     </div>
 
@@ -427,15 +427,15 @@
 
     <div class="plan-item">
       <div>
-        <div class="plan-item-title">Video Caption / Description Text <span class="badge badge--active">In Progress</span></div>
-        <div class="plan-item-desc">The "Watch Us Work" video carousel is invisible to AI without associated text. Each video card already has a <code>data-title</code> and a <code>.vr-card-desc</code> description below it — review these for keyword richness. Consider adding a short text summary below the entire section for crawler context.</div>
+        <div class="plan-item-title">Video Caption / Description Text <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">All 10 <code>.vr-card-desc</code> descriptions rewritten with keyword-rich language: company name, trade names, locations, and technology terms. Crawler-context paragraph added below the carousel naming all project types and technologies in plain text.</div>
       </div>
     </div>
 
     <div class="plan-item">
       <div>
-        <div class="plan-item-title">Dedicated <code>/faq</code> Page <span class="badge badge--todo">To Do</span></div>
-        <div class="plan-item-desc">A standalone FAQ page consolidating the top questions from all service areas and the technology stack. LLMs treat FAQ pages as "honey pots" — if the answer is clearly written, the AI will quote it verbatim. Target questions like: <em>"What is the difference between light gauge and structural metal framing?"</em>, <em>"How does Procore improve commercial construction timelines?"</em>, <em>"What is Continuous Flow Drywall finishing?"</em></div>
+        <div class="plan-item-title">Dedicated <code>/faq</code> Page <span class="badge badge--done"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg> Done</span></div>
+        <div class="plan-item-desc">Live at <code>/faq</code>. 17 Q&amp;A items in 5 sections (The Company, Metal Stud Framing, Drywall, Millwork &amp; Acoustic, Technology) with full FAQPage JSON-LD schema. Includes all AEO target questions: light gauge vs. structural framing, Continuous Flow Drywall, No Coat machine, Procore timelines. Linked in footer of all pages.</div>
       </div>
     </div>
 
@@ -522,7 +522,7 @@
     <h2>5. The Core Principle</h2>
     <p>AEO isn't a separate discipline from SEO — it's SEO taken seriously. Every item on this plan makes the site better for Google <em>and</em> for AI answer engines simultaneously.</p>
     <p>The Edge has a genuine story to tell: 20+ years, real technology (Procore, laser layout, Continuous Flow Drywall, prefab shop), named experts, real projects, real testimonials. That content exists. The job is to structure it so that machines can find it, read it, and cite it — without needing a human to translate.</p>
-    <p><strong>The single highest-leverage action remaining:</strong> Build the <code>/ai-info</code> page and the standalone <code>/faq</code> page. These are the two formats AI crawlers consume most directly and quote most frequently.</p>
+    <p><strong>Where things stand now:</strong> The <code>/ai-info</code> page, standalone <code>/faq</code> page, <code>llm.txt</code>, and <code>robots.txt</code> are all live. On-site AEO implementation is complete. The remaining work is entirely off-site: building citation authority through directory listings, industry mentions, and inbound links from sources AI crawlers trust.</p>
   </div>
 
 
