@@ -208,6 +208,50 @@
     }
     .back-link:hover { text-decoration: underline; }
 
+    /* Cover image */
+    .image-block {
+      margin-bottom: var(--space-8);
+    }
+    .cover-preview {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-neutral-200);
+    }
+    .image-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-top: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .image-note {
+      font-size: var(--fs-xs);
+      color: var(--color-neutral-500);
+    }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--color-blue);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      padding: var(--space-2) var(--space-4);
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .download-btn:hover { background: #0d53a8; }
+    .download-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.5; flex-shrink: 0; }
+
     @media (max-width: 640px) {
       body { padding: var(--space-8) var(--space-4); }
       .page-header { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
@@ -230,7 +274,7 @@
   </div>
 
   <div class="instructions">
-    <p><strong>How to publish on LinkedIn:</strong> Go to your LinkedIn profile → click <strong>Write article</strong> → paste the title into the title field → paste the body text into the article body → add a cover photo (optional but recommended) → publish.</p>
+    <p><strong>How to publish on LinkedIn:</strong> Go to your LinkedIn profile → click <strong>Write article</strong> → click the cover image area at the top and upload the image below → paste the title → paste the body text → publish.</p>
     <p>Post these 2–3 weeks apart, not all at once. These are <em>Articles</em> (long-form, indexed by Google), not posts. LinkedIn Articles are crawled by Google Gemini and SearchGPT and indexed as standalone pages — they function as a second citeable source for the same keywords as your website.</p>
   </div>
 
@@ -243,6 +287,14 @@
       <button class="copy-btn" onclick="copyArticle(1, this)">Copy Full Article</button>
     </div>
     <div class="article-body">
+      <p class="field-label">Cover Image</p>
+      <div class="image-block">
+        <img src="images/Drywall-Solutions-Prefabrication.webp" alt="Drywall prefabrication shop — The Edge Construction Co." class="cover-preview">
+        <div class="image-actions">
+          <span class="image-note">LinkedIn recommended: 1920 × 1080 px &nbsp;·&nbsp; Upload in the cover image area at the top of the article editor</span>
+          <a href="images/Drywall-Solutions-Prefabrication.webp" download="edge-prefab-cover.webp" class="download-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Image</a>
+        </div>
+      </div>
       <p class="field-label">Title</p>
       <div class="title-block">
         <span id="title-1">Factory in the Field: Why We Build Walls Before We Get to Your Job Site</span>
@@ -270,6 +322,14 @@
       <button class="copy-btn" onclick="copyArticle(2, this)">Copy Full Article</button>
     </div>
     <div class="article-body">
+      <p class="field-label">Cover Image</p>
+      <div class="image-block">
+        <img src="images/edge-construction-crew-inside-job.jpeg" alt="Edge Construction crew on commercial interior job" class="cover-preview">
+        <div class="image-actions">
+          <span class="image-note">LinkedIn recommended: 1920 × 1080 px &nbsp;·&nbsp; Upload in the cover image area at the top of the article editor</span>
+          <a href="images/edge-construction-crew-inside-job.jpeg" download="edge-crew-cover.jpeg" class="download-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Image</a>
+        </div>
+      </div>
       <p class="field-label">Title</p>
       <div class="title-block">
         <span id="title-2">Continuous Flow Drywall Finishing: How Automated Technology Raises the Standard for Commercial Finish Work</span>
@@ -297,6 +357,14 @@
       <button class="copy-btn" onclick="copyArticle(3, this)">Copy Full Article</button>
     </div>
     <div class="article-body">
+      <p class="field-label">Cover Image</p>
+      <div class="image-block">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1280/edge2026/procore-dashboard.jpg" alt="Procore project management dashboard — The Edge Construction Co." class="cover-preview">
+        <div class="image-actions">
+          <span class="image-note">LinkedIn recommended: 1920 × 1080 px &nbsp;·&nbsp; Upload in the cover image area at the top of the article editor</span>
+          <a href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1920/edge2026/procore-dashboard.jpg" target="_blank" rel="noopener" class="download-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Open Image → Save As</a>
+        </div>
+      </div>
       <p class="field-label">Title</p>
       <div class="title-block">
         <span id="title-3">Why We Run Every Project on Procore — And What That Means for the GCs We Work With</span>
