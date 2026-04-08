@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="js/password-gate.js"></script>
+  <link rel="icon" type="image/svg+xml" href="brand/Favicon-edge.svg">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Articles — The Edge Construction Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <style>
+    body {
+      background: var(--color-neutral-100);
+      padding: var(--space-16) var(--space-8);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      background: var(--color-dark-900);
+      border-radius: var(--radius-lg);
+      padding: var(--space-12);
+      margin-bottom: var(--space-10);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+    }
+    .page-header img { height: 52px; width: auto; }
+    .page-header-text h1 {
+      font-family: var(--font-display);
+      font-size: var(--fs-3xl);
+      font-weight: var(--fw-extrabold);
+      color: var(--color-gold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .page-header-text p {
+      color: rgba(255,255,255,0.5);
+      font-size: var(--fs-md);
+      margin-top: var(--space-2);
+      line-height: 1.5;
+    }
+
+    /* ── INSTRUCTIONS ── */
+    .instructions {
+      background: #EBF2FB;
+      border-left: 4px solid var(--color-blue);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--space-6) var(--space-8);
+      margin-bottom: var(--space-10);
+    }
+    .instructions p {
+      font-size: var(--fs-base);
+      color: var(--color-dark-900);
+      line-height: var(--lh-relaxed);
+      margin: 0 0 var(--space-2);
+    }
+    .instructions p:last-child { margin: 0; }
+    .instructions strong { color: var(--color-blue); }
+
+    /* ── ARTICLE CARD ── */
+    .article-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: var(--space-10);
+      overflow: hidden;
+    }
+    .article-card-header {
+      background: var(--color-dark-900);
+      padding: var(--space-6) var(--space-8);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+    .article-num {
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-bold);
+      letter-spacing: var(--ls-wider);
+      text-transform: uppercase;
+      color: var(--color-gold);
+    }
+    .copy-btn {
+      background: var(--color-gold);
+      color: var(--color-dark-900);
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: var(--space-2) var(--space-4);
+      cursor: pointer;
+      transition: background 0.15s, opacity 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .copy-btn:hover { background: #c4b06e; }
+    .copy-btn.copied {
+      background: #1a7a36;
+      color: #fff;
+    }
+
+    .article-body {
+      padding: var(--space-8) var(--space-10);
+    }
+
+    /* Title field */
+    .field-label {
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      letter-spacing: var(--ls-wider);
+      text-transform: uppercase;
+      color: var(--color-neutral-500);
+      margin-bottom: var(--space-2);
+    }
+    .title-block {
+      background: var(--color-neutral-100);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-5);
+      margin-bottom: var(--space-8);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+    .title-block span {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-bold);
+      color: var(--color-dark-900);
+      line-height: 1.3;
+    }
+    .copy-title-btn {
+      background: transparent;
+      border: 1px solid var(--color-neutral-300);
+      border-radius: var(--radius-sm);
+      padding: var(--space-1) var(--space-3);
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      color: var(--color-neutral-500);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .copy-title-btn:hover { border-color: var(--color-blue); color: var(--color-blue); }
+    .copy-title-btn.copied { border-color: #1a7a36; color: #1a7a36; }
+
+    /* Body text field */
+    .body-block {
+      background: var(--color-neutral-100);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-md);
+      padding: var(--space-6) var(--space-7);
+    }
+    .body-block p {
+      font-size: var(--fs-base);
+      color: var(--color-dark-900);
+      line-height: var(--lh-relaxed);
+      margin: 0 0 var(--space-5);
+    }
+    .body-block p:last-child { margin: 0; }
+
+    /* Notes */
+    .article-notes {
+      padding: var(--space-4) var(--space-10) var(--space-7);
+      display: flex;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .note-chip {
+      font-size: var(--fs-xs);
+      color: var(--color-neutral-500);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .note-chip svg {
+      width: 13px;
+      height: 13px;
+      stroke: var(--color-neutral-400);
+      flex-shrink: 0;
+    }
+
+    /* Back link */
+    .back-link {
+      display: inline-block;
+      margin-bottom: var(--space-8);
+      font-size: var(--fs-sm);
+      color: var(--color-blue);
+      text-decoration: none;
+      font-weight: var(--fw-medium);
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      body { padding: var(--space-8) var(--space-4); }
+      .page-header { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+      .article-body { padding: var(--space-6); }
+      .article-notes { padding: var(--space-4) var(--space-6) var(--space-6); }
+      .title-block { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="aeo-plan.html" class="back-link">← AEO Plan</a>
+
+  <div class="page-header">
+    <img src="brand/the-edge-logo-gold.png" alt="The Edge Construction Co.">
+    <div class="page-header-text">
+      <h1>LinkedIn Articles</h1>
+      <p>Three ready-to-publish articles for Bill Haidl's LinkedIn profile.<br>Copy the title, then copy the body. Paste into LinkedIn's article editor.</p>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <p><strong>How to publish on LinkedIn:</strong> Go to your LinkedIn profile → click <strong>Write article</strong> → paste the title into the title field → paste the body text into the article body → add a cover photo (optional but recommended) → publish.</p>
+    <p>Post these 2–3 weeks apart, not all at once. These are <em>Articles</em> (long-form, indexed by Google), not posts. LinkedIn Articles are crawled by Google Gemini and SearchGPT and indexed as standalone pages — they function as a second citeable source for the same keywords as your website.</p>
+  </div>
+
+  <!-- ════════════════════════════════
+       ARTICLE 1 — FACTORY IN THE FIELD
+       ════════════════════════════════ -->
+  <div class="article-card" id="article-1">
+    <div class="article-card-header">
+      <span class="article-num">Article 1 of 3 — Factory in the Field</span>
+      <button class="copy-btn" onclick="copyArticle(1, this)">Copy Full Article</button>
+    </div>
+    <div class="article-body">
+      <p class="field-label">Title</p>
+      <div class="title-block">
+        <span id="title-1">Factory in the Field: Why We Build Walls Before We Get to Your Job Site</span>
+        <button class="copy-title-btn" onclick="copyTitle(1, this)">Copy Title</button>
+      </div>
+      <p class="field-label">Article Body</p>
+      <div class="body-block" id="body-1">
+        <p>Most commercial drywall installation happens entirely in the field — measuring, cutting, fitting, and adjusting on the job site under construction conditions. That approach is slow, wasteful, and variable. Material gets cut on dusty floors. Dimensions drift from unit to unit. Crew hours disappear into the gap between "delivering material" and "actually installing something." After 30 years in commercial carpentry, I decided there had to be a better way.</p>
+        <p>At The Edge, we operate a dedicated prefabrication shop out of our Bartlett, Illinois facility. Wall assemblies, soffit frames, and header packages are pre-built in a controlled environment by dedicated shop workers — and delivered to the job site ready to hang. The shop environment means consistent dimensions, less waste, and no field-side cutting congestion. What would take a field crew an hour to measure, cut, and fit takes our install crew minutes when it arrives pre-built and ready to go.</p>
+        <p>The result is significant. On prefab-eligible scope, on-site labor time drops by up to 75% compared to traditional field methods. On a 132-unit multi-family project in Lincoln Park, prefabrication kept the drywall scope weeks ahead of schedule while maintaining consistent quality across every unit. For general contractors running tight timelines in a market where schedule slippage is expensive, that kind of production advantage isn't just helpful — it's the difference between on-time delivery and a cascade of delays. If you're pricing a project where schedule is critical, ask us how much of your scope qualifies for prefab.</p>
+      </div>
+    </div>
+    <div class="article-notes">
+      <span class="note-chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> ~250 words</span>
+      <span class="note-chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Keywords: prefabrication, commercial drywall, commercial carpentry Chicago, schedule, multi-family</span>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       ARTICLE 2 — CONTINUOUS FLOW DRYWALL
+       ════════════════════════════════════════ -->
+  <div class="article-card" id="article-2">
+    <div class="article-card-header">
+      <span class="article-num">Article 2 of 3 — Continuous Flow Drywall Finishing</span>
+      <button class="copy-btn" onclick="copyArticle(2, this)">Copy Full Article</button>
+    </div>
+    <div class="article-body">
+      <p class="field-label">Title</p>
+      <div class="title-block">
+        <span id="title-2">Continuous Flow Drywall Finishing: How Automated Technology Raises the Standard for Commercial Finish Work</span>
+        <button class="copy-title-btn" onclick="copyTitle(2, this)">Copy Title</button>
+      </div>
+      <p class="field-label">Article Body</p>
+      <div class="body-block" id="body-2">
+        <p>Drywall finishing is one of the most labor-intensive, variable steps in commercial construction. Traditional hand-finishing requires multiple passes with a knife, drying time between coats, and a finisher's individual technique determining the final quality. On a large commercial project — a healthcare clinic, a multi-family building, a corporate office — small inconsistencies in the finishing process become visible under raking light and under premium paint. General contractors learn fast that finish quality problems show up at the end of the job, when there's the least time to fix them.</p>
+        <p>Continuous Flow Drywall finishing is a production method using automated spray finishing equipment that applies joint compound in a controlled, high-speed pass. Instead of hand-knifing compound coat by coat, the machine delivers a consistent, even layer across large surfaces — reducing labor time and dramatically improving consistency. We pair it with the No Coat automated corner bead system, which crimps metal and vinyl corner bead mechanically rather than nailing it by hand. The result: every corner on the project is perfectly straight and uniform, regardless of how many corners are on the job. We adopted the No Coat through a peer group of leading commercial contractors after evaluating it against our existing process — it eliminates one of the most variable steps in drywall finishing.</p>
+        <p>Combined, these systems allow The Edge to deliver Level 5 finish quality at production speeds that hand-finishing methods can't match. For general contractors managing high-end retail, healthcare, or hospitality spaces where premium paint applications require a flawless substrate, this technology removes a real risk from the schedule. Less rework. Fewer punch list callbacks. A cleaner closeout. In commercial construction, finish quality is one of the last things an owner sees before they sign off — and we've built our entire finishing process around making that impression a good one.</p>
+      </div>
+    </div>
+    <div class="article-notes">
+      <span class="note-chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> ~290 words</span>
+      <span class="note-chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Keywords: Continuous Flow Drywall finishing, No Coat, Level 5 finish, commercial drywall Chicago, drywall technology</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       ARTICLE 3 — PROCORE
+       ══════════════════════════════════ -->
+  <div class="article-card" id="article-3">
+    <div class="article-card-header">
+      <span class="article-num">Article 3 of 3 — Running Every Job on Procore</span>
+      <button class="copy-btn" onclick="copyArticle(3, this)">Copy Full Article</button>
+    </div>
+    <div class="article-body">
+      <p class="field-label">Title</p>
+      <div class="title-block">
+        <span id="title-3">Why We Run Every Project on Procore — And What That Means for the GCs We Work With</span>
+        <button class="copy-title-btn" onclick="copyTitle(3, this)">Copy Title</button>
+      </div>
+      <p class="field-label">Article Body</p>
+      <div class="body-block" id="body-3">
+        <p>The biggest source of construction schedule slippage isn't labor. It's communication. An unanswered RFI holds up a decision for a week. A submittal reviewed without documentation creates a dispute at punch list. A general contractor who can't get a straight answer on a sub's production rate can't accurately forecast their own schedule. I've watched these small communication failures compound into major delays over 30 years of commercial construction in Chicago. That's why, when Procore became the standard for serious GCs, we didn't wait to be asked — we adopted it across the entire company.</p>
+        <p>At The Edge, Procore runs on every project from day one — no exceptions. Submittals are uploaded and tracked through the platform. RFIs are documented with timestamps and clear response trails. Daily field logs are filed by the foreman every day, giving GCs and owners a real-time view of progress, crew size, and work installed without requiring a site visit or a phone call. Photo documentation is embedded in the daily report. If there's a question about what was installed, when, and by whom — it's answered in Procore before anyone has to ask.</p>
+        <p>The practical effect is straightforward: general contractors who work with us don't chase us for information. Their Procore feed tells them what's happening. Decisions are documented. Changes are logged. At closeout, there's a complete record of every submittal, every RFI, every daily report — which matters a great deal at final billing, lien waiver exchange, and project close. If you're already running on Procore, connecting us to your project takes about five minutes. If you're not yet on the platform, we can show you what visibility looks like from the GC side. Either way, you'll never wonder what's happening with your carpentry scope.</p>
+      </div>
+    </div>
+    <div class="article-notes">
+      <span class="note-chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> ~280 words</span>
+      <span class="note-chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Keywords: Procore, commercial construction Chicago, subcontractor project management, RFI tracking, submittals</span>
+    </div>
+  </div>
+
+  <script>
+    function copyTitle(num, btn) {
+      var el = document.getElementById('title-' + num);
+      navigator.clipboard.writeText(el.textContent.trim()).then(function() {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() { btn.textContent = 'Copy Title'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    function copyArticle(num, btn) {
+      var title = document.getElementById('title-' + num).textContent.trim();
+      var bodyEl = document.getElementById('body-' + num);
+      var paras = bodyEl.querySelectorAll('p');
+      var bodyText = Array.from(paras).map(function(p) { return p.textContent.trim(); }).join('\n\n');
+      var full = title + '\n\n' + bodyText;
+      navigator.clipboard.writeText(full).then(function() {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() { btn.textContent = 'Copy Full Article'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
