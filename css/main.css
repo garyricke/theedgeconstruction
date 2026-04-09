@@ -442,6 +442,10 @@
   justify-content: center;
 }
 
+.section-header--center .section-body {
+  margin-inline: auto;
+}
+
 .section-header--center .eyebrow::before {
   display: none;
 }
