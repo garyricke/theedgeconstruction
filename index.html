@@ -1179,5 +1179,18 @@
   })();
   </script>
 
+  <!-- Hidden static form so Netlify registers "contact-popup" at build time.
+       The actual form is injected by js/contact-modal.js. -->
+  <form name="contact-popup" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" hidden aria-hidden="true">
+    <input type="hidden" name="form-name" value="contact-popup">
+    <input name="bot-field">
+    <input name="name">
+    <input name="email">
+    <input name="phone">
+    <input name="subject">
+    <textarea name="message"></textarea>
+    <input type="file" name="resume">
+  </form>
+
 </body>
 </html>
