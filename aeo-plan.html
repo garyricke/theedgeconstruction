@@ -661,6 +661,46 @@
     <h2>Site Changelog — Improvements Beyond AEO Scope</h2>
     <p>These updates were made to the new site during the build process and represent improvements over the old Squarespace site — independent of the AEO implementation plan above.</p>
 
+    <!-- ── PENDING ACTIONS — Gary / Bill ─────────────────────────── -->
+    <div class="changelog-entry" style="background:#fffbeb;border-radius:var(--radius-md);padding:var(--space-6);margin-bottom:var(--space-6);border:1px solid #f6d860;">
+      <div class="changelog-date" style="color:#92400e;">Pending — Gary / Bill Action Required</div>
+      <ul class="changelog-items">
+        <li><strong>Upload real Door &amp; Hardware photos to Cloudinary</strong> — the new <code>services/door-hardware-installation.html</code> page currently uses a generic job-site hero image as a placeholder. Bill needs to send job-site photos of door/hardware work so Gary can upload to Cloudinary and swap them in. <span class="changelog-tag" style="background:#fde68a;color:#78350f;">Photo</span></li>
+        <li><strong>Upload Fremont wood framing images to Cloudinary</strong> — the 1529 Fremont project page (<code>projects/1529-fremont.html</code>) references 6 local <code>images/wood-framing-fremont - *.jpeg</code> files with URL-encoded spaces. These need to be uploaded to Cloudinary and the gallery <code>src</code> values replaced with CDN URLs for consistent performance and delivery. Local filenames with spaces are fragile. <span class="changelog-tag" style="background:#fde68a;color:#78350f;">Photo</span></li>
+        <li><strong>Confirm / update 1529 Fremont project details</strong> — unit count, floors, completion date, and GC name are not yet on the project page. Bill should confirm or provide so the page can be filled in beyond "multi-family wood framing." <span class="changelog-tag" style="background:#fde68a;color:#78350f;">Content</span></li>
+        <li><strong>Provide Field School project assets</strong> — meeting notes referenced keeping "Field School" as the sole Historic Renovation project, but no Field School page or images exist in the repo. If this project should be added, Bill needs to supply photos and project details. <span class="changelog-tag" style="background:#fde68a;color:#78350f;">Content</span></li>
+        <li><strong>Remove password gate before go-live</strong> — <code>js/password-gate.js</code> is still included on all pages. The <code>&lt;script src="js/password-gate.js"&gt;&lt;/script&gt;</code> tag must be removed from every HTML file (or the file emptied) before the site goes live to the public. <span class="changelog-tag" style="background:#fde68a;color:#78350f;">Launch</span></li>
+        <li><strong>Confirm domain + DNS transfer credentials</strong> — go-live requires pointing the domain to Netlify. Gary needs the registrar login from Bill to update nameservers, or Bill needs to make the DNS change himself. <span class="changelog-tag" style="background:#fde68a;color:#78350f;">Launch</span></li>
+        <li><strong>Directory listings (Houzz, BBB, Blue Book, ABC, CNG)</strong> — off-site AEO work flagged in the plan above. Bill or Gary needs to log in to each platform and update the business profile / add project text. None of this can be done via code. <span class="changelog-tag" style="background:#fde68a;color:#78350f;">Off-Site</span></li>
+        <li><strong>Add "Door &amp; Hardware" experience card to apply.html</strong> — the job application skill grid does not yet include Door &amp; Hardware as a trade option. Should be added alongside the existing Metal Framing, Wood Stud Framing, Drywall Taper, etc. cards. Gary can add this whenever ready. <span class="changelog-tag" style="background:#fde68a;color:#78350f;">Content</span></li>
+      </ul>
+    </div>
+
+    <div class="changelog-entry">
+      <div class="changelog-date">Apr 17, 2026</div>
+      <ul class="changelog-items">
+        <li><strong>"Metal Stud Framing" renamed to "Metal Framing" site-wide</strong> — display text updated across all nav items, footer links, service cards, related cards, breadcrumbs, page titles, schema JSON-LD, and meta descriptions. URL paths (<code>/services/metal-stud-framing.html</code>) preserved to avoid breaking links. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>Spectra Precision → Spectrophysics</strong> — corrected brand name on technology.html. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>Laser accuracy updated: "fractions of an inch" → "±3mm"</strong> — technology.html and metal-framing FAQ. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>Tall wall FAQ corrected: "20 feet" → "40 feet"</strong> — metal-framing FAQ and schema. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>75% productivity stat removed / replaced with 15%</strong> — drywall-solutions.html, technology.html, about.html stats bar. Claims of "75% faster" removed; "15%" used where a specific figure was needed. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>In-House Prefab Shop → Drywall Shape Prefab Shop</strong> — technology.html heading, key-point titles, about.html "One Contractor" section updated to clarify the shop makes drywall shapes, not wall panels or header packages. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>AWI and standards hyperlinks removed</strong> — removed outbound links to ASTM, IBC, AWI, and UL from service page body copy (commercial-millwork.html, drywall-solutions.html, acoustic-installations.html, metal-stud-framing.html). Text retained, links removed. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>Commercial Millwork — fabrication references removed</strong> — removed language implying The Edge fabricates millwork in-house. Page now correctly describes installation-only scope. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>Drywall 75% prefab FAQ replaced</strong> with updated copy referencing corner bead machines, continuous flow taping tools, and drywall shape prefab shop. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>Acoustic page — "Wood &amp; Metal Panel Systems" key-point removed</strong>; "Standard Acoustic Ceilings" added as 7th system type; overprotection FAQ removed. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>Careers — job title corrections</strong>: "Journeyman Carpenter — Metal Stud Framer" → "Journeyman Carpenter"; "Framing Foreman" → "Carpenter Foreman." Competitive DOE pay badges removed from Drywall Taper, Drywall Hanger, and Carpenter Foreman listings. Apply Now button added to Open Positions section. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>Apply form — Wood Stud Framing experience card added</strong> to the trade skills grid. <span class="changelog-tag changelog-tag--ux">UX</span></li>
+        <li><strong>About page — Safety First updated to "weekly toolbox talks"</strong> (was "daily"). <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>About page — 75% productivity stat removed</strong> from the stats bar. "Three Decades of Growth" timeline section hidden (display:none) pending review. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>Projects — Varsity Theater and Stewart School recategorized</strong> from "Historic Renovation" to "Multi-Family." Historic Renovation filter button removed. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>1529 Fremont project page added</strong> (<code>projects/1529-fremont.html</code>) — multi-family wood framing project, 7 Fremont jobsite photos, full project page with schema. Added to projects grid (now 11 projects). <span class="changelog-tag">Content</span></li>
+        <li><strong>Project counts updated site-wide: 700+</strong> — index.html (stat bar, schema), about.html (stat bar), projects.html (hero sub text, og:description). Was "150+" on home, "500+" on about, "10+" on projects. <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+        <li><strong>Door &amp; Hardware Installation added as 6th service</strong> — new full service page (<code>services/door-hardware-installation.html</code>) with overview, key points, process steps, FAQ, Service + FAQPage + WebPage schema. Added to services grid on services.html and index.html, and to the footer services list on all 23 HTML pages site-wide. <span class="changelog-tag">Content</span></li>
+        <li><strong>Prefab multi-family FAQ moved</strong> from drywall-solutions.html (removed) to metal-stud-framing.html and wood-framing.html (added). <span class="changelog-tag changelog-tag--fix">Fix</span></li>
+      </ul>
+    </div>
+
     <div class="changelog-entry">
       <div class="changelog-date">Apr 9, 2026</div>
       <ul class="changelog-items">
