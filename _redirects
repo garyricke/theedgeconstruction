@@ -1,0 +1,3 @@
+# Netlify redirects
+# Short video links for email signatures: open the video over the "Watch Us Work" section
+/watch/dr-horton   /?video=dr-horton   302

@@ -570,6 +570,7 @@
        VIDEO REEL
        ============================================================ -->
   <section class="section section--dark-alt" id="video-reel" aria-labelledby="vr-heading">
+    <span id="videos" aria-hidden="true"></span><!-- older email signatures link to #videos -->
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">In The Field</span>
@@ -584,6 +585,23 @@
       </button>
 
       <div class="vr-track" id="vr-track">
+
+        <div class="vr-card-wrap">
+          <div class="vr-card"
+            role="button" tabindex="0"
+            data-slug="dr-horton"
+            data-src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto/v1791926079/edge2026/dr-horton-the-edge-9x16.mp4"
+            data-title="Gutted &amp; Rebuilt: D.R. Horton's Office"
+            aria-label="Play: Gutted and Rebuilt, D.R. Horton's Office">
+            <img class="vr-thumb" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_540/edge2026/video-thumb-dr-horton.jpg" alt="" loading="lazy" aria-hidden="true">
+            <video class="vr-video" muted loop playsinline preload="none"></video>
+            <div class="vr-card-overlay">
+              <div class="vr-play-btn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <p class="vr-card-title">Gutted &amp; Rebuilt: D.R. Horton's Office</p>
+            </div>
+          </div>
+          <p class="vr-card-desc">A full interior build-out for D.R. Horton: existing walls demoed to the bones, then new framing, drywall, acoustical ceilings, 9-ft solid-core doors and a timber-framed patio, delivered on schedule even as the scope grew.</p>
+        </div>
 
         <div class="vr-card-wrap">
           <div class="vr-card"
@@ -1088,6 +1106,10 @@
       <div class="vr-modal-video-wrap">
         <video class="vr-modal-video" id="vr-modal-video" controls playsinline></video>
       </div>
+      <button class="vr-modal-unmute" id="vr-modal-unmute" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+        Tap for sound
+      </button>
     </div>
     <button class="vr-modal-close" aria-label="Close video">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -1107,6 +1129,7 @@
     const modal      = document.getElementById('vr-modal');
     const modalVideo = document.getElementById('vr-modal-video');
     const modalClose = modal.querySelector('.vr-modal-close');
+    const unmuteBtn  = document.getElementById('vr-modal-unmute');
     const backdrop   = modal.querySelector('.vr-modal-backdrop');
     const btnPrev    = document.querySelector('.vr-nav--prev');
     const btnNext    = document.querySelector('.vr-nav--next');
@@ -1164,9 +1187,17 @@
       function openModal() {
         if (canHover && video) { video.pause(); }
         modalVideo.src = card.dataset.src;
+        modalVideo.muted = false;
+        unmuteBtn.hidden = true;
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
-        modalVideo.play().catch(() => {});
+        // Browsers block sound without a tap (e.g. arriving from an email link):
+        // fall back to muted playback and offer a one-tap unmute.
+        modalVideo.play().catch(() => {
+          modalVideo.muted = true;
+          modalVideo.play().catch(() => {});
+          unmuteBtn.hidden = false;
+        });
         modalClose.focus();
       }
       card.addEventListener('click', openModal);
@@ -1180,6 +1211,7 @@
       modal.classList.remove('open');
       modalVideo.pause();
       modalVideo.src = '';
+      unmuteBtn.hidden = true;
       document.body.style.overflow = '';
     }
     modalClose.addEventListener('click', closeModal);
@@ -1187,6 +1219,32 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
     });
+    unmuteBtn.addEventListener('click', () => {
+      modalVideo.muted = false;
+      modalVideo.play().catch(() => {});
+      unmuteBtn.hidden = true;
+    });
+    modalVideo.addEventListener('volumechange', () => { if (!modalVideo.muted) unmuteBtn.hidden = true; });
+
+    // --- Deep link: /?video=<slug> (email signatures use /watch/<slug>) ---
+    // Opens that video over the "Watch Us Work" section; closing it leaves
+    // the visitor looking at the rest of the videos.
+    const wanted = new URLSearchParams(location.search).get('video');
+    const linked = wanted && cards.find(c => c.dataset.slug === wanted);
+    if (linked) {
+      const reel = document.getElementById('video-reel');
+      const toReel = () => window.scrollTo({ top: reel.getBoundingClientRect().top + window.scrollY, behavior: 'instant' });
+      history.replaceState(null, '', location.pathname + '#video-reel');
+      toReel();
+      track.scrollLeft = linked.parentElement.offsetLeft - track.offsetLeft;
+      linked.click();
+      // Lazy images above can shift the layout while the video plays; land on the reel when it closes.
+      modal.addEventListener('transitionend', function back() {
+        if (modal.classList.contains('open')) return;
+        modal.removeEventListener('transitionend', back);
+        toReel();
+      });
+    }
 
     // --- Touch swipe on track ---
     let tx = 0;

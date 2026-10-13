@@ -1741,6 +1741,34 @@
 }
 .vr-modal-close svg { width: 20px; height: 20px; }
 
+/* Shown when the browser blocks sound (e.g. arriving from an email link) */
+.vr-modal-unmute {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--space-8) + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 12px 22px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-blue);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 0 8px rgba(17, 100, 194, 0.28);
+}
+.vr-modal-unmute[hidden] { display: none; }
+.vr-modal-unmute:hover { background: var(--color-blue-300); }
+.vr-modal-unmute:focus-visible { outline: 3px solid var(--color-gold); outline-offset: 4px; }
+.vr-modal-unmute svg { width: 24px; height: 24px; }
+
 @media (max-width: 480px) {
   .vr-modal-close {
     top: var(--space-3);
